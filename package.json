@@ -1,0 +1,17 @@
+{
+  "name": "brewscout",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "import:osm": "tsx scripts/import-osm.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
