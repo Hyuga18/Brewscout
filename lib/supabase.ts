@@ -9,7 +9,13 @@ if (!url || !anonKey) {
   throw new Error("Set SUPABASE_URL and SUPABASE_ANON_KEY (see .env.example).");
 }
 
-export const supabase = createClient(url, anonKey, { auth: { persistSession: false } });
+export const supabase = createClient(url, anonKey, {
+  auth: { persistSession: false },
+  // Caching is handled by "use cache" + cacheLife in lib/cafes.ts. Without this, Next.js also keeps
+  // each response in its fetch cache for 15 minutes (surviving rebuilds), so new cafés and
+  // open-now changes would show up late.
+  global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }) },
+});
 
 export function photoUrl(storagePath: string): string {
   return `${url}/storage/v1/object/public/cafe-photos/${storagePath}`;

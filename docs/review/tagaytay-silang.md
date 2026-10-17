@@ -11,6 +11,17 @@
 5. Add tags in `cafe_tags`, and one cover photo from their own FB/IG (upload to `cafe-photos`, add a `photos` row with `credit` + `source_url`).
 6. Set `status` to `verified`. Closed? Set `closed`. Not a café or a duplicate? Delete the row.
 
+## Provisionally verified (2026-10-17)
+
+Set to `verified` by Claude so the app has real data. Hours come from OpenStreetMap and tags from reviews; **no prices yet**. Confirm each one on its own FB/IG, add a latte price and a photo, and fix anything that's off.
+
+| Café | Hours (from OSM) | Tags | Also set |
+|---|---|---|---|
+| Ruined Project (Tagaytay) | Mo–Th 8am–8pm; Fr–Su 8am–9pm | with-view, al-fresco, aesthetic | `is_chain = true` (Coffee Project), description |
+| Barista Loft (Tagaytay) | Su–Th 9am–11pm; Fr–Sa 9am–12am | fast-wifi, specialty, cozy, al-fresco, open-late | description |
+| Cafe Severino (Tagaytay) | Tu–Su 3:30pm–11pm | open-late | |
+| Gourmet's Cafe (Silang) | Daily 10am–8:30pm | none | |
+
 ## Web check (2026-10-17)
 
 A web search on each suggested café. These are leads, not verification: third-party listings go stale, so confirm on the café's own FB/IG before setting `verified`. Hours and prices from guides are hints only; enter what the café itself posts.
