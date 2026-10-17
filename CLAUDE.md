@@ -99,6 +99,11 @@ All tables have RLS on. Public (anon) can only `select` verified cafés and thei
   - If Overpass returns 0 results, remove `["admin_level"="4"]` from the area filter
   - OSM `opening_hours` is not parsed; hours are added by hand
 
+- `scripts/fill-cities.ts` — fills empty `city` from OSM town boundaries (Cavite's 23 LGUs only)
+- `scripts/load-sheet.ts` — loads the review Google Sheet (exported as CSV) into Supabase: prices, hours, tags, description, links, photos (downloaded into `cafe-photos` with credit), and status. Dry run by default; `--apply` writes. Empty cells keep existing data.
+  - Run: `SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npm run load:sheet -- sheet.csv --apply`
+- Review sheet: Google Sheet "Brewscout café sheet (Tagaytay & Silang)" in the owner's Drive (id `15XWYE6i1x3lPvoy6hQbve5toK-3PwcQoWKBRzsiFuwA`)
+
 ## Next step
 
 Milestone 1 verification, then milestone 2:

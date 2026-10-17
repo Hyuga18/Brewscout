@@ -11,7 +11,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "import:osm": "tsx scripts/import-osm.ts",
-    "fill:cities": "tsx scripts/fill-cities.ts"
+    "fill:cities": "tsx scripts/fill-cities.ts",
+    "load:sheet": "tsx scripts/load-sheet.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",

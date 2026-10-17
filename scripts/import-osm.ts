@@ -13,6 +13,7 @@
  * If overpass-api.de is unreachable, use a mirror: OVERPASS_URL=https://overpass.kumi.systems/api/interpreter
  */
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { socialUrl } from "./social-url";
 
 const OVERPASS_URL = process.env.OVERPASS_URL ?? "https://overpass-api.de/api/interpreter";
 
@@ -138,8 +139,8 @@ function toCafe(el: OsmElement, takenSlugs: Set<string>): CafeInsert | null {
     is_chain: isChain(tags),
     is_24h: tags.opening_hours?.trim() === "24/7",
     status: "unverified",
-    fb_url: tags["contact:facebook"] ?? tags.facebook ?? null,
-    ig_url: tags["contact:instagram"] ?? tags.instagram ?? null,
+    fb_url: socialUrl(tags["contact:facebook"] ?? tags.facebook, "https://www.facebook.com/"),
+    ig_url: socialUrl(tags["contact:instagram"] ?? tags.instagram, "https://www.instagram.com/"),
     website: tags.website ?? tags["contact:website"] ?? null,
   };
 }

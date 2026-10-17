@@ -32,4 +32,10 @@ Only cafés with `status = 'verified'` appear. Deploying to Vercel: import the r
    ```
 
    If `overpass-api.de` is unreachable, add `OVERPASS_URL=https://overpass.kumi.systems/api/interpreter` to either script.
-7. Clean and enrich cafés in the Supabase dashboard, then set `status = 'verified'`. The app only shows verified cafés.
+7. Fill in café details in the review sheet, export it as CSV, then load it (dry run first, then `--apply`):
+
+   ```sh
+   SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npm run load:sheet -- sheet.csv --apply
+   ```
+
+8. Or clean and enrich cafés in the Supabase dashboard, then set `status = 'verified'`. The app only shows verified cafés.
