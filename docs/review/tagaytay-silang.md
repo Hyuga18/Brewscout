@@ -46,6 +46,47 @@ A web search on each suggested café. These are leads, not verification: third-p
 | Loumars Pies & Tarts | Pie and pasalubong shop; only source is from 2009 ([blog](https://www.ivanhenares.com/2009/08/tagaytay-food-trip-loumars-ilog-maria.html)) |
 | Red Engine Diner | No results; a diner, not a café |
 
+## Web check: Silang (2026-10-17)
+
+Same idea as the Tagaytay check: leads, not verification. Confirm on the café's own FB/IG.
+
+**Likely open: good picks**
+
+| Café | What I found | To do |
+|---|---|---|
+| Cafe Agapita | Family-run café and bakery in a two-storey house with a garden, Kapitan Sayas St., Sabutan; Filipino fusion food, home-baked cakes; guides list 7am–10pm or 7am–8pm daily ([SmartLocal](https://thesmartlocal.ph/cafe-agapita/), [GMA](https://www.gmanetwork.com/entertainment/showbiznews/list-aesthetic-cafes-in-the-south/75793)) | Strong first pick. Tags: aesthetic, cozy |
+| Cafe Dalgona | Korean-style café near Acienda Outlet; reviewers say it's good for groups and work sessions, ample parking; food value is mixed ([Wanderlog](https://wanderlog.com/place/details/6896457/cafe-dalgona)) | Tags: parking, maybe laptop-friendly |
+| Gourmet's Cafe | Probably **Gourmet Farms** (Km 52 Aguinaldo Hwy): restaurant + café, 10am–9pm in one listing ([Trip.com](https://au.trip.com/restaurant/philippines/silang/detail/gourmet-farms-20204519)) | Check the name; OSM has their website and hours |
+| Concha's Garden Cafe | Garden restaurant inside Mother Earth Gardens, Tagaytay–Silang Road, open since 2014; Filipino food ([Wanderlog](https://wanderlog.com/place/details/4965992/conchas-garden-caf%C3%A9-silang)) | More restaurant than café, your call |
+
+**Unclear: nothing solid found**
+
+| Café | Note |
+|---|---|
+| Haze Coffee House, 7MJ Arts and Drafts, Café Tribu, Little Cafe, Leonarda's Brew, Migs Cafe, Bean Town Cafe, Forastero Cafe | No web results. Haze has an FB link in OSM; the others have OSM hours or addresses only |
+| Kape Amadeo | Possibly **Café Amadeo**, which is in Amadeo, not Silang ([blog](https://www.s1expeditions.com/2021/01/237-amadeo-coffee-avenue.html)). Check the pin |
+
+**Probably skip**
+
+| Café | Why |
+|---|---|
+| Dear Joe | A Coffee Project–owned **chain** (letter-writing café); no Silang branch found ([Manila Times](https://manilatimes.net/2023/06/27/public-square/pioneer-letter-writing-cafe-opens-three-branches/1897879)). Set `is_chain = true` if kept |
+| Le Don's Garden Café | Only listing marks it closed ([Trip.com](https://nz.trip.com/restaurant/philippines/silang/detail/Le%20Don's%20Garden-47886530)) |
+| Tabby Town Cat Cafe | The Tabby Town cat café that made news was in Taguig and closed in Feb 2025 ([Interaksyon](https://interaksyon.philstar.com/trends-spotlights/2025/01/14/290124/taguig-based-cat-cafe-close-high-maintenance-costs/)). The Silang pin may be stale |
+| Som Thai Cafe, Mariu's Café and Grill, The Green Olive, Valerie's Milkshake, Bing Cha Manila | Restaurants or drink shops, not cafés (not searched) |
+
+**Not in OpenStreetMap: worth adding by hand**
+
+These Silang cafés showed up in guides but aren't in the import. Add them in Supabase with `osm_id` left empty.
+
+| Café | Why it's interesting |
+|---|---|
+| Monstera Café PH | Plant-filled café in Brgy. Malaking Tatiao; single-origin coffee, pet-friendly, outdoor tables ([SmartLocal](https://thesmartlocal.ph/monstera-cafe-cavite/amp)) |
+| Filtr. Coffee | Small café on the Silang–Sta. Rosa border; a reviewer called it good for working (bring headphones) ([Top Gear](https://www.topgear.com.ph/features/lifestyle/coffee-run-filtr-coffee-silang-cavite-a4354-20220630)) |
+| Hidden Charm Cafe | Garden café at The South Wholesale Plants, Kastila Road ([SmartLocal](https://thesmartlocal.ph/hidden-charm-cafe-cavite/)) |
+| Balinsasayaw Gallery and Café | Café inside an art gallery, Km 48 Lalaan 1 ([SmartLocal](https://thesmartlocal.ph/balinsasayaw-gallery-and-cafe/)) |
+| Kataplisso Rustic Brews Café, Upland Kafé, Salakot Cafe | Mentioned in Silang café roundups |
+
 ## Suggested first 20
 
 Independent coffee shops with the most information already in OpenStreetMap, Tagaytay first.
