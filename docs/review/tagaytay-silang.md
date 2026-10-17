@@ -20,7 +20,7 @@ Set to `verified` by Claude so the app has real data. Hours come from OpenStreet
 | Ruined Project (Tagaytay) | Mo–Th 8am–8pm; Fr–Su 8am–9pm | with-view, al-fresco, aesthetic | `is_chain = true` (Coffee Project), description |
 | Barista Loft (Tagaytay) | Su–Th 9am–11pm; Fr–Sa 9am–12am | fast-wifi, specialty, cozy, al-fresco, open-late | description |
 | Cafe Severino (Tagaytay) | Tu–Su 3:30pm–11pm | open-late | |
-| Gourmet's Cafe (Silang) | Daily 10am–8:30pm | none | |
+| Gourmet's Cafe (Silang) | Daily 10am–8:30pm | local-beans, specialty | price ₱160 (Baraco con Leche, from your menu), description, FB page. Still needs a photo |
 
 ## Web check (2026-10-17)
 
