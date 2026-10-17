@@ -10,10 +10,11 @@
  *   npx tsx scripts/import-osm.ts --dry-run     # fetch + print, no DB writes, no keys needed
  *
  * If Overpass returns 0 results, remove ["admin_level"="4"] from the area filter below.
+ * If overpass-api.de is unreachable, use a mirror: OVERPASS_URL=https://overpass.kumi.systems/api/interpreter
  */
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
+const OVERPASS_URL = process.env.OVERPASS_URL ?? "https://overpass-api.de/api/interpreter";
 
 const OVERPASS_QUERY = `
 [out:json][timeout:180];
