@@ -11,6 +11,41 @@
 5. Add tags in `cafe_tags`, and one cover photo from their own FB/IG (upload to `cafe-photos`, add a `photos` row with `credit` + `source_url`).
 6. Set `status` to `verified`. Closed? Set `closed`. Not a café or a duplicate? Delete the row.
 
+## Web check (2026-10-17)
+
+A web search on each suggested café. These are leads, not verification: third-party listings go stale, so confirm on the café's own FB/IG before setting `verified`. Hours and prices from guides are hints only; enter what the café itself posts.
+
+**Likely open: good first picks**
+
+| Café | What I found | To do |
+|---|---|---|
+| Barista Loft | Reviews mention manual pour-over, strong wifi, al fresco seating; pricier than average ([Wanderlog](https://wanderlog.com/place/details/4044843/barista-loft)) | Find its FB/IG (none found). Candidate tags: fast-wifi, al-fresco, specialty |
+| Kopakoppi Cafe | Listed as "Kopa Koppi Cafe" on the Tagaytay–Nasugbu highway: Taal view, reviewers say **24/7**, cash/GCash only ([Wanderlog](https://wanderlog.com/place/details/6907822/kopa-koppi-cafe)) | If 24/7 is confirmed, set `is_24h`. Tags: with-view, open-late |
+| Greenhouse Cafe | Plant-filled café in Casa Celina, Enrile St.; one guide lists 8am–9pm daily, phone 0961 447 4530 ([Wanderlog](https://wanderlog.com/place/details/3074097/greenhouse-cafe-tagaytay), [Burpple](https://www.burpple.com/features/restaurants-in-tagaytay-with-stunning-garden-themes)) | More restaurant than coffee shop, your call. Tags: aesthetic |
+| 16th Cent Koffie | **Moved** from The Observatory to Zer Franco Bed and Breakfast; drinks from ₱100; posts on FB/IG ([The Post](https://thepost.net.ph/the-feed/food/more-cafes-to-visit-on-a-random-drive-to-tagaytay/)) | **Check the map pin**: OSM may still show the old spot |
+| Bag of Beans (×2) | Well-known local Tagaytay café, several branches, sources disagree on hours and addresses ([Klook](https://www.klook.com/en-PH/blog/cafes-coffee-tagaytay/), [Crown Asia](https://www.crownasia.com.ph/?p=4617)) | Confirm which branches these two pins are; consider `local-beans` tag |
+| Ruined Project | Coffee Project's flagship at Crosswinds: al fresco, views; a guide lists 7am–9pm daily ([Tablo](https://tablo.com/carolyn-sta-rosa/food-guide-to-the-best-restaurants-in-tagaytay)) | **It's a Coffee Project branch**: set `is_chain = true` |
+
+**Unclear: nothing found online, check FB/Maps**
+
+| Café | Note |
+|---|---|
+| Cafe Severino | No web results, but OSM has its FB page and hours (Tu–Su 15:30–23:00), so probably small or new. Check the FB link |
+| 1999 Coffee | No web results; OSM has an FB page. Check it |
+| Bon Appetea, Caffe Nativo, Joane's Cafe, Kape Mo-To | No web results at all. Check Maps; could be closed or renamed |
+| Hello Capehan | Possibly "Hello Café" (2023 article, [Tribune](https://tribune.net.ph/2023/05/03/new-restos-to-check-out-in-tagaytay)) |
+| Jazz | Possibly "Java Jazz Cafe" on Calamba Road, listed as a restaurant ([Trip.com](https://uk.trip.com/restaurant/philippines/tagaytay/detail/java-jazz-cafe-34923252)) |
+| Brewed Awakening | Listed as a restaurant with cabanas and Taal views; reviews say coffee is so-so ([Wanderlog](https://wanderlog.com/place/details/8913673/brewed-awakening)) |
+
+**Probably skip**
+
+| Café | Why |
+|---|---|
+| Cafe Breton | A Manila crêpe **chain**; no Tagaytay branch found ([Wanderlog](https://wanderlog.com/place/details/2685110/cafe-breton)). Set `is_chain = true` if it exists |
+| Lobby Lounge | A hotel lobby lounge (closest match: Taal Vista Hotel), not a café |
+| Loumars Pies & Tarts | Pie and pasalubong shop; only source is from 2009 ([blog](https://www.ivanhenares.com/2009/08/tagaytay-food-trip-loumars-ilog-maria.html)) |
+| Red Engine Diner | No results; a diner, not a café |
+
 ## Suggested first 20
 
 Independent coffee shops with the most information already in OpenStreetMap, Tagaytay first.
