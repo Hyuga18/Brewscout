@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf7f2;
+  --color-surface: #ffffff;
+  --color-ink: #2b2118;
+  --color-muted: #7a6e64;
+  --color-line: #e9e2d8;
+  --color-accent: #c8873a;
+  --color-espresso: #6f4325;
+  --color-open: #2f7d4f;
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-fraunces);
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.maplibregl-popup-content {
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  font-family: var(--font-sans);
+  box-shadow: 0 4px 16px rgb(43 33 24 / 0.15);
+}

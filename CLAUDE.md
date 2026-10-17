@@ -86,9 +86,9 @@ All tables have RLS on. Public (anon) can only `select` verified cafés and thei
 
 | # | Deliverable | Status |
 |---|---|---|
-| 1 | Schema, OSM import script, 20 cafés cleaned | Schema + script written, **not yet tested against a live DB/Overpass** |
-| 2 | Next.js app: map + list + detail page with real data | Not started |
-| 3 | Filters, near me, open now, 50 cafés verified, deployed | Not started |
+| 1 | Schema, OSM import script, 20 cafés cleaned | Schema live, 389 cafés imported (unverified), cities filled; verification in progress (`docs/review/`) |
+| 2 | Next.js app: map + list + detail page with real data | Built; tested against sample data, waiting on verified cafés |
+| 3 | Filters, near me, open now, 50 cafés verified, deployed | Filters, near me, open now done; verification + deploy left |
 | 4 | Polish, PWA, mobile UX, portfolio README | Not started |
 
 ## Existing files
@@ -106,6 +106,13 @@ Milestone 1 verification, then milestone 2:
 2. Scaffold the Next.js app (App Router, TypeScript, Tailwind), set up the Supabase client (anon key only on the client)
 3. Build `/` with MapLibre + list using `cafes_near` (fallback: all verified cafés sorted by name when location is denied)
 4. Build `/cafe/[slug]`
+
+## App notes
+
+- Next.js 16 with Cache Components: read `node_modules/next/dist/docs/` before changing data fetching. Data functions in `lib/cafes.ts` use `"use cache"` + `cacheLife("minutes")`; anything reading the current time needs `await io()` inside a Suspense boundary.
+- Data is read server-side with the anon key (`SUPABASE_URL`, `SUPABASE_ANON_KEY`); the browser never talks to Supabase. The list uses `cafes_near` with a 100 km radius around Cavite to get every verified café with lat/lng and open-now; filtering and near-me sorting happen client-side.
+- Map tiles: OpenFreeMap (`positron` style), no API key. MapLibre's worker is copied into `public/` by `scripts/copy-maplibre-worker.mjs` (runs on `predev`/`prebuild`).
+- Filters live in the URL: `?city=Tagaytay&tags=fast-wifi,outlets&price=150&open=1&sort=near`.
 
 ## Conventions
 

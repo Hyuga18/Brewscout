@@ -4,7 +4,14 @@ Find cafés in Cavite, Philippines by what Google Maps doesn't structure: wifi a
 
 Personal / portfolio project. See [`CLAUDE.md`](CLAUDE.md) for the full plan, data model, and milestones.
 
-## Setup (milestone 1)
+## Run the app
+
+1. Copy `.env.example` to `.env.local` and set `SUPABASE_URL` and `SUPABASE_ANON_KEY` (Supabase → Project Settings → API Keys → the public anon/publishable key).
+2. `npm install`, then `npm run dev` and open http://localhost:3000.
+
+Only cafés with `status = 'verified'` appear. Deploying to Vercel: import the repo and add the same two environment variables.
+
+## Data setup (milestone 1)
 
 1. Create a Supabase project (Singapore region is closest).
 2. In the SQL editor, run [`supabase/migrations/0001_init.sql`](supabase/migrations/0001_init.sql).
