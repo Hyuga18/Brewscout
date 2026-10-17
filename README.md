@@ -18,4 +18,11 @@ Personal / portfolio project. See [`CLAUDE.md`](CLAUDE.md) for the full plan, da
    ```
 
    Re-running is safe: cafés already imported (by `osm_id`) are skipped, so manual edits are kept.
-6. Clean and enrich cafés in the Supabase dashboard, then set `status = 'verified'`. The app only shows verified cafés.
+6. Fill in missing cities from OSM town boundaries (only touches cafés with no city):
+
+   ```sh
+   SUPABASE_URL=... SUPABASE_SERVICE_ROLE_KEY=... npx tsx scripts/fill-cities.ts
+   ```
+
+   If `overpass-api.de` is unreachable, add `OVERPASS_URL=https://overpass.kumi.systems/api/interpreter` to either script.
+7. Clean and enrich cafés in the Supabase dashboard, then set `status = 'verified'`. The app only shows verified cafés.
