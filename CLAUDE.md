@@ -87,8 +87,8 @@ All tables have RLS on. Public (anon) can only `select` verified cafés and thei
 | # | Deliverable | Status |
 |---|---|---|
 | 1 | Schema, OSM import script, 20 cafés cleaned | Schema live, 389 cafés imported (unverified), cities filled; verification in progress (`docs/review/`) |
-| 2 | Next.js app: map + list + detail page with real data | Built; tested against sample data, waiting on verified cafés |
-| 3 | Filters, near me, open now, 50 cafés verified, deployed | Filters, near me, open now done; verification + deploy left |
+| 2 | Next.js app: map + list + detail page with real data | Done |
+| 3 | Filters, near me, open now, 50 cafés verified, deployed | Deployed at https://brewscout-hyuga.vercel.app (Vercel, auto-deploys from `master`); 4 cafés provisionally verified, ~46 to go |
 | 4 | Polish, PWA, mobile UX, portfolio README | Not started |
 
 ## Existing files
