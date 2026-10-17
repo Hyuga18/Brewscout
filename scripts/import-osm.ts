@@ -76,6 +76,7 @@ function slugify(input: string): string {
     .normalize("NFD")
     .replace(/[̀-ͯ]/g, "")
     .toLowerCase()
+    .replace(/['’]/g, "") // "Joane's" -> "joanes", not "joane-s"
     .replace(/&/g, " and ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
