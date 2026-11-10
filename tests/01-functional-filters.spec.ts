@@ -97,4 +97,15 @@ test.describe("Functional & Exploratory QA - Filter & Search Suite", () => {
     await firstBookmarkBtn.click();
     await expect(firstBookmarkBtn).toHaveAttribute("aria-label", new RegExp(`Save ${cafeTitle?.trim()}`, "i"));
   });
+
+  test("Search matches human-readable tag names (e.g. 'specialty coffee')", async ({ page }) => {
+    const searchInput = page.getByRole("searchbox", { name: /search cafés/i });
+    await searchInput.fill("specialty coffee");
+    await page.waitForTimeout(400);
+
+    const cards = page.locator("li[id^='cafe-']");
+    const count = await cards.count();
+    expect(count).toBeGreaterThan(0);
+    await expect(page.locator("text=/\\d+ cafés? in Cavite/i")).toBeVisible();
+  });
 });

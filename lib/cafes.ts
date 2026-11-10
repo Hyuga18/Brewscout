@@ -1,6 +1,6 @@
 import { cacheLife } from "next/cache";
 import { parsePoint } from "./geo";
-import { photoUrl, supabase } from "./supabase";
+import { isSupabaseConfigured, photoUrl, supabase } from "./supabase";
 
 // Roughly the middle of Cavite; 100 km covers the whole province.
 const CAVITE_CENTER = { lat: 14.28, lng: 120.87 };
@@ -58,6 +58,10 @@ export async function getCafes(): Promise<CafeSummary[]> {
   "use cache";
   cacheLife("minutes");
 
+  if (!isSupabaseConfigured) {
+    return [];
+  }
+
   const [near, extras] = await Promise.all([
     supabase.rpc("cafes_near", {
       p_lat: CAVITE_CENTER.lat,
@@ -94,6 +98,10 @@ export async function getTags(): Promise<Tag[]> {
   "use cache";
   cacheLife("hours");
 
+  if (!isSupabaseConfigured) {
+    return [];
+  }
+
   const { data, error } = await supabase.from("tags").select("slug, name, category").order("id");
   if (error) throw new Error(`Failed to load tags: ${error.message}`);
   return data;
@@ -122,6 +130,10 @@ type DetailRow = {
 export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   "use cache";
   cacheLife("minutes");
+
+  if (!isSupabaseConfigured) {
+    return null;
+  }
 
   const { data, error } = await supabase
     .from("cafes")

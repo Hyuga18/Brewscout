@@ -13,10 +13,6 @@ import { type CafeDetail, getCafeBySlug, getCafes } from "@/lib/cafes";
 import { extractAmenities } from "@/lib/dossier";
 import { formatPrice } from "@/lib/format";
 
-export async function generateStaticParams() {
-  const cafes = await getCafes();
-  return cafes.map((c) => ({ slug: c.slug }));
-}
 
 export async function generateMetadata({ params }: PageProps<"/cafe/[slug]">): Promise<Metadata> {
   const { slug } = await params;
