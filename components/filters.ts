@@ -1,4 +1,4 @@
-import type { CafeSummary } from "@/lib/cafes";
+import type { CafeSummary, Tag } from "@/lib/cafes";
 
 export type Filters = {
   query: string;
@@ -61,6 +61,7 @@ export function hasActiveFilters(filters: Filters): boolean {
 export function createFilterPredicate(
   filters: Filters,
   savedIds?: Set<string>,
+  tagsBySlug?: Map<string, Tag>,
 ): (cafe: CafeSummary) => boolean {
   const q = filters.query.trim() ? normalize(filters.query.trim()) : null;
   const allowedCities = filters.city
@@ -79,9 +80,12 @@ export function createFilterPredicate(
     if (q) {
       const nameMatch = normalize(cafe.name).includes(q);
       const cityMatch = cafe.city ? normalize(cafe.city).includes(q) : false;
-      const tagMatch = cafe.tags.some(
-        (t) => normalize(t).includes(q) || normalize(t.replace(/-/g, " ")).includes(q),
-      );
+      const tagMatch = cafe.tags.some((t) => {
+        if (normalize(t).includes(q) || normalize(t.replace(/-/g, " ")).includes(q)) return true;
+        const meta = tagsBySlug?.get(t);
+        if (meta && (normalize(meta.name).includes(q) || normalize(meta.slug).includes(q))) return true;
+        return false;
+      });
       if (!nameMatch && !cityMatch && !tagMatch) return false;
     }
 
@@ -106,6 +110,7 @@ export function matchesFilters(
   cafe: CafeSummary,
   filters: Filters,
   savedIds?: Set<string>,
+  tagsBySlug?: Map<string, Tag>,
 ): boolean {
-  return createFilterPredicate(filters, savedIds)(cafe);
+  return createFilterPredicate(filters, savedIds, tagsBySlug)(cafe);
 }

@@ -45,7 +45,7 @@ export function MobileActionBar({
             href={directionsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-espresso px-4 py-2 text-xs font-semibold text-surface shadow-xs active:scale-95 transition-transform cursor-pointer"
+            className="inline-flex min-h-[36px] sm:min-h-[40px] items-center gap-1.5 rounded-full bg-espresso px-4 py-2 text-xs font-semibold text-surface shadow-xs active:scale-95 transition-transform cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             <span>Directions</span>
             <svg

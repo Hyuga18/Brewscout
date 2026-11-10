@@ -40,7 +40,7 @@ export function ShareButton({ title, text }: Props) {
     <button
       type="button"
       onClick={handleShare}
-      className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-ink shadow-2xs hover:border-ink/40 transition-colors cursor-pointer"
+      className="relative inline-flex min-h-[36px] sm:min-h-[40px] items-center gap-1.5 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-medium text-ink shadow-2xs hover:border-ink/40 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent before:absolute before:-inset-1 before:content-['']"
       aria-label={copied ? "Link copied to clipboard" : "Share café"}
       aria-live="polite"
     >
