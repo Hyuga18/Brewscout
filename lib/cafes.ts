@@ -1,5 +1,6 @@
 import { cacheLife } from "next/cache";
 import { getCuratedCover, getCuratedPhotos } from "./cafe-photos";
+import { getCuratedSocials } from "./cafe-socials";
 import { parsePoint } from "./geo";
 import { isSupabaseConfigured, photoUrl, supabase } from "./supabase";
 
@@ -164,6 +165,11 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   const effectivePhotos = photos.length > 0 ? photos : getCuratedPhotos(row.slug);
   const coverUrl = effectivePhotos.find((p) => p.isCover)?.url ?? effectivePhotos[0]?.url ?? null;
 
+  const curatedSocials = getCuratedSocials(row.slug);
+  const fbUrl = row.fb_url || curatedSocials?.fbUrl || null;
+  const igUrl = row.ig_url || curatedSocials?.igUrl || null;
+  const website = row.website || curatedSocials?.website || null;
+
   return {
     id: row.id,
     name: row.name,
@@ -180,9 +186,9 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
     description: row.description,
     isChain: row.is_chain,
     is24h: row.is_24h,
-    fbUrl: row.fb_url,
-    igUrl: row.ig_url,
-    website: row.website,
+    fbUrl,
+    igUrl,
+    website,
     hours: row.cafe_hours
       .map((h) => ({ dayOfWeek: h.day_of_week, opens: h.opens, closes: h.closes }))
       .sort((a, b) => a.dayOfWeek - b.dayOfWeek || a.opens.localeCompare(b.opens)),
