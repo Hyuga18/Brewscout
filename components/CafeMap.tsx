@@ -28,11 +28,13 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
   const markersRef = useRef<Map<string, Marker>>(new Map());
   const userMarkerRef = useRef<Marker | null>(null);
   const readyRef = useRef(false);
+  const isProgrammaticCloseRef = useRef(false);
   const prevSelectedIdRef = useRef<string | null>(null);
   const prevHoveredIdRef = useRef<string | null | undefined>(null);
   const router = useRouter();
 
   const [mapError, setMapError] = useState(false);
+  const [isMapReady, setIsMapReady] = useState(false);
 
   const latest = useRef({ cafes, selectedId, userLocation, onSelect, router });
   useEffect(() => {
@@ -81,32 +83,46 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
       maplibreRef.current = maplibre;
       maplibre.setWorkerUrl("/maplibre-gl-worker.mjs");
 
-      map = new maplibre.Map({
-        container: containerRef.current,
-        style: STYLE_URL,
-        minZoom: 8.5,
-        maxZoom: 18,
-        scrollZoom: true,
-        fadeDuration: 0,
-        renderWorldCopies: false,
-        maxPitch: 0,
-        dragRotate: false,
-        touchPitch: false,
-        attributionControl: { compact: true },
-        ...CAVITE_VIEW,
-      });
+      try {
+        map = new maplibre.Map({
+          container: containerRef.current,
+          style: STYLE_URL,
+          minZoom: 8.5,
+          maxZoom: 18,
+          scrollZoom: true,
+          fadeDuration: 0,
+          renderWorldCopies: false,
+          maxPitch: 0,
+          dragRotate: false,
+          touchPitch: false,
+          attributionControl: { compact: true },
+          ...CAVITE_VIEW,
+        });
+      } catch (err) {
+        console.warn("Failed to initialize MapLibre WebGL context:", err);
+        setMapError(true);
+        return;
+      }
+
       map.scrollZoom.setWheelZoomRate(1 / 600);
       map.scrollZoom.setZoomRate(1 / 100);
 
       map.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");
 
-      popupRef.current = new maplibre.Popup({
+      const popup = new maplibre.Popup({
         closeButton: true,
         focusAfterOpen: false,
         offset: 14,
         maxWidth: "280px",
       });
 
+      popup.on("close", () => {
+        if (!isProgrammaticCloseRef.current) {
+          latest.current.onSelect("");
+        }
+      });
+
+      popupRef.current = popup;
       mapRef.current = map;
 
       map.on("error", (e) => {
@@ -119,15 +135,21 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
         if (cancelled || !map) return;
         map.resize();
         readyRef.current = true;
+        setIsMapReady(true);
         syncMarkers(map, maplibre, latest.current.cafes, markersRef.current, latest.current.onSelect);
         syncUserLocation(map, maplibre, latest.current.userLocation, userMarkerRef);
-        fitTo(map, latest.current.cafes, latest.current.userLocation, false);
+        if (latest.current.selectedId) {
+          prevSelectedIdRef.current = null;
+        } else {
+          fitTo(map, latest.current.cafes, latest.current.userLocation, false);
+        }
       });
     })();
 
     return () => {
       cancelled = true;
       readyRef.current = false;
+      setIsMapReady(false);
       markers.forEach((m) => m.remove());
       markers.clear();
       userMarkerRef.current?.remove();
@@ -176,7 +198,9 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
 
     const cafe = cafes.find((c) => c.id === selectedId);
     if (!cafe) {
+      isProgrammaticCloseRef.current = true;
       popupRef.current.remove();
+      isProgrammaticCloseRef.current = false;
       return;
     }
 
@@ -250,7 +274,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
     popupEl.appendChild(link);
 
     popupRef.current.setLngLat([cafe.lng, cafe.lat]).setDOMContent(popupEl).addTo(map);
-  }, [selectedId, cafes]);
+  }, [selectedId, isMapReady, cafes]);
 
   // Update hover highlight (O(1), zero camera movement)
   useEffect(() => {
@@ -409,8 +433,13 @@ function syncUserLocation(
 }
 
 function fitTo(map: MapLibreMap, cafes: CafeSummary[], location: LatLng | null, animate: boolean) {
+  const reducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const shouldAnimate = animate && !reducedMotion;
+
   if (cafes.length === 0) {
-    map.easeTo({ center: CAVITE_CENTER, zoom: CAVITE_VIEW.zoom, duration: animate ? 500 : 0 });
+    map.easeTo({ center: CAVITE_CENTER, zoom: CAVITE_VIEW.zoom, duration: shouldAnimate ? 500 : 0 });
     return;
   }
   const points = cafes.map((c) => [c.lng, c.lat] as [number, number]);
@@ -440,7 +469,8 @@ function fitTo(map: MapLibreMap, cafes: CafeSummary[], location: LatLng | null, 
         bottom: !isDesktop ? 260 : 48,
       },
       maxZoom: 13.5,
-      animate,
+      animate: shouldAnimate,
+      duration: shouldAnimate ? 500 : 0,
     },
   );
 }

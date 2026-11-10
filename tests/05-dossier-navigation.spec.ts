@@ -13,11 +13,11 @@ test.describe("Data Integrity & Dossier QA Suite", () => {
     await expect(page).toHaveURL(new RegExp(href!));
 
     // Check h1 contains cafe name
-    const heading = page.locator("h1");
+    const heading = page.locator("article h1");
     await expect(heading).toBeVisible();
 
     // Check operating hours chronometer or schedule is present
-    await expect(page.locator("text=/Operating Rhythm|Hours|Open|Closed/i").first()).toBeVisible();
+    await expect(page.locator("text=/Today ·|Operating Rhythm|Hours|Open|Closed/i").first()).toBeVisible();
 
     // Check Directions button
     const directionsLink = page.getByRole("link", { name: /directions|get directions/i });

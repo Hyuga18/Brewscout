@@ -13,6 +13,11 @@ import { type CafeDetail, getCafeBySlug, getCafes } from "@/lib/cafes";
 import { extractAmenities } from "@/lib/dossier";
 import { formatPrice } from "@/lib/format";
 
+export async function generateStaticParams() {
+  const cafes = await getCafes();
+  return cafes.map((c) => ({ slug: c.slug }));
+}
+
 export async function generateMetadata({ params }: PageProps<"/cafe/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const cafe = await getCafeBySlug(slug);
@@ -58,7 +63,7 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
   await io(); // evaluate fresh Manila time
 
   const price = formatPrice(cafe.priceMin, cafe.priceMax);
-  const directions = `https://www.google.com/maps/dir/?api=1&destination=${cafe.lat},${cafe.lng}`;
+  const directions = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${cafe.lat},${cafe.lng}`)}`;
   const amenities = extractAmenities(cafe);
 
   const cityCafes = allCafes.filter((c) => c.city === cafe.city && c.id !== cafe.id);
@@ -313,9 +318,14 @@ function HeroGallery({ photos, name }: { photos: CafeDetail["photos"]; name: str
             loading={i === 0 ? "eager" : "lazy"}
           />
           {photo.credit && (
-            <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink/80 px-3 py-1 text-[11px] font-medium text-surface shadow-xs">
-              {photo.sourceUrl ? (
-                <a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" className="hover:underline">
+            <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink/80 px-3 py-1 text-[11px] font-medium text-surface shadow-xs max-w-[75%] truncate">
+              {safeUrl(photo.sourceUrl) ? (
+                <a
+                  href={safeUrl(photo.sourceUrl)!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:underline"
+                >
                   Photo: {photo.credit} ↗
                 </a>
               ) : (

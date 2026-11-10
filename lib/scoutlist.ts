@@ -26,6 +26,9 @@ function getParsedCache(raw: string | null): { ids: string[]; set: Set<string> }
     cachedSet = new Set(cachedIds);
     return { ids: cachedIds, set: cachedSet };
   } catch {
+    cachedRaw = raw;
+    cachedIds = [];
+    cachedSet = new Set();
     return { ids: [], set: new Set() };
   }
 }
@@ -61,7 +64,11 @@ function getServerSnapshot(): string {
 
 export function getScoutlistIds(): string[] {
   if (typeof window === "undefined") return [];
-  return getParsedCache(localStorage.getItem(SCOUTLIST_STORAGE_KEY)).ids;
+  try {
+    return getParsedCache(localStorage.getItem(SCOUTLIST_STORAGE_KEY)).ids;
+  } catch {
+    return [];
+  }
 }
 
 export function toggleScoutlistId(cafeId: string): boolean {
