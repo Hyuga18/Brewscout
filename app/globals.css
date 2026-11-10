@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #faf7f2;
-  --color-surface: #ffffff;
-  --color-ink: #2b2118;
-  --color-muted: #7a6e64;
-  --color-line: #e9e2d8;
-  --color-accent: #c8873a;
-  --color-espresso: #6f4325;
-  --color-open: #2f7d4f;
+  --color-paper: #f8f5ee;
+  --color-surface: #fdfbf7;
+  --color-surface-sub: #f3ede2;
+  --color-surface-hover: #faf6ef;
+  --color-ink: #1f1610;
+  --color-ink-sub: #3d2d22;
+  --color-muted: #6e5f52;
+  --color-muted-light: #746557;
+  --color-line: #e6ded1;
+  --color-line-strong: #d4c5b3;
+  --color-accent: #a0591b;
+  --color-accent-soft: #c67d32;
+  --color-brass: #df9a47;
+  --color-espresso: #5c351b;
+  --color-open: #205c38;
+  --color-open-bg: #edf7f1;
   --font-sans: var(--font-geist-sans);
   --font-display: var(--font-fraunces);
 }
@@ -20,11 +28,133 @@
 body {
   background: var(--color-paper);
   color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Treatment #12: Tactile Paper Grain Tooth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.024;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Background Treatment #13: Topographic Ridge Contour Pattern */
+.bg-contour-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='160' height='160' viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 Q40 25 80 50 T160 40 M0 80 Q40 65 80 90 T160 80 M0 120 Q40 105 80 130 T160 120' fill='none' stroke='%235c351b' stroke-width='0.75' stroke-opacity='0.07'/%3E%3C/svg%3E");
+}
+
+/* Background Treatment #18: Cartographic Coordinate Dot Grid */
+.bg-coord-grid {
+  background-image: radial-gradient(rgba(92, 53, 27, 0.09) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom Scrollbar Theming */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+
+/* Accessible Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Custom Tabular Numerals for Prices & Schedules */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* MapLibre Custom Tactile Popup */
+.maplibregl-popup {
+  z-index: 50;
 }
 
 .maplibregl-popup-content {
-  border-radius: 0.75rem;
-  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  padding: 0;
   font-family: var(--font-sans);
-  box-shadow: 0 4px 16px rgb(43 33 24 / 0.15);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 4px 20px -2px rgba(31, 22, 16, 0.12), 0 2px 6px -1px rgba(31, 22, 16, 0.08);
+  overflow: hidden;
+}
+
+.maplibregl-popup-close-button {
+  padding: 6px 10px;
+  font-size: 16px;
+  color: var(--color-muted);
+  transition: color 0.15s ease;
+}
+
+.maplibregl-popup-close-button:hover {
+  color: var(--color-ink);
+  background: transparent;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: var(--color-line) !important;
+}
+
+/* High-Performance Hardware-Accelerated Markers */
+.brewscout-marker {
+  contain: layout;
+  cursor: pointer;
+  user-select: none;
+  /* Disable CSS transition on the root marker element translated by MapLibre */
+  transition: none !important;
+}
+
+.brewscout-marker:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: 9999px;
+}
+
+.brewscout-marker-pill {
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.brewscout-marker:hover .brewscout-marker-pill {
+  transform: scale(1.08);
+}
+
+.marker-selected {
+  z-index: 45 !important;
+}
+
+.marker-selected .brewscout-marker-pill {
+  transform: scale(1.15);
+  background-color: var(--color-espresso) !important;
+  color: #ffffff !important;
+  border-color: var(--color-espresso) !important;
+  box-shadow: 0 4px 16px -2px rgba(92, 53, 27, 0.4), 0 2px 6px -1px rgba(92, 53, 27, 0.25) !important;
+}
+
+.marker-hovered {
+  z-index: 35 !important;
+}
+
+.marker-hovered .brewscout-marker-pill {
+  transform: scale(1.1);
+  border-color: var(--color-espresso) !important;
+  box-shadow: 0 3px 12px -2px rgba(31, 22, 16, 0.2) !important;
+}
+
+/* Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

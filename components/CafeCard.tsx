@@ -1,8 +1,12 @@
+"use client";
+
+import React, { memo } from "react";
 import Link from "next/link";
+import { BookmarkButton } from "./BookmarkButton";
+import { OpenBadge } from "./OpenBadge";
 import type { CafeSummary, Tag } from "@/lib/cafes";
 import { formatPrice } from "@/lib/format";
 import { formatDistance } from "@/lib/geo";
-import { OpenBadge } from "./OpenBadge";
 
 type Props = {
   cafe: CafeSummary;
@@ -10,76 +14,152 @@ type Props = {
   distance: number | null;
   selected: boolean;
   onSelect: () => void;
+  onHover?: (id: string | null) => void;
 };
 
-export function CafeCard({ cafe, tagNames, distance, selected, onSelect }: Props) {
+export const CafeCard = memo(function CafeCard({
+  cafe,
+  tagNames,
+  distance,
+  selected,
+  onSelect,
+  onHover,
+}: Props) {
   const price = formatPrice(cafe.priceMin, cafe.priceMax);
+
+  const handleMouseEnter = () => {
+    onHover?.(cafe.id);
+  };
+  const handleMouseLeave = () => {
+    onHover?.(null);
+  };
+
+  const highlightedTags = cafe.tags.slice(0, 3).map((slug) => {
+    const meta = tagNames.get(slug);
+    return {
+      slug,
+      name: meta?.name ?? slug,
+      category: meta?.category ?? "practical",
+    };
+  });
+
   return (
     <li
       id={`cafe-${cafe.id}`}
-      onMouseEnter={onSelect}
-      className={`group relative flex gap-3.5 rounded-2xl border p-3 transition-all duration-150 focus-within:ring-2 focus-within:ring-accent focus-within:border-accent ${
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={onSelect}
+      className={`group relative flex gap-3.5 rounded-3xl border p-3 transition-all duration-200 cursor-pointer focus-within:ring-2 focus-within:ring-accent ${
         selected
-          ? "border-accent bg-accent/5 shadow-xs"
-          : "border-line bg-surface hover:border-ink/25 hover:shadow-2xs"
+          ? "border-accent bg-accent/[0.04] shadow-xs ring-1 ring-accent/30"
+          : "border-line bg-surface hover:border-ink/30 hover:shadow-2xs"
       }`}
     >
-      <div className="size-20 shrink-0 overflow-hidden rounded-xl bg-line/60 relative">
+      {/* Media Window - Concentric Radius: Outer 24px - Padding 12px = Inner 12px */}
+      <Link
+        href={`/cafe/${cafe.slug}`}
+        onClick={(e) => e.stopPropagation()}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="relative size-22 sm:size-24 shrink-0 overflow-hidden rounded-xl bg-surface-sub border border-line/60"
+      >
         {cafe.coverUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element -- small thumbnails, credited on the detail page
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={cafe.coverUrl}
             alt=""
-            className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+            className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             loading="lazy"
           />
         ) : (
-          <div
-            className="flex size-full items-center justify-center bg-line/40 text-muted/60"
-            aria-hidden="true"
-          >
+          <div className="flex size-full items-center justify-center bg-surface-sub text-espresso/40">
             <svg
               className="size-7"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
-              strokeWidth="1.5"
+              fill="none"
               stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 8h14v7a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8Zm14 2h2a2.5 2.5 0 0 1 0 5h-2M2 19h18"
-              />
+              <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+              <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+              <line x1="6" y1="1" x2="6" y2="4" />
+              <line x1="10" y1="1" x2="10" y2="4" />
+              <line x1="14" y1="1" x2="14" y2="4" />
             </svg>
           </div>
         )}
-      </div>
 
-      <div className="min-w-0 flex-1">
-        <h3 className="truncate font-semibold text-ink group-hover:text-espresso transition-colors">
-          <Link href={`/cafe/${cafe.slug}`} className="after:absolute after:inset-0 focus-visible:outline-none">
-            {cafe.name}
-          </Link>
-        </h3>
-        <p className="mt-0.5 text-xs sm:text-sm text-muted">
-          {[cafe.city, distance != null ? formatDistance(distance) : null, price].filter(Boolean).join(" · ")}
-        </p>
-        <div className="mt-2 flex flex-wrap items-center gap-1.5">
-          <OpenBadge open={cafe.openNow} />
-          {cafe.tags.slice(0, 2).map((slug) => (
-            <span
-              key={slug}
-              className="rounded-full bg-ink/5 px-2 py-0.5 text-xs text-ink/70"
-            >
-              {tagNames.get(slug)?.name ?? slug}
+        {/* Canonical Open Badge */}
+        <div className="absolute top-1.5 left-1.5">
+          <OpenBadge open={cafe.openNow} compact />
+        </div>
+      </Link>
+
+      {/* Information Stack */}
+      <div className="flex min-w-0 flex-1 flex-col justify-between">
+        <div>
+          {/* Header Row: City, Distance & Bookmark Button */}
+          <div className="flex items-center justify-between text-xs text-muted mb-1">
+            <span className="font-medium truncate">
+              {cafe.city ? `${cafe.city}, Cavite` : "Cavite"}
+              {distance != null && ` · ${formatDistance(distance)}`}
             </span>
-          ))}
-          {cafe.tags.length > 2 && (
-            <span className="text-xs text-muted font-medium">+{cafe.tags.length - 2}</span>
+            <div className="z-10 ml-2">
+              <BookmarkButton cafeId={cafe.id} cafeName={cafe.name} size="sm" />
+            </div>
+          </div>
+
+          {/* Café Title Link */}
+          <h3 className="font-display text-base font-semibold text-ink group-hover:text-espresso transition-colors line-clamp-1">
+            <Link
+              href={`/cafe/${cafe.slug}`}
+              onClick={(e) => e.stopPropagation()}
+              className="hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+            >
+              {cafe.name}
+            </Link>
+          </h3>
+
+          {/* Price Pill */}
+          <div className="mt-1 flex items-center gap-2">
+            {price ? (
+              <span className="inline-flex items-center rounded-full bg-accent/10 border border-accent/20 px-2 py-0.5 text-xs font-semibold text-espresso tabular-nums">
+                {price} latte
+              </span>
+            ) : (
+              <span className="text-xs text-muted">Specialty Roaster</span>
+            )}
+          </div>
+        </div>
+
+        {/* Semantic Tag Ribbon (Tokenized, No Slop Colors) */}
+        <div className="mt-2 flex flex-wrap items-center gap-1.5 pt-0.5">
+          {highlightedTags.map((tag) => {
+            const isCoffee = tag.category === "coffee";
+            const isVibe = tag.category === "vibe";
+
+            return (
+              <span
+                key={tag.slug}
+                className={`rounded-full px-2 py-0.5 text-[11px] font-medium border ${
+                  isCoffee
+                    ? "bg-espresso/10 text-espresso border-espresso/15 font-semibold"
+                    : isVibe
+                    ? "bg-accent/10 text-accent border-accent/20"
+                    : "bg-surface-sub text-ink-sub border-line"
+                }`}
+              >
+                {tag.name}
+              </span>
+            );
+          })}
+          {cafe.tags.length > 3 && (
+            <span className="text-[11px] font-medium text-muted">+{cafe.tags.length - 3}</span>
           )}
         </div>
       </div>
     </li>
   );
-}
+});
