@@ -261,6 +261,7 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
                         href={safeFb}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Official Facebook page (opens in a new tab)"
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
                       >
                         <span>Facebook ↗</span>
@@ -271,6 +272,7 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
                         href={safeIg}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Official Instagram profile (opens in a new tab)"
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
                       >
                         <span>Instagram ↗</span>
@@ -281,6 +283,7 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
                         href={safeWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Official website (opens in a new tab)"
                         className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
                       >
                         <span>Website ↗</span>
