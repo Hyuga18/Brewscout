@@ -1,4 +1,5 @@
 import type { CafeSummary, Tag } from "@/lib/cafes";
+import { getFieldGuideBySlug } from "@/lib/field-guides";
 
 export type Filters = {
   query: string;
@@ -8,6 +9,7 @@ export type Filters = {
   openNow: boolean;
   nearMe: boolean;
   savedOnly: boolean;
+  guide: string | null;
 };
 
 export const PRICE_OPTIONS = [120, 150, 200] as const;
@@ -30,6 +32,7 @@ export function parseFilters(params: { get: (name: string) => string | null }): 
     openNow: params.get("open") === "1",
     nearMe: params.get("sort") === "near",
     savedOnly: params.get("saved") === "1",
+    guide: params.get("guide") || null,
   };
 }
 
@@ -42,6 +45,7 @@ export function filtersToQuery(filters: Filters): string {
   if (filters.openNow) params.set("open", "1");
   if (filters.nearMe) params.set("sort", "near");
   if (filters.savedOnly) params.set("saved", "1");
+  if (filters.guide) params.set("guide", filters.guide);
   const query = params.toString();
   return query ? `?${query}` : "";
 }
@@ -53,7 +57,8 @@ export function hasActiveFilters(filters: Filters): boolean {
       filters.tags.length ||
       filters.maxPrice ||
       filters.openNow ||
-      filters.savedOnly,
+      filters.savedOnly ||
+      filters.guide,
   );
 }
 
@@ -67,12 +72,18 @@ export function createFilterPredicate(
   const allowedCities = filters.city
     ? new Set(filters.city.split(",").map((c) => normalize(c.trim())))
     : null;
+  const activeGuide = filters.guide ? getFieldGuideBySlug(filters.guide) : null;
+  const guideSlugs = activeGuide ? new Set(activeGuide.cafeSlugs) : null;
   const maxPrice = filters.maxPrice;
   const checkOpen = filters.openNow;
   const checkSaved = filters.savedOnly;
   const requiredTags = filters.tags;
 
   return (cafe: CafeSummary) => {
+    if (guideSlugs && !guideSlugs.has(cafe.slug)) {
+      return false;
+    }
+
     if (checkSaved && (!savedIds || !savedIds.has(cafe.id))) {
       return false;
     }

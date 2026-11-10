@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("Curated Photography Suite", () => {
   test("Card media windows render authentic curated covers", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/explore");
     await page.waitForSelector("li[id^='cafe-']");
 
     const totalCards = await page.locator("li[id^='cafe-']").count();

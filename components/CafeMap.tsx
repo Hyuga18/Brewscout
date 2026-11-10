@@ -34,6 +34,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
   const router = useRouter();
 
   const [mapError, setMapError] = useState(false);
+  const [retryCount, setRetryCount] = useState(0);
   const [isMapReady, setIsMapReady] = useState(false);
 
   const latest = useRef({ cafes, selectedId, userLocation, onSelect, router });
@@ -159,7 +160,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
       map?.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [retryCount]);
 
   // Update Markers only when filtered cafe list or user location changes (NOT on selectedId or hoveredId)
   useEffect(() => {
@@ -308,15 +309,18 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
   }, [userLocation]);
 
   return (
-    <div className="relative size-full min-h-[300px] lg:min-h-0">
-      <div ref={containerRef} className="size-full" aria-label="Map of cafés" role="region" />
+    <div style={{ height: "100%" }} className="relative size-full flex-1 flex flex-col min-h-[300px] lg:min-h-0">
+      <div ref={containerRef} style={{ height: "100%" }} className="size-full flex-1" aria-label="Map of cafés" role="region" />
       {mapError && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-paper/90 p-4 text-center z-20">
           <p className="text-sm font-semibold text-ink">Unable to load map tiles.</p>
           <p className="text-xs text-muted mt-1">Check your network connection to view map tiles.</p>
           <button
             type="button"
-            onClick={() => setMapError(false)}
+            onClick={() => {
+              setMapError(false);
+              setRetryCount((c) => c + 1);
+            }}
             className="mt-3 rounded-full bg-espresso px-4 py-1.5 text-xs font-medium text-paper"
           >
             Retry

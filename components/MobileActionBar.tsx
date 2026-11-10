@@ -33,7 +33,7 @@ export function MobileActionBar({
             </span>
           </div>
           <span className="text-[11px] text-muted truncate tabular-nums">
-            {priceFormatted ? `Typical latte ${priceFormatted}` : "Specialty Coffee"}
+            {priceFormatted ? `Latte ${priceFormatted}` : "Specialty Coffee"}
           </span>
         </div>
 

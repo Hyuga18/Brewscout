@@ -4,7 +4,7 @@ test.describe("Mobile Touch & Ergonomics QA Suite", () => {
   test.use({ viewport: { width: 390, height: 844 } }); // iPhone 14 viewport
 
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/explore");
     await expect(page.locator("li[id^='cafe-']").first()).toBeVisible({ timeout: 10000 });
   });
 

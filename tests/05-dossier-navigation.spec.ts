@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Data Integrity & Dossier QA Suite", () => {
   test("Navigating to a cafe dossier page loads successfully", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/explore");
     await expect(page.locator("li[id^='cafe-']").first()).toBeVisible({ timeout: 10000 });
 
     const firstCardLink = page.locator("li[id^='cafe-'] a[href^='/cafe/']").first();
@@ -20,7 +20,7 @@ test.describe("Data Integrity & Dossier QA Suite", () => {
     await expect(page.locator("text=/Today ·|Operating Rhythm|Hours|Open|Closed/i").first()).toBeVisible();
 
     // Check Directions button
-    const directionsLink = page.getByRole("link", { name: /directions|get directions/i });
+    const directionsLink = page.getByRole("link", { name: /directions.*google maps/i });
     if (await directionsLink.count() > 0) {
       const gmapsHref = await directionsLink.getAttribute("href");
       expect(gmapsHref).toMatch(/google\.com\/maps/);

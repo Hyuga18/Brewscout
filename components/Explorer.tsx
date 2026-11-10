@@ -14,6 +14,7 @@ import {
 } from "./filters";
 import type { CafeSummary, Tag } from "@/lib/cafes";
 import { distanceMeters, type LatLng } from "@/lib/geo";
+import { getFieldGuideBySlug } from "@/lib/field-guides";
 import { useScoutlist } from "@/lib/scoutlist";
 
 type Props = {
@@ -73,6 +74,7 @@ export function Explorer({ cafes, tags }: Props) {
       maxPrice: null,
       openNow: false,
       savedOnly: false,
+      guide: null,
     });
   }, [filters, setFilters]);
 
@@ -182,7 +184,10 @@ export function Explorer({ cafes, tags }: Props) {
   const displayCity = activeRegion ? activeRegion.label : filters.city;
 
   return (
-    <div className="relative flex flex-1 flex-col h-[calc(100dvh-3.5rem)] lg:flex-row lg:overflow-hidden">
+    <div
+      style={{ height: "calc(100dvh - 3.5rem)", maxHeight: "calc(100dvh - 3.5rem)" }}
+      className="relative flex flex-1 flex-col min-h-0 lg:flex-row lg:overflow-hidden"
+    >
       {/* Accessible Landmarks & Skip Link */}
       <h1 className="sr-only">Cavite Specialty Coffee Gazetteer</h1>
       <a
@@ -198,7 +203,8 @@ export function Explorer({ cafes, tags }: Props) {
         ref={sheetRef}
         tabIndex={-1}
         aria-label="Café directory"
-        className={`fixed inset-x-0 bottom-0 z-20 flex flex-col rounded-t-3xl bg-paper shadow-[0_-12px_32px_rgba(31,22,16,0.12)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] focus:outline-none lg:static lg:mt-0 lg:w-[480px] lg:h-full lg:flex-none lg:overflow-hidden lg:rounded-none lg:border-r lg:border-line lg:shadow-none ${SNAP_CLASSES[sheetSnap]}`}
+        style={{ maxHeight: "calc(100dvh - 3.5rem)" }}
+        className={`fixed inset-x-0 bottom-0 z-20 flex flex-col min-h-0 rounded-t-3xl bg-paper shadow-[0_-12px_32px_rgba(31,22,16,0.12)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] focus:outline-none lg:static lg:mt-0 lg:w-[480px] lg:h-full lg:flex-none lg:overflow-hidden lg:rounded-none lg:border-r lg:border-line lg:shadow-none ${SNAP_CLASSES[sheetSnap]}`}
       >
         <h2 className="sr-only">Curated Directory Results</h2>
 
@@ -294,7 +300,11 @@ export function Explorer({ cafes, tags }: Props) {
                 : visible.length === 1
                   ? "café"
                   : "cafés"}
-              {displayCity ? ` in ${displayCity}` : " in Cavite"}
+              {filters.guide
+                ? ` on ${getFieldGuideBySlug(filters.guide)?.title ?? "curated route"}`
+                : displayCity
+                  ? ` in ${displayCity}`
+                  : " in Cavite"}
               {nearMeActive ? ", nearest first" : ""}
             </div>
             {hasActiveFilters(filters) && visible.length > 0 && (
@@ -379,6 +389,7 @@ export function Explorer({ cafes, tags }: Props) {
                         openNow: false,
                         nearMe: filters.nearMe,
                         savedOnly: true,
+                        guide: null,
                       })
                     }
                   >
@@ -401,7 +412,7 @@ export function Explorer({ cafes, tags }: Props) {
       </section>
 
       {/* DOM ORDER 2: Interactive Vector Map (Desktop Right Column) */}
-      <div className="absolute inset-0 z-0 lg:static lg:h-full lg:flex-1 lg:min-w-0">
+      <div style={{ height: "calc(100dvh - 3.5rem)" }} className="absolute inset-0 z-0 lg:relative lg:flex lg:flex-col lg:h-full lg:flex-1 lg:min-w-0">
         <CafeMap
           cafes={visibleCafes}
           selectedId={selectedId}

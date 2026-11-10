@@ -130,6 +130,10 @@ type DetailRow = {
   photos: { storage_path: string; credit: string; source_url: string | null; is_cover: boolean }[];
 };
 
+import { computeIsOpenNow } from "./format";
+
+export { computeIsOpenNow };
+
 export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   "use cache";
   cacheLife("minutes");
@@ -153,8 +157,7 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   if (!data) return null;
 
   const row = data as unknown as DetailRow;
-  const { data: openNow, error: openError } = await supabase.rpc("is_open_now", { p_cafe_id: row.id });
-  if (openError) throw new Error(`Failed to check opening hours: ${openError.message}`);
+  const openNow = computeIsOpenNow(row.cafe_hours, row.is_24h);
 
   const { lat, lng } = parsePoint(row.location);
   const tagDetails = row.cafe_tags.flatMap((ct) => (ct.tags ? [ct.tags] : []));
