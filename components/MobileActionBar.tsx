@@ -21,7 +21,7 @@ export function MobileActionBar({
   return (
     <aside
       aria-label="Expedition quick actions"
-      className="fixed bottom-0 inset-x-0 z-30 sm:hidden border-t border-line bg-paper/95 backdrop-blur-xl px-4 py-2.5 shadow-[0_-8px_24px_rgba(31,22,16,0.08)] pb-[calc(0.625rem+env(safe-area-inset-bottom))]"
+      className="fixed bottom-0 inset-x-0 z-30 sm:hidden border-t border-line bg-paper px-4 py-2.5 shadow-[0_-8px_24px_rgba(31,22,16,0.08)] pb-[calc(0.625rem+env(safe-area-inset-bottom))]"
     >
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
         {/* Left: Quick Status Summary */}

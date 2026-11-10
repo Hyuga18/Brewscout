@@ -18,12 +18,7 @@ export default function AboutPage() {
       <article className="mt-4 space-y-12">
         {/* Curatorial Masthead */}
         <header className="space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
-            <span>Volume 01</span>
-            <span>·</span>
-            <span>Curatorial Field Guide</span>
-          </div>
-          <h1 className="font-display text-4xl sm:text-6xl font-semibold text-espresso tracking-tight leading-[1.08]">
+          <h1 className="font-display text-4xl sm:text-6xl font-semibold text-espresso tracking-tight leading-[1.08] text-balance">
             Mapping the Specialty Coffee Frontier of Cavite.
           </h1>
           <p className="text-base sm:text-xl leading-relaxed text-ink/85 max-w-2xl font-normal">
@@ -78,14 +73,9 @@ export default function AboutPage() {
 
         {/* The Problem: What Mainstream Maps Miss */}
         <section className="space-y-4">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-              The Field Standard
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
-              What Mainstream Maps Leave Unstructured
-            </h2>
-          </div>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+            What Mainstream Maps Leave Unstructured
+          </h2>
           <p className="text-sm sm:text-base leading-relaxed text-ink/85">
             Mainstream map applications reduce cafés to star ratings and commercial franchise banners.
             When remote workers, roasters, or road-trippers seek a destination in Cavite, they need
@@ -95,7 +85,9 @@ export default function AboutPage() {
           <div className="grid gap-3.5 sm:grid-cols-2 pt-2">
             <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base">⚡</span>
+                <svg className="size-4 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
                 <h3 className="font-semibold text-ink text-sm">Work Infrastructure</h3>
               </div>
               <p className="text-xs text-muted leading-relaxed">
@@ -106,7 +98,9 @@ export default function AboutPage() {
 
             <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base">🌙</span>
+                <svg className="size-4 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
                 <h3 className="font-semibold text-ink text-sm">True Midnight Windows</h3>
               </div>
               <p className="text-xs text-muted leading-relaxed">
@@ -117,7 +111,10 @@ export default function AboutPage() {
 
             <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base">☕</span>
+                <svg className="size-4 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                </svg>
                 <h3 className="font-semibold text-ink text-sm">Latte Price Benchmarks</h3>
               </div>
               <p className="text-xs text-muted leading-relaxed">
@@ -128,7 +125,9 @@ export default function AboutPage() {
 
             <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
               <div className="flex items-center gap-2 mb-1.5">
-                <span className="text-base">🌿</span>
+                <svg className="size-4 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+                </svg>
                 <h3 className="font-semibold text-ink text-sm">Spatial Atmosphere</h3>
               </div>
               <p className="text-xs text-muted leading-relaxed">
@@ -141,14 +140,9 @@ export default function AboutPage() {
 
         {/* Cavite 3-Zone Coffee Atlas */}
         <section className="space-y-4 border-t border-line pt-8">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Terroir & Geography
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
-              The Cavite 3-Zone Coffee Atlas
-            </h2>
-          </div>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+            The Cavite 3-Zone Coffee Atlas
+          </h2>
           <p className="text-sm sm:text-base leading-relaxed text-ink/85">
             Cavite holds a foundational place in Philippine coffee history. The province is divided into
             three distinct coffee micro-regions:
@@ -180,7 +174,7 @@ export default function AboutPage() {
             </div>
 
             <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs space-y-1.5">
-              <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-800 uppercase tracking-wider">
+              <span className="rounded-full border border-line bg-surface-sub px-2.5 py-0.5 text-[11px] font-semibold text-ink-sub uppercase tracking-wider">
                 Zone 03 · The Urban Specialty Labs
               </span>
               <h3 className="font-display text-lg font-semibold text-ink">Dasmariñas, Imus & Gen. Trias</h3>
@@ -194,14 +188,9 @@ export default function AboutPage() {
 
         {/* Built for Craft Call to Action */}
         <section className="space-y-4 border-t border-line pt-8">
-          <div className="space-y-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Open Architecture
-            </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
-              Engineered for Speed & Precision
-            </h2>
-          </div>
+          <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+            Engineered for Speed & Precision
+          </h2>
           <p className="text-sm leading-relaxed text-muted">
             Brewscout is built with Next.js 16 (App Router with Cache Components), React 19, Supabase
             PostGIS spatial indexing, MapLibre GL with OpenFreeMap vector tiles, and Tailwind CSS v4.
@@ -211,7 +200,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-surface shadow-xs hover:bg-ink transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-paper shadow-xs hover:bg-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span>Explore the Gazetteer</span>
               <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -222,7 +211,7 @@ export default function AboutPage() {
               href="https://github.com/Hyuga18/Brewscout"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink hover:border-ink/40 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink hover:border-ink/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <svg className="size-4" fill="currentColor" viewBox="0 0 24 24">
                 <path

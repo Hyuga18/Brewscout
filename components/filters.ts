@@ -7,19 +7,20 @@ export type Filters = {
   maxPrice: number | null;
   openNow: boolean;
   nearMe: boolean;
+  savedOnly: boolean;
 };
 
 export const PRICE_OPTIONS = [120, 150, 200] as const;
 
 /** Normalize string by stripping diacritics / accents (e.g. "Dasmariñas" -> "dasmarinas") */
-function normalize(s: string): string {
+export function normalize(s: string): string {
   return s
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
 
-export function parseFilters(params: URLSearchParams): Filters {
+export function parseFilters(params: { get: (name: string) => string | null }): Filters {
   const price = Number(params.get("price"));
   return {
     query: params.get("q") ?? "",
@@ -28,6 +29,7 @@ export function parseFilters(params: URLSearchParams): Filters {
     maxPrice: Number.isFinite(price) && price > 0 ? price : null,
     openNow: params.get("open") === "1",
     nearMe: params.get("sort") === "near",
+    savedOnly: params.get("saved") === "1",
   };
 }
 
@@ -39,6 +41,7 @@ export function filtersToQuery(filters: Filters): string {
   if (filters.maxPrice) params.set("price", String(filters.maxPrice));
   if (filters.openNow) params.set("open", "1");
   if (filters.nearMe) params.set("sort", "near");
+  if (filters.savedOnly) params.set("saved", "1");
   const query = params.toString();
   return query ? `?${query}` : "";
 }
@@ -49,33 +52,60 @@ export function hasActiveFilters(filters: Filters): boolean {
       filters.city ||
       filters.tags.length ||
       filters.maxPrice ||
-      filters.openNow,
+      filters.openNow ||
+      filters.savedOnly,
   );
 }
 
-export function matchesFilters(cafe: CafeSummary, filters: Filters): boolean {
-  if (filters.query.trim()) {
-    const q = normalize(filters.query.trim());
-    const nameMatch = normalize(cafe.name).includes(q);
-    const cityMatch = cafe.city ? normalize(cafe.city).includes(q) : false;
-    const tagMatch = cafe.tags.some(
-      (t) => normalize(t).includes(q) || normalize(t.replace(/-/g, " ")).includes(q),
-    );
-    if (!nameMatch && !cityMatch && !tagMatch) return false;
-  }
-  if (filters.city) {
-    const allowed = filters.city.split(",").map((c) => normalize(c.trim()));
-    if (!cafe.city || !allowed.includes(normalize(cafe.city))) {
+/** Precomputes search and city sets once to avoid inner-loop normalization overhead */
+export function createFilterPredicate(
+  filters: Filters,
+  savedIds?: Set<string>,
+): (cafe: CafeSummary) => boolean {
+  const q = filters.query.trim() ? normalize(filters.query.trim()) : null;
+  const allowedCities = filters.city
+    ? new Set(filters.city.split(",").map((c) => normalize(c.trim())))
+    : null;
+  const maxPrice = filters.maxPrice;
+  const checkOpen = filters.openNow;
+  const checkSaved = filters.savedOnly;
+  const requiredTags = filters.tags;
+
+  return (cafe: CafeSummary) => {
+    if (checkSaved && (!savedIds || !savedIds.has(cafe.id))) {
       return false;
     }
-  }
-  if (filters.openNow && !cafe.openNow) return false;
 
-  // Use effective price (min or max fallback)
-  if (filters.maxPrice) {
-    const effectivePrice = cafe.priceMin ?? cafe.priceMax;
-    if (effectivePrice == null || effectivePrice > filters.maxPrice) return false;
-  }
+    if (q) {
+      const nameMatch = normalize(cafe.name).includes(q);
+      const cityMatch = cafe.city ? normalize(cafe.city).includes(q) : false;
+      const tagMatch = cafe.tags.some(
+        (t) => normalize(t).includes(q) || normalize(t.replace(/-/g, " ")).includes(q),
+      );
+      if (!nameMatch && !cityMatch && !tagMatch) return false;
+    }
 
-  return filters.tags.every((tag) => cafe.tags.includes(tag));
+    if (allowedCities) {
+      if (!cafe.city || !allowedCities.has(normalize(cafe.city))) {
+        return false;
+      }
+    }
+
+    if (checkOpen && !cafe.openNow) return false;
+
+    if (maxPrice) {
+      const effectivePrice = cafe.priceMin ?? cafe.priceMax;
+      if (effectivePrice == null || effectivePrice > maxPrice) return false;
+    }
+
+    return requiredTags.every((tag) => cafe.tags.includes(tag));
+  };
+}
+
+export function matchesFilters(
+  cafe: CafeSummary,
+  filters: Filters,
+  savedIds?: Set<string>,
+): boolean {
+  return createFilterPredicate(filters, savedIds)(cafe);
 }
