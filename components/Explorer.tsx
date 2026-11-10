@@ -26,7 +26,15 @@ export function Explorer({ cafes, tags }: Props) {
     router.replace(`${pathname}${filtersToQuery(next)}`, { scroll: false });
   };
 
-  const clearFilters = () => setFilters({ ...filters, city: null, tags: [], maxPrice: null, openNow: false });
+  const clearFilters = () =>
+    setFilters({
+      ...filters,
+      query: "",
+      city: null,
+      tags: [],
+      maxPrice: null,
+      openNow: false,
+    });
 
   // Ask for the browser's location when "near me" is on (also when arriving via a shared ?sort=near link).
   useEffect(() => {
@@ -64,12 +72,16 @@ export function Explorer({ cafes, tags }: Props) {
 
   const selectFromMap = (id: string) => {
     setSelectedId(id);
-    document.getElementById(`cafe-${id}`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const el = document.getElementById(`cafe-${id}`);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
   };
 
   return (
     <div className="flex flex-1 flex-col lg:h-[calc(100dvh-3.5rem)] lg:flex-none lg:flex-row lg:overflow-hidden">
-      <div className="sticky top-14 z-0 h-[42dvh] lg:order-2 lg:static lg:h-auto lg:flex-1">
+      {/* Map View */}
+      <div className="sticky top-14 z-0 h-[44dvh] lg:order-2 lg:static lg:h-auto lg:flex-1">
         <CafeMap
           cafes={visibleCafes}
           selectedId={selectedId}
@@ -78,26 +90,37 @@ export function Explorer({ cafes, tags }: Props) {
         />
       </div>
 
-      <section className="relative z-10 -mt-5 flex-1 rounded-t-3xl bg-paper px-4 pt-3 shadow-[0_-8px_24px_rgba(43,33,24,0.08)] lg:order-1 lg:mt-0 lg:w-[480px] lg:flex-none lg:overflow-y-auto lg:rounded-none lg:border-r lg:border-line lg:pt-4 lg:shadow-none">
-        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-ink/15 lg:hidden" aria-hidden />
-        <FilterBar filters={filters} cities={cities} tags={tags} locating={locating} onChange={setFilters} />
+      {/* Explorer Sheet */}
+      <section className="relative z-10 -mt-5 flex-1 rounded-t-3xl bg-paper px-4 pt-3.5 shadow-[0_-8px_24px_rgba(43,33,24,0.08)] lg:order-1 lg:mt-0 lg:w-[480px] lg:flex-none lg:overflow-y-auto lg:rounded-none lg:border-r lg:border-line lg:pt-4 lg:shadow-none">
+        <div className="mx-auto mb-3 h-1 w-10 rounded-full bg-ink/15 lg:hidden" aria-hidden="true" />
+        <FilterBar
+          filters={filters}
+          cities={cities}
+          tags={tags}
+          locating={locating}
+          onChange={setFilters}
+        />
 
-        <p className="mt-3 text-sm text-muted" aria-live="polite">
-          {locationError && filters.nearMe ? `${locationError} ` : ""}
-          {visible.length === 1 ? "1 café" : `${visible.length} cafés`}
-          {nearMeActive ? ", nearest first" : ""}
+        <div className="mt-3.5 flex items-center justify-between text-xs sm:text-sm text-muted" aria-live="polite">
+          <span>
+            {locationError && filters.nearMe ? `${locationError} ` : ""}
+            <strong className="font-semibold text-ink">{visible.length}</strong> {visible.length === 1 ? "café" : "cafés"}
+            {filters.city ? ` in ${filters.city}` : " in Cavite"}
+            {nearMeActive ? ", nearest first" : ""}
+          </span>
           {hasActiveFilters(filters) && visible.length > 0 && (
-            <>
-              {" · "}
-              <button type="button" onClick={clearFilters} className="underline underline-offset-2 hover:text-ink">
-                Clear filters
-              </button>
-            </>
+            <button
+              type="button"
+              onClick={clearFilters}
+              className="font-medium text-espresso underline underline-offset-2 hover:text-ink cursor-pointer"
+            >
+              Reset filters
+            </button>
           )}
-        </p>
+        </div>
 
         {visible.length > 0 ? (
-          <ul className="mt-3 flex flex-col gap-2 pb-8">
+          <ul className="mt-3 flex flex-col gap-2.5 pb-12">
             {visible.map(({ cafe, distance }) => (
               <CafeCard
                 key={cafe.id}
@@ -110,22 +133,23 @@ export function Explorer({ cafes, tags }: Props) {
             ))}
           </ul>
         ) : (
-          <div className="mt-6 rounded-2xl border border-dashed border-line p-6 text-center text-sm text-muted">
+          <div className="mt-6 rounded-2xl border border-dashed border-line bg-surface/50 p-8 text-center text-sm text-muted">
             {cafes.length === 0 ? (
-              "No cafés yet. Verified cafés will show up here."
+              "No cafés verified yet. Verified specialty spots will appear here."
             ) : (
-              <>
-                No cafés match these filters.{" "}
+              <div className="space-y-2">
+                <p className="font-medium text-ink">No cafés match your current filters.</p>
+                <p className="text-xs text-muted">Try clearing some tags or loosening your latte price filter.</p>
                 {hasActiveFilters(filters) && (
                   <button
                     type="button"
-                    className="font-medium text-ink underline underline-offset-2"
+                    className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-4 py-1.5 text-xs font-medium text-ink shadow-2xs hover:border-ink/40 cursor-pointer"
                     onClick={clearFilters}
                   >
-                    Clear filters
+                    Clear all filters
                   </button>
                 )}
-              </>
+              </div>
             )}
           </div>
         )}
