@@ -1,4 +1,5 @@
 import { cacheLife } from "next/cache";
+import { getCuratedCover, getCuratedPhotos } from "./cafe-photos";
 import { parsePoint } from "./geo";
 import { isSupabaseConfigured, photoUrl, supabase } from "./supabase";
 
@@ -78,6 +79,7 @@ export async function getCafes(): Promise<CafeSummary[]> {
   return (near.data as NearRow[]).map((row) => {
     const extra = extrasById.get(row.id);
     const cover = extra?.photos.find((p) => p.is_cover) ?? extra?.photos[0];
+    const remoteCoverUrl = cover?.storage_path ? photoUrl(cover.storage_path) : null;
     return {
       id: row.id,
       name: row.name,
@@ -89,7 +91,7 @@ export async function getCafes(): Promise<CafeSummary[]> {
       priceMax: row.price_max,
       openNow: row.open_now,
       tags: extra?.cafe_tags.flatMap((ct) => (ct.tags ? [ct.tags.slug] : [])) ?? [],
-      coverUrl: cover ? photoUrl(cover.storage_path) : null,
+      coverUrl: remoteCoverUrl || getCuratedCover(row.slug),
     };
   });
 }
@@ -159,6 +161,9 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
     .sort((a, b) => Number(b.is_cover) - Number(a.is_cover))
     .map((p) => ({ url: photoUrl(p.storage_path), credit: p.credit, sourceUrl: p.source_url, isCover: p.is_cover }));
 
+  const effectivePhotos = photos.length > 0 ? photos : getCuratedPhotos(row.slug);
+  const coverUrl = effectivePhotos.find((p) => p.isCover)?.url ?? effectivePhotos[0]?.url ?? null;
+
   return {
     id: row.id,
     name: row.name,
@@ -170,7 +175,7 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
     priceMax: row.price_max,
     openNow: Boolean(openNow),
     tags: tagDetails.map((t) => t.slug),
-    coverUrl: photos[0]?.url ?? null,
+    coverUrl,
     address: row.address,
     description: row.description,
     isChain: row.is_chain,
@@ -182,6 +187,6 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
       .map((h) => ({ dayOfWeek: h.day_of_week, opens: h.opens, closes: h.closes }))
       .sort((a, b) => a.dayOfWeek - b.dayOfWeek || a.opens.localeCompare(b.opens)),
     tagDetails,
-    photos,
+    photos: effectivePhotos,
   };
 }

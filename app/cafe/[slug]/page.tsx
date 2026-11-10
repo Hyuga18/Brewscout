@@ -30,7 +30,7 @@ function safeUrl(url: string | null): string | null {
   if (!url) return null;
   try {
     const parsed = new URL(url);
-    return parsed.protocol === "http:" || parsed.protocol === "https:" ? url : null;
+    return parsed.protocol === "http:" || parsed.protocol === "https:" ? parsed.href : null;
   } catch {
     return null;
   }
@@ -245,43 +245,51 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
             </a>
 
             {/* Official Social Links */}
-            {(cafe.fbUrl || cafe.igUrl || cafe.website) && (
-              <div className="pt-3 border-t border-line/60">
-                <span className="text-xs font-semibold text-muted">Official Profiles</span>
-                <div className="mt-2 flex flex-wrap gap-2.5">
-                  {safeUrl(cafe.fbUrl) && (
-                    <a
-                      href={safeUrl(cafe.fbUrl)!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-                    >
-                      <span>Facebook ↗</span>
-                    </a>
-                  )}
-                  {safeUrl(cafe.igUrl) && (
-                    <a
-                      href={safeUrl(cafe.igUrl)!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-                    >
-                      <span>Instagram ↗</span>
-                    </a>
-                  )}
-                  {safeUrl(cafe.website) && (
-                    <a
-                      href={safeUrl(cafe.website)!}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-                    >
-                      <span>Website ↗</span>
-                    </a>
-                  )}
+            {(() => {
+              const safeFb = safeUrl(cafe.fbUrl);
+              const safeIg = safeUrl(cafe.igUrl);
+              const safeWebsite = safeUrl(cafe.website);
+
+              if (!safeFb && !safeIg && !safeWebsite) return null;
+
+              return (
+                <div className="pt-3 border-t border-line/60">
+                  <span className="text-xs font-semibold text-muted">Official Profiles</span>
+                  <div className="mt-2 flex flex-wrap gap-2.5">
+                    {safeFb && (
+                      <a
+                        href={safeFb}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+                      >
+                        <span>Facebook ↗</span>
+                      </a>
+                    )}
+                    {safeIg && (
+                      <a
+                        href={safeIg}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+                      >
+                        <span>Instagram ↗</span>
+                      </a>
+                    )}
+                    {safeWebsite && (
+                      <a
+                        href={safeWebsite}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-espresso hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+                      >
+                        <span>Website ↗</span>
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            })()}
           </div>
         </section>
       </div>
