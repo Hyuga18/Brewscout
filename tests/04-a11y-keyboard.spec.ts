@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Accessibility (WCAG 2.1 AA) & Keyboard QA Suite", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/explore");
     await expect(page.locator("li[id^='cafe-']").first()).toBeVisible({ timeout: 10000 });
   });
 

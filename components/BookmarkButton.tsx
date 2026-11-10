@@ -37,7 +37,7 @@ export function BookmarkButton({
     >
       <svg
         className={`size-4 transition-transform duration-200 group-hover:scale-110 ${
-          saved ? "fill-accent stroke-accent" : "fill-none stroke-currentColor"
+          saved ? "fill-accent stroke-accent" : "fill-none stroke-current"
         }`}
         viewBox="0 0 24 24"
         strokeWidth="2"

@@ -20,6 +20,30 @@ export const metadata: Metadata = {
   description:
     "An independent, opinionated spatial guide to the best third-wave, specialty, and homegrown cafés in Cavite, Philippines.",
   manifest: "/manifest.webmanifest",
+  metadataBase: new URL("https://brewscout.vercel.app"),
+  openGraph: {
+    type: "website",
+    locale: "en_PH",
+    url: "https://brewscout.vercel.app",
+    siteName: "Brewscout",
+    title: "Brewscout · Cavite Coffee Gazetteer",
+    description:
+      "An independent spatial guide to the best third-wave, specialty, and homegrown cafés in Cavite, Philippines.",
+    images: [
+      {
+        url: "/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "Brewscout Cavite Coffee Gazetteer Compass",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Brewscout · Cavite Coffee Gazetteer",
+    description: "An independent spatial guide to the best specialty cafés in Cavite, Philippines.",
+    images: ["/icon-512.png"],
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -45,7 +69,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
-      <body className="flex min-h-dvh lg:h-dvh lg:overflow-y-auto flex-col font-sans bg-paper text-ink selection:bg-accent/20 selection:text-espresso">
+      <body className="flex min-h-dvh flex-col font-sans bg-paper text-ink selection:bg-accent/20 selection:text-espresso">
         {/* Global Root Skip Link */}
         <a
           href="#main-content"
@@ -80,18 +104,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </Link>
           </div>
 
-          <nav aria-label="Main navigation" className="flex items-center gap-4 text-xs sm:text-sm font-medium">
+          <nav aria-label="Main navigation" className="flex items-center gap-2.5 sm:gap-5 text-xs sm:text-sm font-medium">
             <Link
-              href="/"
-              className="text-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+              href="/#guides"
+              className="hidden sm:inline-block text-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
             >
-              Explorer
+              Field Guides
             </Link>
             <Link
               href="/about"
               className="text-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
             >
-              Field Guide
+              About
+            </Link>
+            <Link
+              href="/explore"
+              className="inline-flex items-center gap-1.5 rounded-full bg-espresso px-3 py-1.5 text-xs font-semibold text-paper shadow-2xs hover:bg-ink transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent shrink-0"
+            >
+              <span>Explorer Map</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </nav>
         </header>

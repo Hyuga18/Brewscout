@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import type { Tag } from "@/lib/cafes";
+import { FIELD_GUIDES } from "@/lib/field-guides";
 import { type Filters, PRICE_OPTIONS } from "./filters";
 
 type Props = {
@@ -139,6 +140,38 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
         )}
       </div>
 
+      {/* Curated Field Guide Routes */}
+      <div className="-mx-1 flex items-center gap-1.5 overflow-x-auto px-1 pb-0.5 pt-0.5 [scrollbar-width:none]">
+        <span className="text-[11px] font-semibold uppercase tracking-wider text-muted shrink-0 mr-1 hidden sm:inline">
+          Routes:
+        </span>
+        {FIELD_GUIDES.map((guide) => {
+          const active = filters.guide === guide.slug;
+          return (
+            <button
+              key={guide.slug}
+              type="button"
+              onClick={() =>
+                onChange({
+                  ...filters,
+                  guide: active ? null : guide.slug,
+                })
+              }
+              aria-pressed={active}
+              className={`shrink-0 inline-flex items-center gap-1.5 rounded-full border px-2.5 sm:px-3 py-1 text-xs font-medium transition-all cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                active
+                  ? "border-accent bg-accent/20 text-espresso font-semibold shadow-2xs ring-1 ring-accent/30"
+                  : "border-line/70 bg-surface-sub text-ink/80 hover:border-ink/30 hover:bg-surface"
+              }`}
+            >
+              <span aria-hidden="true">{guide.icon}</span>
+              <span>{guide.title}</span>
+              {active && <span className="ml-0.5 text-xs text-espresso font-bold" aria-hidden="true">×</span>}
+            </button>
+          );
+        })}
+      </div>
+
       {/* Primary Action Pills */}
       <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
         {/* Near Me with GPS Status */}
@@ -209,7 +242,7 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
           <svg
             aria-hidden="true"
             className={`size-3.5 transition-transform duration-200 ${
-              filters.savedOnly ? "fill-accent stroke-accent" : "fill-none stroke-currentColor"
+              filters.savedOnly ? "fill-accent stroke-accent" : "fill-none stroke-current"
             }`}
             viewBox="0 0 24 24"
             strokeWidth="2"

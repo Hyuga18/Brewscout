@@ -23,7 +23,7 @@ export function NearbyCarousel({ city, nearbyCafes }: Props) {
           </h2>
         </div>
         <Link
-          href={`/?city=${encodeURIComponent(city || "")}`}
+          href={`/explore?city=${encodeURIComponent(city || "")}`}
           className="text-xs font-semibold text-espresso hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
         >
           View all in {city || "Cavite"} →

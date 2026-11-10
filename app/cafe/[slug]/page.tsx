@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { io } from "next/cache";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BackButton } from "@/components/BackButton";
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { DossierNavigation } from "@/components/DossierNavigation";
 import { HoursChronometer } from "@/components/HoursChronometer";
 import { MobileActionBar } from "@/components/MobileActionBar";
 import { NearbyCarousel } from "@/components/NearbyCarousel";
@@ -13,16 +15,35 @@ import { type CafeDetail, getCafeBySlug, getCafes } from "@/lib/cafes";
 import { extractAmenities } from "@/lib/dossier";
 import { formatPrice } from "@/lib/format";
 
+export async function generateStaticParams() {
+  const cafes = await getCafes();
+  return cafes.map((c) => ({ slug: c.slug }));
+}
 
 export async function generateMetadata({ params }: PageProps<"/cafe/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const cafe = await getCafeBySlug(slug);
   if (!cafe) return { title: "Café not found" };
+
+  const coverPhoto = cafe.photos.find((p) => p.isCover) ?? cafe.photos[0];
+
   return {
     title: cafe.city ? `${cafe.name} · ${cafe.city}` : cafe.name,
     description:
       cafe.description ??
       `${cafe.name}: verified hours, typical latte prices, Wi-Fi speed, and coffee sourcing in Cavite.`,
+    openGraph: {
+      title: `${cafe.name} · Brewscout`,
+      description: cafe.description ?? `Specialty coffee in ${cafe.city ?? "Cavite"}.`,
+      images: coverPhoto
+        ? [
+            {
+              url: coverPhoto.url,
+              alt: `${cafe.name} cover photograph`,
+            },
+          ]
+        : ["/icon-512.png"],
+    },
   };
 }
 
@@ -36,7 +57,11 @@ function safeUrl(url: string | null): string | null {
   }
 }
 
-export default function CafePage({ params }: PageProps<"/cafe/[slug]">) {
+export default async function CafePage({ params }: PageProps<"/cafe/[slug]">) {
+  const { slug } = await params;
+  const cafe = await getCafeBySlug(slug);
+  if (!cafe) notFound();
+
   return (
     <div className="mx-auto w-full max-w-4xl px-4 pt-4 pb-32 sm:pb-24">
       {/* Top Navigation Row */}
@@ -45,16 +70,14 @@ export default function CafePage({ params }: PageProps<"/cafe/[slug]">) {
       </div>
 
       <Suspense fallback={<DetailSkeleton />}>
-        <CafeContent params={params} />
+        <CafeContent cafe={cafe} />
       </Suspense>
     </div>
   );
 }
 
-async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const [cafe, allCafes] = await Promise.all([getCafeBySlug(slug), getCafes()]);
-  if (!cafe) notFound();
+async function CafeContent({ cafe }: { cafe: CafeDetail }) {
+  const allCafes = await getCafes();
 
   await io(); // evaluate fresh Manila time
 
@@ -129,79 +152,47 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
         )}
       </header>
 
-      {/* FIELD INTEL LIST (Editorial 2-Column Definition List - No Bento Slop) */}
-      <section className="mt-14" aria-labelledby="amenities-heading">
-        <div className="border-b border-line pb-3 mb-4">
+      {/* FIELD INSPECTION LEDGER (Denser Two-Column Editorial Table) */}
+      <section className="mt-12" aria-labelledby="amenities-heading">
+        <div className="border-b border-line pb-2.5 mb-4">
           <h2 id="amenities-heading" className="font-display text-xl sm:text-2xl font-semibold text-espresso">
-            Work & Hospitality Amenities
+            Field Inspection Ledger
           </h2>
+          <p className="text-xs text-muted mt-0.5">Verified on-site capabilities and hospitality data</p>
         </div>
 
-        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-          {amenities.map((item) => (
-            <div
-              key={item.id}
-              className="flex items-start gap-3.5 rounded-2xl border border-line bg-surface p-4 shadow-2xs transition-all hover:border-ink/20"
-            >
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-surface-sub text-espresso border border-line/60">
-                {item.icon === "wifi" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-                    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-                    <line x1="12" y1="20" x2="12.01" y2="20" />
-                  </svg>
-                )}
-                {item.icon === "power" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M18 20V10" />
-                    <path d="M12 20V4" />
-                    <path d="M6 20v-6" />
-                  </svg>
-                )}
-                {item.icon === "seat" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M19 9V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3" />
-                    <path d="M3 11v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H7v-2a2 2 0 0 0-4 0z" />
-                    <path d="M5 18v3" />
-                    <path d="M19 18v3" />
-                  </svg>
-                )}
-                {item.icon === "parking" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
-                  </svg>
-                )}
-                {item.icon === "pet" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="4" r="2" />
-                    <circle cx="18" cy="8" r="2" />
-                    <circle cx="20" cy="16" r="2" />
-                    <path d="M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" />
-                  </svg>
-                )}
-                {item.icon === "coffee" && (
-                  <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                  </svg>
-                )}
-              </div>
-              <div className="min-w-0 flex-1">
-                <dt className="text-xs font-semibold text-muted">
-                  {item.label}
-                </dt>
-                <dd className="font-semibold text-ink text-sm sm:text-base leading-snug mt-0.5">
-                  {item.value}
-                </dd>
-                <dd className="text-xs text-muted leading-relaxed mt-1">
-                  {item.note}
-                </dd>
-              </div>
+        <div className="rounded-2xl border border-line bg-surface overflow-hidden">
+          <dl className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-line/70">
+            {/* Column 1 */}
+            <div className="divide-y divide-line/60">
+              {amenities.slice(0, 3).map((item) => (
+                <div key={item.id} className="flex items-baseline justify-between p-3.5 sm:px-4 sm:py-3 text-sm">
+                  <dt className="text-xs font-semibold text-muted pr-3">{item.label}</dt>
+                  <dd className="text-right">
+                    <span className={`text-xs sm:text-sm font-semibold ${item.status === "positive" ? "text-ink" : "text-muted"}`}>
+                      {item.value}
+                    </span>
+                    <span className="block text-[11px] text-muted-light mt-0.5">{item.note}</span>
+                  </dd>
+                </div>
+              ))}
             </div>
-          ))}
-        </dl>
+            {/* Column 2 */}
+            <div className="divide-y divide-line/60">
+              {amenities.slice(3, 6).map((item) => (
+                <div key={item.id} className="flex items-baseline justify-between p-3.5 sm:px-4 sm:py-3 text-sm">
+                  <dt className="text-xs font-semibold text-muted pr-3">{item.label}</dt>
+                  <dd className="text-right">
+                    <span className={`text-xs sm:text-sm font-semibold ${item.status === "positive" ? "text-ink" : "text-muted"}`}>
+                      {item.value}
+                    </span>
+                    <span className="block text-[11px] text-muted-light mt-0.5">{item.note}</span>
+                  </dd>
+                </div>
+              ))}
+            </div>
+          </dl>
+        </div>
       </section>
 
       {/* MAIN TWO-COLUMN SECTION: Hours & Logistics */}
@@ -232,17 +223,7 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
               </p>
             </div>
 
-            <a
-              href={directions}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-paper shadow-xs hover:bg-ink transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <span>Navigate in Google Maps</span>
-              <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
-              </svg>
-            </a>
+            <DossierNavigation cafe={cafe} />
 
             {/* Official Social Links */}
             {(() => {
@@ -300,6 +281,17 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
       {/* NEARBY RECOMMENDATIONS CAROUSEL */}
       <NearbyCarousel currentCafeId={cafe.id} city={cafe.city} nearbyCafes={cityCafes} />
 
+      {/* DOSSIER FOOTER NOTE */}
+      <footer className="mt-14 pt-6 border-t border-line/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+        <p>Brewscout Cavite Coffee Gazetteer · Verified Field Entry</p>
+        <Link
+          href="/explore"
+          className="font-semibold text-espresso hover:text-ink hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+        >
+          Return to Cavite Explorer Map →
+        </Link>
+      </footer>
+
       {/* MOBILE FLOATING ACTION DOCK */}
       <MobileActionBar
         cafeId={cafe.id}
@@ -313,6 +305,37 @@ async function CafeContent({ params }: { params: Promise<{ slug: string }> }) {
 }
 
 function HeroGallery({ photos, name }: { photos: CafeDetail["photos"]; name: string }) {
+  if (photos.length === 1) {
+    const photo = photos[0];
+    return (
+      <figure className="relative w-full">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={photo.url}
+          alt={`${name} cover photograph`}
+          className="aspect-[16/10] sm:aspect-[21/9] w-full rounded-3xl object-cover shadow-xs border border-line"
+          loading="eager"
+        />
+        {photo.credit && (
+          <figcaption className="absolute bottom-3 left-3 rounded-full bg-ink/80 px-3 py-1 text-[11px] font-medium text-surface shadow-xs max-w-[85%] truncate">
+            {safeUrl(photo.sourceUrl) ? (
+              <a
+                href={safeUrl(photo.sourceUrl)!}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Photo: {photo.credit} ↗
+              </a>
+            ) : (
+              `Photo: ${photo.credit}`
+            )}
+          </figcaption>
+        )}
+      </figure>
+    );
+  }
+
   return (
     <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 sm:mx-0 sm:px-0 [scrollbar-width:none]">
       {photos.map((photo, i) => (
@@ -354,11 +377,7 @@ function DetailSkeleton() {
     <div className="mt-4 space-y-6">
       <div className="h-72 w-full rounded-3xl bg-surface-sub border border-line" />
       <div className="h-8 w-2/3 rounded-lg bg-surface-sub border border-line" />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-        {[1, 2, 3, 4, 5, 6].map((i) => (
-          <div key={i} className="h-24 rounded-2xl bg-surface border border-line" />
-        ))}
-      </div>
+      <div className="h-44 rounded-2xl bg-surface border border-line" />
     </div>
   );
 }

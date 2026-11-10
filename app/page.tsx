@@ -1,13 +1,28 @@
-import { Suspense } from "react";
-import { Explorer } from "@/components/Explorer";
-import { getCafes, getTags } from "@/lib/cafes";
+import type { Metadata } from "next";
+import { CuratedGalleryTicker } from "@/components/landing/CuratedGalleryTicker";
+import { FeaturePillars } from "@/components/landing/FeaturePillars";
+import { FieldGuidesSection } from "@/components/landing/FieldGuidesSection";
+import { LandingCta } from "@/components/landing/LandingCta";
+import { LandingFooter } from "@/components/landing/LandingFooter";
+import { LandingHero } from "@/components/landing/LandingHero";
+import { StatsBanner } from "@/components/landing/StatsBanner";
 
-export default async function Home() {
-  const [cafes, tags] = await Promise.all([getCafes(), getTags()]);
+export const metadata: Metadata = {
+  title: "Brewscout · Cavite Coffee Gazetteer",
+  description:
+    "An independent, opinionated spatial guide and field directory for 50 verified specialty cafés across Cavite, Philippines.",
+};
+
+export default function HomePage() {
   return (
-    // Explorer reads filters from the URL, which is only known in the browser.
-    <Suspense fallback={<div className="flex-1 animate-pulse bg-line/40" />}>
-      <Explorer cafes={cafes} tags={tags} />
-    </Suspense>
+    <div className="flex flex-col min-h-full">
+      <LandingHero />
+      <StatsBanner />
+      <FieldGuidesSection />
+      <FeaturePillars />
+      <CuratedGalleryTicker />
+      <LandingCta />
+      <LandingFooter />
+    </div>
   );
 }
