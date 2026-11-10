@@ -1,158 +1,220 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BackButton } from "@/components/BackButton";
 
 export const metadata: Metadata = {
-  title: "About Brewscout · Cavite Specialty Coffee Guide",
+  title: "Field Guide & Terroir Atlas · Brewscout",
   description:
-    "Why Brewscout exists, how 50 independent cafés across Cavite are verified, and the heritage behind Cavite coffee culture.",
+    "The curatorial manifesto, Cavite coffee heritage, and human verification standards behind the Brewscout coffee gazetteer.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-8 sm:py-12">
-      <Link
-        href="/"
-        className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-ink transition-colors"
-      >
-        <svg
-          className="size-4"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-        <span>Back to Explorer</span>
-      </Link>
+    <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:py-12">
+      <div className="pb-4">
+        <BackButton label="Back to Explorer" />
+      </div>
 
-      <article className="mt-6 space-y-10">
-        {/* Header */}
-        <div>
-          <h1 className="font-display text-3xl sm:text-5xl text-espresso tracking-tight">
-            Mapping Cavite’s Coffee Frontier.
+      <article className="mt-4 space-y-12">
+        {/* Curatorial Masthead */}
+        <header className="space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
+            <span>Volume 01</span>
+            <span>·</span>
+            <span>Curatorial Field Guide</span>
+          </div>
+          <h1 className="font-display text-4xl sm:text-6xl font-semibold text-espresso tracking-tight leading-[1.08]">
+            Mapping the Specialty Coffee Frontier of Cavite.
           </h1>
-          <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink/80">
-            Brewscout is an independent, opinionated directory and spatial guide to the best
-            third-wave, specialty, and homegrown cafés across the province of Cavite, Philippines.
+          <p className="text-base sm:text-xl leading-relaxed text-ink/85 max-w-2xl font-normal">
+            Brewscout is an independent, opinionated spatial gazetteer chronicling the third-wave
+            roasters, heritage farms, and work-friendly havens across Cavite, Philippines.
           </p>
-        </div>
+        </header>
 
-        {/* Section 1: The Problem */}
-        <section className="space-y-3 border-t border-line pt-8">
-          <h2 className="font-display text-2xl text-espresso">
-            What Google Maps Leaves Out
+        {/* Verification Statistics Plaques */}
+        <section aria-labelledby="stats-heading" className="border-y border-line py-8">
+          <h2 id="stats-heading" className="sr-only">
+            Brewscout Verification Standards
           </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-ink/80">
-            When you are looking for a place to work, read, or enjoy an intentional cup of coffee,
-            Google Maps and food apps give you star ratings and sponsored commercial chains. They
-            rarely tell you what matters:
-          </p>
-          <ul className="grid gap-2.5 pt-2 text-sm text-ink/80 sm:grid-cols-2">
-            <li className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-3">
-              <span className="text-accent font-semibold">⚡</span>
-              <div>
-                <strong className="text-ink font-medium">Work-Friendliness:</strong> Verified power
-                outlets, laptop-friendly tables, and reliable fast Wi-Fi.
-              </div>
-            </li>
-            <li className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-3">
-              <span className="text-accent font-semibold">🌙</span>
-              <div>
-                <strong className="text-ink font-medium">True Night Hours:</strong> Cafés that stay
-                open past 10 PM or run 24/7 for night owls and road-trippers.
-              </div>
-            </li>
-            <li className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-3">
-              <span className="text-accent font-semibold">☕</span>
-              <div>
-                <strong className="text-ink font-medium">Latte Price Benchmarks:</strong> Realistic
-                entry and specialty price bands in Philippine Pesos.
-              </div>
-            </li>
-            <li className="flex items-start gap-2.5 rounded-xl border border-line bg-surface p-3">
-              <span className="text-accent font-semibold">🌿</span>
-              <div>
-                <strong className="text-ink font-medium">Architectural Vibe:</strong> Ridge caldera
-                views, lush garden hideaways, cozy lofts, or brutalist glasshouses.
-              </div>
-            </li>
-          </ul>
-        </section>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-espresso tabular-nums">
+                50
+              </span>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                Hand-Verified Cafés
+              </p>
+              <p className="mt-1.5 text-xs text-muted leading-relaxed">
+                Zero automated scrapers. Individually audited for operating schedules, Wi-Fi, and latte prices.
+              </p>
+            </div>
 
-        {/* Section 2: Cavite's Heritage */}
-        <section className="space-y-3 border-t border-line pt-8">
-          <h2 className="font-display text-2xl text-espresso">
-            Cavite’s Coffee Heritage
-          </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-ink/80">
-            Cavite holds a foundational place in Philippine coffee history. From the heritage Liberica
-            (<em>Kapeng Barako</em>) and Robusta farms of Amadeo—celebrated each year at the Pahimis
-            Festival—to the cool volcanic soil of Silang and the Tagaytay Ridge, coffee is woven into
-            the province’s identity.
-          </p>
-          <p className="text-sm sm:text-base leading-relaxed text-ink/80">
-            In recent years, a vibrant wave of independent roasters, specialty micro-cafés, and
-            architect-designed spaces have emerged in urban hubs like Dasmariñas, Imus, and General
-            Trias, alongside scenic destination spots in Silang, Tagaytay, and Alfonso. Brewscout
-            chronicles this homegrown specialty movement.
-          </p>
-        </section>
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-espresso tabular-nums">
+                12
+              </span>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                Cavite Municipalities
+              </p>
+              <p className="mt-1.5 text-xs text-muted leading-relaxed">
+                Spanning the Tagaytay Ridge, upland Silang, Amadeo heartland, and coastal roasteries.
+              </p>
+            </div>
 
-        {/* Section 3: Verification Standard */}
-        <section className="space-y-3 border-t border-line pt-8">
-          <h2 className="font-display text-2xl text-espresso">
-            Human-Verified Standard
-          </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-ink/80">
-            Every café in Brewscout’s verified directory has been individually audited against real
-            operating schedules, menu photos, and spatial coordinates. We do not use automated
-            scraping or commercial place scrapers:
-          </p>
-          <div className="rounded-2xl border border-line bg-surface p-5 text-sm text-ink/80 space-y-2">
-            <p>
-              📍 <strong>50 Hand-Verified Specialty Cafés</strong> across 12 Cavite LGUs: Tagaytay,
-              Silang, Dasmariñas, General Trias, Imus, Bacoor, Kawit, Cavite City, Amadeo, Tanza,
-              Indang, and Ternate.
-            </p>
-            <p>
-              🕒 <strong>Manila Timezone Window Validation:</strong> Operating hours are checked
-              against midnight-crossing windows and Philippine standard time.
-            </p>
-            <p>
-              📷 <strong>Ethical Photo Credits:</strong> All cafe photography originates from the
-              cafés’ public feeds with direct attribution and links to their official pages.
-            </p>
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs">
+              <span className="font-display text-3xl sm:text-4xl font-bold text-espresso tabular-nums">
+                100%
+              </span>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-accent">
+                Zero-Paid Placement
+              </p>
+              <p className="mt-1.5 text-xs text-muted leading-relaxed">
+                Unbiased field curation based solely on roast craft, spatial atmosphere, and utility.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* Section 4: Architecture & Open Source */}
-        <section className="space-y-3 border-t border-line pt-8">
-          <h2 className="font-display text-2xl text-espresso">
-            Built for Speed and Craft
-          </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-ink/80">
-            Brewscout is a portfolio project built with modern, zero-telemetry web standards:
+        {/* The Problem: What Mainstream Maps Miss */}
+        <section className="space-y-4">
+          <div className="space-y-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+              The Field Standard
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+              What Mainstream Maps Leave Unstructured
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed text-ink/85">
+            Mainstream map applications reduce cafés to star ratings and commercial franchise banners.
+            When remote workers, roasters, or road-trippers seek a destination in Cavite, they need
+            structured answers to four fundamental questions:
           </p>
-          <p className="text-sm text-muted">
-            Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · MapLibre GL with OpenFreeMap vector
-            tiles · Supabase PostGIS spatial queries · Progressive Web App (PWA).
+
+          <div className="grid gap-3.5 sm:grid-cols-2 pt-2">
+            <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-base">⚡</span>
+                <h3 className="font-semibold text-ink text-sm">Work Infrastructure</h3>
+              </div>
+              <p className="text-xs text-muted leading-relaxed">
+                Verified power outlet availability, laptop-friendly work tables, and dependable Wi-Fi
+                connections calibrated for remote work sessions.
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-base">🌙</span>
+                <h3 className="font-semibold text-ink text-sm">True Midnight Windows</h3>
+              </div>
+              <p className="text-xs text-muted leading-relaxed">
+                Evaluated in real-time Philippine Standard Time (PST), identifying 24/7 roadtrip stops and
+                evening sanctuaries open past 10 PM.
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-base">☕</span>
+                <h3 className="font-semibold text-ink text-sm">Latte Price Benchmarks</h3>
+              </div>
+              <p className="text-xs text-muted leading-relaxed">
+                Standardized latte price bands in Philippine Pesos (₱) to evaluate specialty pricing
+                tiers before arriving.
+              </p>
+            </div>
+
+            <div className="flex flex-col justify-between rounded-2xl border border-line bg-surface p-4 shadow-2xs">
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-base">🌿</span>
+                <h3 className="font-semibold text-ink text-sm">Spatial Atmosphere</h3>
+              </div>
+              <p className="text-xs text-muted leading-relaxed">
+                Classified by architectural environment: panoramic volcanic ridge caldera views,
+                secluded garden glasshouses, or quiet urban study lofts.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Cavite 3-Zone Coffee Atlas */}
+        <section className="space-y-4 border-t border-line pt-8">
+          <div className="space-y-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+              Terroir & Geography
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+              The Cavite 3-Zone Coffee Atlas
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base leading-relaxed text-ink/85">
+            Cavite holds a foundational place in Philippine coffee history. The province is divided into
+            three distinct coffee micro-regions:
           </p>
-          <div className="pt-4 flex flex-wrap gap-3">
+
+          <div className="space-y-3 pt-2">
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs space-y-1.5">
+              <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-[11px] font-semibold text-espresso uppercase tracking-wider">
+                Zone 01 · The Ridge Caldera
+              </span>
+              <h3 className="font-display text-lg font-semibold text-ink">Tagaytay & Silang Uplands</h3>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                Perched along the rim of Taal Volcano, this cool microclimate is home to architectural
+                glasshouses, lush garden hideaways, and scenic ridge roasteries designed for slow afternoons
+                and misty morning drives.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs space-y-1.5">
+              <span className="rounded-full bg-espresso/15 px-2.5 py-0.5 text-[11px] font-semibold text-espresso uppercase tracking-wider">
+                Zone 02 · The Heritage Heartland
+              </span>
+              <h3 className="font-display text-lg font-semibold text-ink">Amadeo, Alfonso & Indang</h3>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                Known as the Coffee Capital of the Philippines, Amadeo and its neighboring agrarian towns
+                are the heart of Philippine <em>Kapeng Barako</em> (Liberica) and Robusta cultivation, celebrated
+                each year at the historic <em>Pahimis Festival</em>.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs space-y-1.5">
+              <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-800 uppercase tracking-wider">
+                Zone 03 · The Urban Specialty Labs
+              </span>
+              <h3 className="font-display text-lg font-semibold text-ink">Dasmariñas, Imus & Gen. Trias</h3>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                Dynamic, fast-paced micro-roasteries and student workspace lofts near university clusters
+                and suburban hubs, pioneering calibrated espresso extraction and modern single-origin beans.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Built for Craft Call to Action */}
+        <section className="space-y-4 border-t border-line pt-8">
+          <div className="space-y-1">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+              Open Architecture
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-espresso">
+              Engineered for Speed & Precision
+            </h2>
+          </div>
+          <p className="text-sm leading-relaxed text-muted">
+            Brewscout is built with Next.js 16 (App Router with Cache Components), React 19, Supabase
+            PostGIS spatial indexing, MapLibre GL with OpenFreeMap vector tiles, and Tailwind CSS v4.
+            Progressive Web App (PWA) enabled.
+          </p>
+
+          <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 rounded-full bg-ink px-5 py-2 text-sm font-medium text-surface hover:bg-espresso transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-surface shadow-xs hover:bg-ink transition-colors"
             >
-              <span>Explore the Cafés</span>
-              <svg
-                className="size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                stroke="currentColor"
-              >
+              <span>Explore the Gazetteer</span>
+              <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
               </svg>
             </Link>
@@ -160,7 +222,7 @@ export default function AboutPage() {
               href="https://github.com/Hyuga18/Brewscout"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-5 py-2 text-sm font-medium text-ink hover:border-ink/40 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-5 py-2.5 text-sm font-semibold text-ink hover:border-ink/40 transition-colors"
             >
               <svg className="size-4" fill="currentColor" viewBox="0 0 24 24">
                 <path
