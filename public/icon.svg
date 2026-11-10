@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#2b2118"/>
+  
+  <!-- Outer subtle circular compass ring -->
+  <circle cx="256" cy="268" r="168" fill="none" stroke="#c8873a" stroke-width="4" stroke-dasharray="8 12" opacity="0.3"/>
+  
+  <!-- Scout Compass 4-point star in steam -->
+  <g fill="#c8873a">
+    <!-- North point -->
+    <path d="M256 100 L266 142 L256 160 L246 142 Z"/>
+    <!-- South point -->
+    <path d="M256 210 L266 178 L256 160 L246 178 Z" opacity="0.6"/>
+    <!-- East point -->
+    <path d="M316 160 L274 170 L256 160 L274 150 Z"/>
+    <!-- West point -->
+    <path d="M196 160 L238 170 L256 160 L238 150 Z" opacity="0.6"/>
+    <!-- Center core -->
+    <circle cx="256" cy="160" r="5" fill="#faf7f2"/>
+  </g>
+
+  <!-- Steam lines -->
+  <path d="M232 195 C226 210 236 220 230 235" fill="none" stroke="#faf7f2" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+  <path d="M280 195 C286 210 276 220 282 235" fill="none" stroke="#faf7f2" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Coffee Cup Body -->
+  <path d="M156 248 L356 248 C356 336 298 384 256 384 C214 384 156 336 156 248 Z" fill="#faf7f2"/>
+
+  <!-- Cup Handle -->
+  <path d="M352 268 C390 268 402 312 370 338 C354 350 336 348 336 348" fill="none" stroke="#faf7f2" stroke-width="24" stroke-linecap="round"/>
+
+  <!-- Coffee surface in cup -->
+  <ellipse cx="256" cy="254" rx="86" ry="12" fill="#c8873a" opacity="0.9"/>
+  
+  <!-- Saucer / Base Plate -->
+  <rect x="136" y="396" width="240" height="18" rx="9" fill="#c8873a"/>
+</svg>
