@@ -109,7 +109,10 @@ export function Explorer({ cafes, tags }: Props) {
   }, [cafes]);
 
   // Filter with pre-compiled predicate
-  const predicate = useMemo(() => createFilterPredicate(filters, savedSet), [filters, savedSet]);
+  const predicate = useMemo(
+    () => createFilterPredicate(filters, savedSet, tagsBySlug),
+    [filters, savedSet, tagsBySlug],
+  );
 
   const visible = useMemo(() => {
     const rows = cafes
@@ -267,7 +270,7 @@ export function Explorer({ cafes, tags }: Props) {
                     }
                   }}
                   aria-pressed={isActive}
-                  className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+                  className={`shrink-0 inline-flex items-center min-h-[36px] rounded-full px-3 py-1.5 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                     isActive
                       ? "bg-espresso text-paper shadow-2xs font-semibold"
                       : "bg-surface border border-line text-muted hover:border-ink/30 hover:text-ink"
@@ -418,7 +421,7 @@ export function Explorer({ cafes, tags }: Props) {
               setSheetSnap("peek");
               setMobileView("map");
             }}
-            className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex min-h-[40px] items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
               mobileView === "map" ? "bg-espresso text-paper shadow-2xs" : "text-muted hover:text-ink"
             }`}
           >
@@ -436,7 +439,7 @@ export function Explorer({ cafes, tags }: Props) {
               setSheetSnap("mid");
               setMobileView("list");
             }}
-            className={`flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
+            className={`flex min-h-[40px] items-center gap-1.5 rounded-full px-4 py-2 text-xs font-semibold transition-all cursor-pointer ${
               mobileView === "list" ? "bg-espresso text-paper shadow-2xs" : "text-muted hover:text-ink"
             }`}
           >

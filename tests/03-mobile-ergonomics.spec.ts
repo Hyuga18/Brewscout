@@ -47,5 +47,11 @@ test.describe("Mobile Touch & Ergonomics QA Suite", () => {
     if (box) {
       expect(Math.max(box.width, 36)).toBeGreaterThanOrEqual(36);
     }
+
+    const mapToggle = page.getByRole("button", { name: "Map" });
+    const mapBox = await mapToggle.boundingBox();
+    if (mapBox) {
+      expect(mapBox.height).toBeGreaterThanOrEqual(36);
+    }
   });
 });
