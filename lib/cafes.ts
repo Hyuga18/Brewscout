@@ -1,4 +1,6 @@
 import { cacheLife } from "next/cache";
+import { getCuratedCover, getCuratedPhotos } from "./cafe-photos";
+import { getCuratedSocials } from "./cafe-socials";
 import { parsePoint } from "./geo";
 import { isSupabaseConfigured, photoUrl, supabase } from "./supabase";
 
@@ -78,6 +80,7 @@ export async function getCafes(): Promise<CafeSummary[]> {
   return (near.data as NearRow[]).map((row) => {
     const extra = extrasById.get(row.id);
     const cover = extra?.photos.find((p) => p.is_cover) ?? extra?.photos[0];
+    const remoteCoverUrl = cover?.storage_path ? photoUrl(cover.storage_path) : null;
     return {
       id: row.id,
       name: row.name,
@@ -89,7 +92,7 @@ export async function getCafes(): Promise<CafeSummary[]> {
       priceMax: row.price_max,
       openNow: row.open_now,
       tags: extra?.cafe_tags.flatMap((ct) => (ct.tags ? [ct.tags.slug] : [])) ?? [],
-      coverUrl: cover ? photoUrl(cover.storage_path) : null,
+      coverUrl: remoteCoverUrl || getCuratedCover(row.slug),
     };
   });
 }
@@ -127,6 +130,10 @@ type DetailRow = {
   photos: { storage_path: string; credit: string; source_url: string | null; is_cover: boolean }[];
 };
 
+import { computeIsOpenNow } from "./format";
+
+export { computeIsOpenNow };
+
 export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   "use cache";
   cacheLife("minutes");
@@ -150,14 +157,21 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
   if (!data) return null;
 
   const row = data as unknown as DetailRow;
-  const { data: openNow, error: openError } = await supabase.rpc("is_open_now", { p_cafe_id: row.id });
-  if (openError) throw new Error(`Failed to check opening hours: ${openError.message}`);
+  const openNow = computeIsOpenNow(row.cafe_hours, row.is_24h);
 
   const { lat, lng } = parsePoint(row.location);
   const tagDetails = row.cafe_tags.flatMap((ct) => (ct.tags ? [ct.tags] : []));
   const photos = [...row.photos]
     .sort((a, b) => Number(b.is_cover) - Number(a.is_cover))
     .map((p) => ({ url: photoUrl(p.storage_path), credit: p.credit, sourceUrl: p.source_url, isCover: p.is_cover }));
+
+  const effectivePhotos = photos.length > 0 ? photos : getCuratedPhotos(row.slug);
+  const coverUrl = effectivePhotos.find((p) => p.isCover)?.url ?? effectivePhotos[0]?.url ?? null;
+
+  const curatedSocials = getCuratedSocials(row.slug);
+  const fbUrl = row.fb_url || curatedSocials?.fbUrl || null;
+  const igUrl = row.ig_url || curatedSocials?.igUrl || null;
+  const website = row.website || curatedSocials?.website || null;
 
   return {
     id: row.id,
@@ -170,18 +184,18 @@ export async function getCafeBySlug(slug: string): Promise<CafeDetail | null> {
     priceMax: row.price_max,
     openNow: Boolean(openNow),
     tags: tagDetails.map((t) => t.slug),
-    coverUrl: photos[0]?.url ?? null,
+    coverUrl,
     address: row.address,
     description: row.description,
     isChain: row.is_chain,
     is24h: row.is_24h,
-    fbUrl: row.fb_url,
-    igUrl: row.ig_url,
-    website: row.website,
+    fbUrl,
+    igUrl,
+    website,
     hours: row.cafe_hours
       .map((h) => ({ dayOfWeek: h.day_of_week, opens: h.opens, closes: h.closes }))
       .sort((a, b) => a.dayOfWeek - b.dayOfWeek || a.opens.localeCompare(b.opens)),
     tagDetails,
-    photos,
+    photos: effectivePhotos,
   };
 }

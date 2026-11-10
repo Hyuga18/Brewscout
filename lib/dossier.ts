@@ -17,18 +17,18 @@ export function extractAmenities(cafe: CafeDetail): Amenity[] {
     ? {
         id: "wifi",
         label: "Wi-Fi Connectivity",
-        value: "Verified Fast Wi-Fi",
+        value: "Fast Wi-Fi Verified",
         status: "positive",
         icon: "wifi",
-        note: "Suitable for video calls & remote work",
+        note: "Suitable for remote work and browsing",
       }
     : {
         id: "wifi",
         label: "Wi-Fi Connectivity",
-        value: "Standard / Mobile Hotspot",
+        value: "Not verified yet",
         status: "neutral",
         icon: "wifi",
-        note: "Public connection or mobile hotspot recommended",
+        note: "Check with staff or bring a mobile hotspot",
       };
 
   // 2. Power Outlets
@@ -36,18 +36,18 @@ export function extractAmenities(cafe: CafeDetail): Amenity[] {
     ? {
         id: "power",
         label: "Power Outlets",
-        value: "Plentiful Wall & Bar Outlets",
+        value: "Outlets Available",
         status: "positive",
         icon: "power",
-        note: "Work tables and bar seats equipped with outlets",
+        note: "Accessible power outlets for charging devices",
       }
     : {
         id: "power",
         label: "Power Outlets",
-        value: "Limited Power Points",
-        status: "caution",
+        value: "Not verified yet",
+        status: "neutral",
         icon: "power",
-        note: "Arrive with batteries charged",
+        note: "Arrive with charged devices or ask staff upon arrival",
       };
 
   // 3. Work & Seating Vibe
@@ -55,36 +55,36 @@ export function extractAmenities(cafe: CafeDetail): Amenity[] {
     ? {
         id: "seat",
         label: "Workspace Vibe",
-        value: "Laptop-Friendly Ergonomics",
+        value: "Laptop-Friendly",
         status: "positive",
         icon: "seat",
-        note: "Comfortable work height and productive ambience",
+        note: "Conducive environment for study and remote work",
       }
     : tags.has("with-view")
     ? {
         id: "seat",
         label: "Atmosphere",
-        value: "Taal Ridge Caldera View",
+        value: cafe.city === "Tagaytay" ? "Taal Ridge Caldera View" : "Scenic Outdoor View",
         status: "positive",
         icon: "seat",
-        note: "Scenic ridge vistas; great for reading and leisure",
+        note: "Scenic vista setting; great for relaxation",
       }
     : tags.has("al-fresco")
     ? {
         id: "seat",
         label: "Seating Layout",
-        value: "Open-Air Garden Deck",
+        value: "Al Fresco / Open-Air",
         status: "positive",
         icon: "seat",
-        note: "Breezy al fresco seating surrounded by greenery",
+        note: "Outdoor or semi-outdoor patio seating",
       }
     : {
         id: "seat",
         label: "Atmosphere",
-        value: "Casual Café Seating",
+        value: "Standard Indoor Seating",
         status: "neutral",
         icon: "seat",
-        note: "Standard dining chairs and social tables",
+        note: "Regular dining and café tables",
       };
 
   // 4. Parking
@@ -92,18 +92,18 @@ export function extractAmenities(cafe: CafeDetail): Amenity[] {
     ? {
         id: "parking",
         label: "Parking & Access",
-        value: "Dedicated On-Site Parking",
+        value: "Customer Parking Available",
         status: "positive",
         icon: "parking",
-        note: "Customer vehicle slots available directly at venue",
+        note: "Dedicated parking slots or parking area on site",
       }
     : {
         id: "parking",
         label: "Parking & Access",
-        value: "Roadside / Public Access",
+        value: "Not verified yet",
         status: "neutral",
         icon: "parking",
-        note: "Street parking or nearby commercial pay lots",
+        note: "Street parking or commercial parking nearby",
       };
 
   // 5. Pet Friendliness
@@ -111,46 +111,46 @@ export function extractAmenities(cafe: CafeDetail): Amenity[] {
     ? {
         id: "pet",
         label: "Pet Policy",
-        value: "Pet-Friendly Venue",
+        value: "Pet-Friendly",
         status: "positive",
         icon: "pet",
-        note: "Welcomes leashed pets in designated outdoor zones",
+        note: "Welcomes leashed pets in designated areas",
       }
     : {
         id: "pet",
         label: "Pet Policy",
-        value: "Indoor Restrictions",
+        value: "Not verified yet",
         status: "neutral",
         icon: "pet",
-        note: "Confirm with staff for al fresco pet guidelines",
+        note: "Check with café before bringing pets",
       };
 
   // 6. Coffee Sourcing
   const coffee: Amenity = tags.has("local-beans")
     ? {
         id: "coffee",
-        label: "Bean Terroir",
-        value: "Cavite Heritage Beans",
+        label: "Bean Sourcing",
+        value: "Local Cavite Beans",
         status: "positive",
         icon: "coffee",
-        note: "Features local Amadeo Liberica (Barako) / Robusta origins",
+        note: "Features local Barako (Liberica) or regional Robusta/Arabica",
       }
     : tags.has("specialty")
     ? {
         id: "coffee",
         label: "Brew Standard",
-        value: "Specialty Grade (80+)",
+        value: "Specialty Coffee",
         status: "positive",
         icon: "coffee",
-        note: "Single-origin pour-overs and calibrated espresso",
+        note: "Dedicated espresso and manual brew offerings",
       }
     : {
         id: "coffee",
         label: "Coffee Program",
-        value: "House Espresso Roast",
+        value: "House Espresso & Brews",
         status: "neutral",
         icon: "coffee",
-        note: "Classic espresso and milk-based favorites",
+        note: "Standard espresso menu and iced coffee drinks",
       };
 
   return [wifi, power, seating, parking, pet, coffee];
@@ -161,13 +161,16 @@ export function getAmbientHeroBadge(cafe: CafeDetail): {
   tone: "ridge" | "work" | "specialty" | "night" | "cozy";
 } {
   const tags = new Set(cafe.tags);
-  if (tags.has("with-view")) return { label: "Taal Ridge Caldera View", tone: "ridge" };
+  if (tags.has("with-view")) {
+    return {
+      label: cafe.city === "Tagaytay" ? "Taal Ridge Caldera View" : "Scenic Vista Café",
+      tone: "ridge",
+    };
+  }
   if (tags.has("fast-wifi") && tags.has("outlets")) return { label: "Verified Focus Haven", tone: "work" };
-  if (tags.has("specialty") || tags.has("local-beans"))
-    return { label: "Specialty Coffee Roastery", tone: "specialty" };
-  if (tags.has("open-late") || cafe.is24h)
-    return { label: "Late-Night Espresso Sanctuary", tone: "night" };
-  if (tags.has("cozy") || tags.has("aesthetic"))
-    return { label: "Artisanal Architectural Space", tone: "cozy" };
+  if (tags.has("local-beans")) return { label: "Cavite Heritage Beans", tone: "specialty" };
+  if (tags.has("specialty")) return { label: "Specialty Coffee Bar", tone: "specialty" };
+  if (tags.has("open-late") || cafe.is24h) return { label: "Late-Night Espresso Nook", tone: "night" };
+  if (tags.has("cozy") || tags.has("aesthetic")) return { label: "Cozy Neighborhood Café", tone: "cozy" };
   return { label: "Independent Cavite Café", tone: "specialty" };
 }

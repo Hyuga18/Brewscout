@@ -199,7 +199,7 @@ export default function AboutPage() {
 
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
-              href="/"
+              href="/explore"
               className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-semibold text-paper shadow-xs hover:bg-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
               <span>Explore the Gazetteer</span>
