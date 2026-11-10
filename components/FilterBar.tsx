@@ -9,15 +9,16 @@ type Props = {
   cities: string[];
   tags: Tag[];
   locating: boolean;
+  savedCount?: number;
   onChange: (next: Filters) => void;
 };
 
 const chip =
-  "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs sm:text-sm font-medium transition-all cursor-pointer select-none";
+  "shrink-0 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 min-h-[36px] text-xs sm:text-sm font-medium transition-all cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 const chipOn = "border-espresso bg-espresso text-paper shadow-xs ring-1 ring-espresso/30";
 const chipOff = "border-line bg-surface text-ink hover:border-ink/40";
 
-export function FilterBar({ filters, cities, tags, locating, onChange }: Props) {
+export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onChange }: Props) {
   const [searchInput, setSearchInput] = useState(filters.query);
   const [prevQuery, setPrevQuery] = useState(filters.query);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -38,9 +39,10 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
     return () => clearTimeout(timer);
   }, [searchInput, filters, onChange]);
 
-  // Keyboard shortcut: '/' focuses search
+  // Keyboard shortcut: '/' focuses search (guards against browser modifier shortcuts)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (
         e.key === "/" &&
         !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName ?? "") &&
@@ -75,7 +77,7 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
 
   return (
     <div className="flex flex-col gap-2.5">
-      {/* Debounced Search with Warm Focus Ring & Keyboard Shortcut */}
+      {/* Debounced Search with Warm Focus Ring & WCAG-Compliant Placeholder */}
       <div className="relative flex items-center">
         <svg
           className="pointer-events-none absolute left-3.5 size-4 text-muted"
@@ -99,7 +101,7 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Search cafés, cities, vibes… (Press '/' to focus)"
-          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-10 text-sm text-ink placeholder:text-muted/70 transition-all focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-2xs"
+          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-10 text-sm text-ink placeholder:text-muted transition-all focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-2xs"
         />
         {searchInput && (
           <button
@@ -108,7 +110,7 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
               setSearchInput("");
               onChange({ ...filters, query: "" });
             }}
-            className="absolute right-1.5 flex size-9 items-center justify-center rounded-full text-muted hover:bg-line/60 hover:text-ink cursor-pointer"
+            className="absolute right-1.5 flex size-9 items-center justify-center rounded-full text-muted hover:bg-line/60 hover:text-ink cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             aria-label="Clear search"
           >
             <svg
@@ -143,6 +145,7 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -153,21 +156,18 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
           <span>{locating ? "Locating…" : "Near me"}</span>
         </button>
 
-        {/* Open Now with Emerald Live Pulse */}
+        {/* Open Now with Calm Status Dot (No Distracting Flashing) */}
         <button
           type="button"
           onClick={() => onChange({ ...filters, openNow: !filters.openNow })}
           className={`${chip} ${
             filters.openNow
-              ? "border-open/40 bg-[#edf7f1] text-open font-semibold ring-1 ring-open/30"
+              ? "border-open/40 bg-open-bg text-open font-semibold ring-1 ring-open/30"
               : chipOff
           }`}
           aria-pressed={filters.openNow}
         >
-          <span className="relative flex size-2 items-center justify-center">
-            {filters.openNow && (
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-open opacity-75" />
-            )}
+          <span className="flex size-1.5 rounded-full shrink-0" aria-hidden="true">
             <span
               className={`size-1.5 rounded-full ${
                 filters.openNow ? "bg-open" : "bg-muted/60"
@@ -175,6 +175,49 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
             />
           </span>
           <span>Open now</span>
+        </button>
+
+        {/* Scoutlist with Live Saved Count */}
+        <button
+          type="button"
+          onClick={() => onChange({ ...filters, savedOnly: !filters.savedOnly })}
+          aria-label={
+            savedCount > 0
+              ? `Scoutlist, ${savedCount} saved ${savedCount === 1 ? "café" : "cafés"}`
+              : "Scoutlist"
+          }
+          aria-pressed={filters.savedOnly}
+          className={`${chip} ${
+            filters.savedOnly
+              ? "border-accent bg-accent/15 text-espresso font-semibold ring-1 ring-accent/30"
+              : chipOff
+          }`}
+        >
+          <svg
+            aria-hidden="true"
+            className={`size-3.5 transition-transform duration-200 ${
+              filters.savedOnly ? "fill-accent stroke-accent" : "fill-none stroke-currentColor"
+            }`}
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+          </svg>
+          <span>Scoutlist</span>
+          {savedCount > 0 && (
+            <span
+              aria-hidden="true"
+              className={`flex h-4 min-w-4 px-1 items-center justify-center rounded-full text-[10px] font-bold ${
+                filters.savedOnly
+                  ? "bg-accent text-paper"
+                  : "bg-line/80 text-muted"
+              }`}
+            >
+              {savedCount}
+            </span>
+          )}
         </button>
 
         {/* City Filter */}
@@ -232,12 +275,13 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
         <button
           type="button"
           onClick={() => setDrawerOpen(!drawerOpen)}
+          aria-controls="vibes-filter-drawer"
+          aria-expanded={drawerOpen}
           className={`${chip} ${
             activeTagCount > 0
               ? "border-accent bg-accent/15 text-espresso font-semibold"
               : chipOff
           }`}
-          aria-expanded={drawerOpen}
         >
           <span>Vibes</span>
           {activeTagCount > 0 && (
@@ -253,21 +297,30 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
             fill="none"
             stroke="currentColor"
             strokeWidth="2.5"
+            aria-hidden="true"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
           </svg>
         </button>
       </div>
 
-      {/* Categorized Tag Drawer */}
+      {/* Categorized Tag Drawer (No Emojis - Authored SVG Line Icons) */}
       {drawerOpen && (
-        <div className="mt-1 flex flex-col gap-3 rounded-2xl border border-line bg-surface p-3.5 shadow-xs">
+        <div
+          id="vibes-filter-drawer"
+          className="mt-1 flex flex-col gap-3 rounded-2xl border border-line bg-surface p-3.5 shadow-xs"
+        >
           {/* Work & Study */}
           {categorized.work.length > 0 && (
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                💻 Work & Study
-              </span>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                <svg className="size-3.5 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+                <span>Work & Study</span>
+              </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {categorized.work.map((tag) => {
                   const on = filters.tags.includes(tag.slug);
@@ -276,7 +329,8 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
                       key={tag.slug}
                       type="button"
                       onClick={() => toggleTag(tag.slug)}
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
+                      aria-pressed={on}
+                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                         on
                           ? "bg-espresso text-paper shadow-2xs"
                           : "bg-surface-sub text-ink hover:bg-line/60"
@@ -293,9 +347,15 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
           {/* Coffee & Craft */}
           {categorized.coffee.length > 0 && (
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                ☕ Coffee & Craft
-              </span>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                <svg className="size-3.5 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                  <line x1="6" y1="1" x2="6" y2="4" />
+                  <line x1="10" y1="1" x2="10" y2="4" />
+                </svg>
+                <span>Coffee & Craft</span>
+              </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {categorized.coffee.map((tag) => {
                   const on = filters.tags.includes(tag.slug);
@@ -304,7 +364,8 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
                       key={tag.slug}
                       type="button"
                       onClick={() => toggleTag(tag.slug)}
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
+                      aria-pressed={on}
+                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                         on
                           ? "bg-espresso text-paper shadow-2xs"
                           : "bg-surface-sub text-ink hover:bg-line/60"
@@ -321,9 +382,12 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
           {/* Vibe & Atmosphere */}
           {categorized.vibe.length > 0 && (
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                ✨ Vibe & Atmosphere
-              </span>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                <svg className="size-3.5 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+                <span>Vibe & Atmosphere</span>
+              </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {categorized.vibe.map((tag) => {
                   const on = filters.tags.includes(tag.slug);
@@ -332,7 +396,8 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
                       key={tag.slug}
                       type="button"
                       onClick={() => toggleTag(tag.slug)}
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
+                      aria-pressed={on}
+                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                         on
                           ? "bg-espresso text-paper shadow-2xs"
                           : "bg-surface-sub text-ink hover:bg-line/60"
@@ -346,12 +411,16 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
             </div>
           )}
 
-          {/* Hours & Practical */}
+          {/* Practical Amenities */}
           {(categorized.hours.length > 0 || categorized.practical.length > 0) && (
             <div>
-              <span className="text-[11px] font-semibold uppercase tracking-wider text-muted">
-                🚗 Practical Amenities
-              </span>
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted">
+                <svg className="size-3.5 text-espresso" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+                <span>Practical Amenities</span>
+              </div>
               <div className="mt-1.5 flex flex-wrap gap-1.5">
                 {[...categorized.hours, ...categorized.practical].map((tag) => {
                   const on = filters.tags.includes(tag.slug);
@@ -360,7 +429,8 @@ export function FilterBar({ filters, cities, tags, locating, onChange }: Props) 
                       key={tag.slug}
                       type="button"
                       onClick={() => toggleTag(tag.slug)}
-                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer ${
+                      aria-pressed={on}
+                      className={`rounded-full px-2.5 py-1 text-xs font-medium transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                         on
                           ? "bg-espresso text-paper shadow-2xs"
                           : "bg-surface-sub text-ink hover:bg-line/60"

@@ -95,7 +95,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
         attributionControl: { compact: true },
         ...CAVITE_VIEW,
       });
-      map.scrollZoom.setWheelZoomRate(1 / 400);
+      map.scrollZoom.setWheelZoomRate(1 / 600);
       map.scrollZoom.setZoomRate(1 / 100);
 
       map.addControl(new maplibre.NavigationControl({ showCompass: false }), "top-right");
@@ -171,6 +171,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
         el.style.zIndex = "40";
       }
     }
+    const isNewSelection = prevSelectedIdRef.current !== selectedId;
     prevSelectedIdRef.current = selectedId;
 
     const cafe = cafes.find((c) => c.id === selectedId);
@@ -179,19 +180,25 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
       return;
     }
 
-    const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
-    map.easeTo({
-      center: [cafe.lng, cafe.lat],
-      zoom: Math.max(map.getZoom(), 13.5),
-      duration: 600,
-      padding: {
-        left: 32,
-        bottom: !isDesktop ? 260 : 32,
-        top: 32,
-        right: 32,
-      },
-      essential: true,
-    });
+    if (isNewSelection) {
+      const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+      const reducedMotion =
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      map.easeTo({
+        center: [cafe.lng, cafe.lat],
+        zoom: Math.max(map.getZoom(), 13.5),
+        duration: reducedMotion ? 0 : 500,
+        padding: {
+          left: 32,
+          bottom: !isDesktop ? 260 : 32,
+          top: 32,
+          right: 32,
+        },
+        essential: true,
+      });
+    }
 
     // Rich popup micro-card with DOM construction (Zero innerHTML XSS vector)
     const popupEl = document.createElement("div");
@@ -202,11 +209,11 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
 
     const badge = document.createElement("span");
     badge.className = `inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-      cafe.openNow ? "bg-[#edf7f1] text-[#24633e]" : "bg-neutral-100 text-neutral-600"
+      cafe.openNow ? "bg-[#edf7f1] text-[#205c38]" : "bg-neutral-100 text-neutral-600"
     }`;
     const badgeDot = document.createElement("span");
     badgeDot.className = `size-1.5 rounded-full ${
-      cafe.openNow ? "bg-[#24633e]" : "bg-neutral-400"
+      cafe.openNow ? "bg-[#205c38]" : "bg-neutral-400"
     }`;
     badge.appendChild(badgeDot);
     badge.appendChild(document.createTextNode(cafe.openNow ? "Open now" : "Closed"));
@@ -230,7 +237,7 @@ export function CafeMap({ cafes, selectedId, hoveredId, userLocation, onSelect }
     const link = document.createElement("a");
     link.href = `/cafe/${cafe.slug}`;
     link.className =
-      "mt-2.5 block w-full rounded-lg bg-[#5c351b] py-1.5 text-center text-xs font-semibold text-white shadow-2xs hover:bg-[#1f1610] transition-colors";
+      "mt-2.5 block w-full rounded-lg bg-[#5c351b] py-1.5 text-center text-xs font-semibold text-white shadow-2xs hover:bg-[#1f1610] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
     link.textContent = "View Dossier →";
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -371,17 +378,25 @@ function syncUserLocation(
   location: LatLng | null,
   userMarkerRef: React.MutableRefObject<Marker | null>,
 ) {
-  if (userMarkerRef.current) {
-    userMarkerRef.current.remove();
-    userMarkerRef.current = null;
+  if (!location) {
+    if (userMarkerRef.current) {
+      userMarkerRef.current.remove();
+      userMarkerRef.current = null;
+    }
+    return;
   }
-  if (!location) return;
+
+  // Smoothly update coordinates without destroying DOM element if marker already exists
+  if (userMarkerRef.current) {
+    userMarkerRef.current.setLngLat([location.lng, location.lat]);
+    return;
+  }
 
   const el = document.createElement("div");
   el.className = "brewscout-marker relative flex items-center justify-center size-6";
 
   const ping = document.createElement("span");
-  ping.className = "absolute inline-flex size-full animate-ping rounded-full bg-blue-400 opacity-75";
+  ping.className = "absolute inline-flex size-full animate-ping rounded-full bg-blue-400 opacity-75 motion-reduce:hidden";
 
   const core = document.createElement("span");
   core.className = "relative inline-flex size-3.5 rounded-full border-2 border-white bg-blue-600 shadow-sm";

@@ -46,11 +46,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
       <body className="flex min-h-dvh lg:h-dvh lg:overflow-y-auto flex-col font-sans bg-paper text-ink selection:bg-accent/20 selection:text-espresso">
         {/* Editorial Masthead Header */}
-        <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center justify-between border-b border-line bg-paper/95 px-4 sm:px-6 backdrop-blur-md">
+        <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center justify-between border-b border-line bg-paper px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="group flex items-center gap-2 font-display text-xl text-espresso tracking-tight transition-transform hover:opacity-90 active:scale-98"
+              className="group flex items-center gap-2 font-display text-xl text-espresso tracking-tight transition-transform hover:opacity-90 active:scale-98 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
             >
               {/* Compass / Scout Emblem */}
               <svg
@@ -69,21 +69,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               </svg>
               <span className="font-semibold text-espresso">Brewscout</span>
             </Link>
-            <span className="hidden sm:inline-block rounded-full border border-line bg-surface px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-muted">
-              Cavite Gazetteer
-            </span>
           </div>
 
           <nav aria-label="Main navigation" className="flex items-center gap-4 text-xs sm:text-sm font-medium">
             <Link
               href="/"
-              className="text-muted hover:text-ink transition-colors"
+              className="text-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
             >
               Explorer
             </Link>
             <Link
               href="/about"
-              className="text-muted hover:text-ink transition-colors"
+              className="text-muted hover:text-ink transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
             >
               Field Guide
             </Link>

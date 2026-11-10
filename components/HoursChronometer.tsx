@@ -1,3 +1,4 @@
+import { OpenBadge } from "./OpenBadge";
 import type { CafeDetail } from "@/lib/cafes";
 import { DAY_NAMES, formatTime, manilaDayOfWeek } from "@/lib/format";
 
@@ -5,11 +6,8 @@ export function HoursChronometer({ cafe }: { cafe: CafeDetail }) {
   if (cafe.is24h) {
     return (
       <div className="rounded-2xl border border-line bg-surface p-5 shadow-2xs">
-        <div className="flex items-center gap-2.5 text-open font-semibold text-sm">
-          <span className="relative flex size-2.5">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-open opacity-75" />
-            <span className="relative inline-flex size-2.5 rounded-full bg-open" />
-          </span>
+        <div className="flex items-center gap-2 text-open font-semibold text-sm">
+          <span className="size-2 rounded-full bg-open" aria-hidden="true" />
           <span>Open 24 Hours, 7 Days a Week</span>
         </div>
         <p className="mt-1.5 text-xs text-muted leading-relaxed">
@@ -36,17 +34,10 @@ export function HoursChronometer({ cafe }: { cafe: CafeDetail }) {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line/60 pb-3">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Today ({DAY_NAMES[today]})
+            <span className="text-xs font-semibold text-ink">
+              Today · {DAY_NAMES[today]}
             </span>
-            <span
-              className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-                cafe.openNow ? "bg-[#edf7f1] text-open" : "bg-ink/5 text-muted"
-              }`}
-            >
-              <span className={`size-1.5 rounded-full ${cafe.openNow ? "bg-open" : "bg-muted/60"}`} />
-              {cafe.openNow ? "Open Now" : "Currently Closed"}
-            </span>
+            <OpenBadge open={cafe.openNow} compact />
           </div>
           <div className="mt-1 text-base font-semibold text-ink tabular-nums">
             {todayHours.length > 0
@@ -90,7 +81,7 @@ export function HoursChronometer({ cafe }: { cafe: CafeDetail }) {
                 <div
                   key={idx}
                   style={{ left: `${leftPct}%`, width: `${widthPct}%` }}
-                  className="absolute top-0 bottom-0 rounded-full bg-gradient-to-r from-accent to-espresso"
+                  className="absolute top-0 bottom-0 rounded-full bg-espresso"
                 />
               );
             })}
@@ -122,7 +113,7 @@ export function HoursChronometer({ cafe }: { cafe: CafeDetail }) {
                       .map((w) => {
                         const isOvernight = w.closes < w.opens;
                         return `${formatTime(w.opens)}–${formatTime(w.closes)}${
-                          isOvernight ? "*" : ""
+                          isOvernight ? " (+1d)" : ""
                         }`;
                       })
                       .join(", ")
@@ -132,9 +123,6 @@ export function HoursChronometer({ cafe }: { cafe: CafeDetail }) {
           );
         })}
       </dl>
-      <div className="pt-1 text-[11px] text-muted font-medium">
-        * Windows ending after midnight continue into the following morning. All hours in Asia/Manila (PST).
-      </div>
     </div>
   );
 }
