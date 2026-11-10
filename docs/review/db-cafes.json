@@ -1,0 +1,2725 @@
+[
+  {
+    "id": "a9ac8186-3b51-425c-ba9a-9d733567e455",
+    "name": "16th Cent Koffie",
+    "slug": "16th-cent-koffie",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "062c92be-dc46-46ab-9f66-1c4b3f39a4a0",
+    "name": "1999 Coffee",
+    "slug": "1999-coffee",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "3e6881e0-4fb9-4c20-b90e-93167b4c27ed",
+    "name": "2nd Coffee",
+    "slug": "2nd-coffee",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "ff08ce82-f371-44fa-9a82-6000a620d2e6",
+    "name": "322 Internet Cafe",
+    "slug": "322-internet-cafe-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "2d33a6b5-f2e2-4277-9f3d-36bd7b466d4c",
+    "name": "39ers Milk Tea",
+    "slug": "39ers-milk-tea",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "83850dec-463d-4f58-aaaa-7f691b03a7ad",
+    "name": "39ers Milktea Coffee and Snacks",
+    "slug": "39ers-milktea-coffee-and-snacks-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "e1ae97b7-52f3-441d-a76a-bbfb93ca4cde",
+    "name": "7MJ Arts and Drafts Biz Cafe",
+    "slug": "7mj-arts-and-drafts-biz-cafe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "283b1468-de17-4c73-9e7c-cc9d32867d20",
+    "name": "A & A's Coffee",
+    "slug": "a-and-as-coffee",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "96099da6-1d6a-4885-9ae7-b983c74bc9ba",
+    "name": "A Perfect Spot Cafe",
+    "slug": "a-perfect-spot-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f2efca82-294c-41b3-8878-e1925893f6e6",
+    "name": "Adel,s native Products",
+    "slug": "adel-s-native-products-alfonso",
+    "city": "Alfonso",
+    "status": "unverified"
+  },
+  {
+    "id": "0cbcb438-aeb5-43f1-8a94-b2c12d79a9fa",
+    "name": "Aisea Gaming",
+    "slug": "aisea-gaming-mendez",
+    "city": "Mendez",
+    "status": "unverified"
+  },
+  {
+    "id": "b72d12ec-6559-43be-ba2d-3535c1f83f9b",
+    "name": "Alab Grounds",
+    "slug": "alab-grounds",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "e1d362ca-6a82-4564-bd55-53188ee91d26",
+    "name": "Almigz Secial Binalot",
+    "slug": "almigz-secial-binalot-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "e7f97d52-8730-402a-827e-ad26fec62f87",
+    "name": "Anabrew St.",
+    "slug": "anabrew-st-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "8a24eaa7-c659-40d0-9ba2-19583f9d44f6",
+    "name": "Anj' Cafe",
+    "slug": "anj-cafe",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "4f959976-0fad-4cfc-a632-01e310e5388e",
+    "name": "Aroma Brew Coffee",
+    "slug": "aroma-brew-coffee",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "ece559db-b845-4603-9bc1-732110f28535",
+    "name": "Autumn Leaves Cafe",
+    "slug": "autumn-leaves-cafe",
+    "city": "Noveleta",
+    "status": "unverified"
+  },
+  {
+    "id": "41d71494-52c5-4bc8-9c5b-2048f2c84b23",
+    "name": "B1T1 Takeaway Coffee",
+    "slug": "b1t1-takeaway-coffee",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "73db05fd-233c-4603-8c23-ae0ff558c192",
+    "name": "B1T1 Takeaway Coffee",
+    "slug": "b1t1-takeaway-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2a0b06fe-591b-4431-823b-a6b455b9901b",
+    "name": "Baba Thai Tea",
+    "slug": "baba-thai-tea-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "9fafdb0c-ef10-4489-b396-7f05ea7dc922",
+    "name": "Backwaren und Cafe",
+    "slug": "backwaren-und-cafe",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "b3304837-abb3-4411-9bea-fd5918f9c7a8",
+    "name": "Bag of Beans",
+    "slug": "bag-of-beans",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "6a47ab93-0976-4463-ba0e-81ed9cba6cab",
+    "name": "Bag of Beans",
+    "slug": "bag-of-beans-2",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "6d156633-059b-4f4d-87cc-cd380f744d8e",
+    "name": "Baker's District",
+    "slug": "bakers-district-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "dcb2a33f-b559-4e2f-be1f-d8310cc06ea5",
+    "name": "Barbs.",
+    "slug": "barbs",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "e0ad6d98-508f-463c-b674-0eaafaced53c",
+    "name": "Bari Cafe",
+    "slug": "bari-cafe",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "b3c5d523-fe8b-490a-925f-4109f9a1db6c",
+    "name": "Barista Loft",
+    "slug": "barista-loft",
+    "city": "Tagaytay",
+    "status": "verified"
+  },
+  {
+    "id": "93d562e7-cbe0-4d72-b58d-ad8d684cfeea",
+    "name": "Bean and Butter",
+    "slug": "bean-and-butter-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "be28a527-b2c8-4f38-a2e1-02fb909386f7",
+    "name": "Bean Street Coffee",
+    "slug": "bean-street-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "005337f5-6648-4e79-aba6-eaf7346f9193",
+    "name": "Bean Town Cafe",
+    "slug": "bean-town-cafe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "cb424701-90ce-4d40-856d-bb2d0e9d1ae7",
+    "name": "Beantage Coffee",
+    "slug": "beantage-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "84e76a37-9492-40c5-b350-5fccf4e2f097",
+    "name": "Beany Coffee",
+    "slug": "beany-coffee-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "ac086027-58bf-4e5b-9f93-f05e24776812",
+    "name": "Bee Tea Coffee",
+    "slug": "bee-tea-coffee-general-mariano-alvarez",
+    "city": "General Mariano Alvarez",
+    "status": "unverified"
+  },
+  {
+    "id": "aa7c5065-efd8-4df8-b1c2-e0a74bff1613",
+    "name": "Bestea",
+    "slug": "bestea-2",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "3d4d2189-8222-47e3-a9a6-50f469115a68",
+    "name": "BesTea",
+    "slug": "bestea",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "18967335-bbf2-4a14-94ce-c3a046b248a6",
+    "name": "Big Brew",
+    "slug": "big-brew-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "009ba240-0d4b-4427-a48e-39b3fa0eec49",
+    "name": "Big Brew",
+    "slug": "big-brew",
+    "city": "General Emilio Aguinaldo",
+    "status": "unverified"
+  },
+  {
+    "id": "0d7bb978-cdfd-455d-8038-a36347dce9f4",
+    "name": "Big Brew Cafe",
+    "slug": "big-brew-cafe-magallanes",
+    "city": "Magallanes",
+    "status": "unverified"
+  },
+  {
+    "id": "6fa738e8-5270-4133-b5e3-1b83a7cc3f8f",
+    "name": "Big Dreams Coffee",
+    "slug": "big-dreams-coffee",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "b00d8dc5-520f-4364-8159-0c1cb0c76fdc",
+    "name": "Bike and Brew Club",
+    "slug": "bike-and-brew-club-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "d870c36f-56e5-492f-b79f-e9b095e83224",
+    "name": "Biker's Yard and Cafe",
+    "slug": "bikers-yard-and-cafe",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "3a6c4862-fbdc-4e01-a2f9-9706ff6df324",
+    "name": "Bing Cha Manila",
+    "slug": "bing-cha-manila-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "c19f2629-a879-4d3a-bdc5-ca57e5a6109c",
+    "name": "Bites & Brew",
+    "slug": "bites-and-brew",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "59294f45-f2b1-4eac-ae21-5d9088478b43",
+    "name": "Bliss Tea House",
+    "slug": "bliss-tea-house",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "4ef99594-9e10-4feb-8e57-d5e260a7c826",
+    "name": "Bo's Coffee",
+    "slug": "bos-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "8ca167a5-8fcb-4532-b569-eda059ca25fc",
+    "name": "Bobah",
+    "slug": "bobah-general-mariano-alvarez",
+    "city": "General Mariano Alvarez",
+    "status": "unverified"
+  },
+  {
+    "id": "923d764d-5950-49de-bf0c-6b6dc4b5bd4a",
+    "name": "Bon Appetea",
+    "slug": "bon-appetea-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "5c91a86c-f8f4-4fee-9703-bcd75d0f3013",
+    "name": "Bon Appetea",
+    "slug": "bon-appetea",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f0ed139b-f079-46cd-8a7a-6393cfc0f562",
+    "name": "Bonjour",
+    "slug": "bonjour",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "2c5e1151-5675-4888-9741-a8d17db5de50",
+    "name": "Brainstorms and Brews",
+    "slug": "brainstorms-and-brews-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "8c279425-05c2-41ff-ad1d-29b2e85c0ff6",
+    "name": "Brew 93°",
+    "slug": "brew-93",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "6def0035-b356-4c87-9e55-3c207d119eca",
+    "name": "Brewed Awakening",
+    "slug": "brewed-awakening",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "42458592-1b5d-4948-87f0-bcaea14cb8f5",
+    "name": "Brother's Nook",
+    "slug": "brothers-nook-carmona",
+    "city": "Carmona",
+    "status": "unverified"
+  },
+  {
+    "id": "58cd643a-59ad-4fac-94e1-a642ad2fd408",
+    "name": "Brown Suar Cafe",
+    "slug": "brown-suar-cafe",
+    "city": "Alfonso",
+    "status": "unverified"
+  },
+  {
+    "id": "763bd792-93b2-4fac-82a1-04e12dd1dfe1",
+    "name": "Bunch o' Munch",
+    "slug": "bunch-o-munch",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "0bc2aee2-56cf-44b4-90fa-0d0ff711945f",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "1e5f43b2-3448-4e3a-8ab1-87d33ef0d2c0",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-2",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "a9ae04a3-890b-494b-869e-11b4622770b0",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-4",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "95195768-3524-4821-ab90-618d2c155493",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-3",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "a090d467-7ba2-4943-b037-6210731e61d8",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "cbae9bd3-cdf8-4c87-a086-15a089a09e0c",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-imus-2",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "fc490425-96c2-48a5-8b5a-594a49700925",
+    "name": "But First, Coffee",
+    "slug": "but-first-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2f6ce034-261a-4bf5-9d15-e803264c84e9",
+    "name": "Cafe",
+    "slug": "cafe",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2b67060f-cb77-488d-9700-252a84b6025d",
+    "name": "Cafe 10/23",
+    "slug": "cafe-10-23",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "6a7d6584-61d8-4052-9e02-b33b91f9e328",
+    "name": "Cafe Agapita",
+    "slug": "cafe-agapita-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "abfae4c1-1024-49a6-8d22-7bc56da5b494",
+    "name": "Cafe Amadeo",
+    "slug": "cafe-amadeo-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "36353330-8eaa-40f6-b560-9b4b15502590",
+    "name": "Cafe Amadeo",
+    "slug": "cafe-amadeo-amadeo-2",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "546aa653-3658-4cc5-8340-ac1f0893e5c1",
+    "name": "Cafe Amazon",
+    "slug": "cafe-amazon",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "560b251f-f655-485c-8e92-a09d48804f41",
+    "name": "Cafe Amazon",
+    "slug": "cafe-amazon-2",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "8e5b85e1-b1ee-4b1b-9caf-ef6916368813",
+    "name": "Cafe Antix",
+    "slug": "cafe-antix",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "6099bf32-73a6-486a-9cea-bd950b734291",
+    "name": "Cafe Avenue",
+    "slug": "cafe-avenue",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "9a726d57-7ab5-47fb-a5ac-1e061e63eb13",
+    "name": "Café Bela",
+    "slug": "cafe-bela",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "dde98dc9-5a98-4e23-8790-8dac2a0b61ae",
+    "name": "Cafe Blk Brwn",
+    "slug": "cafe-blk-brwn-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "d83ca0c0-4495-4735-9298-b0b85c2708b5",
+    "name": "Cafe BLK&BRWN",
+    "slug": "cafe-blk-and-brwn",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "3f3adfd2-1171-4ee2-b3ce-c4c75f84b680",
+    "name": "Cafe Breton",
+    "slug": "cafe-breton-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "5ac437b8-1ac4-44f8-8b37-5db276176a12",
+    "name": "Cafe Corner",
+    "slug": "cafe-corner-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "098ae0c2-622a-4428-a6a6-9e559b2afef4",
+    "name": "Cafe Dalgona",
+    "slug": "cafe-dalgona-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "99af11d8-42df-47ca-a92a-d7ed71cd65e1",
+    "name": "Cafe del Tea",
+    "slug": "cafe-del-tea",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "924ee021-c1ed-4221-b20d-19a8135079e9",
+    "name": "Cafe Down Under",
+    "slug": "cafe-down-under-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "76d55295-6b11-4282-acda-9d8d51030435",
+    "name": "Cafe Fedora",
+    "slug": "cafe-fedora-noveleta",
+    "city": "Noveleta",
+    "status": "unverified"
+  },
+  {
+    "id": "fb672bb3-7a9a-484c-a38d-28e05ce5d9b4",
+    "name": "Cafe Hermano",
+    "slug": "cafe-hermano",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "394509f5-fc7e-4375-bfc0-cdf3811a4b77",
+    "name": "Cafe Janggeum",
+    "slug": "cafe-janggeum-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "89675c50-9119-47f2-b074-b93186fdd1cc",
+    "name": "Cafe JangGeum",
+    "slug": "cafe-janggeum",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "33b5d9fa-1dfe-4589-9ac4-3e9f74dedaf7",
+    "name": "Cafe Juan Miguel",
+    "slug": "cafe-juan-miguel",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "8533b289-25ee-481f-b41f-120c97f34eb2",
+    "name": "Cafe Mia at The Primrose",
+    "slug": "cafe-mia-at-the-primrose-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "de466e19-063f-4256-bae3-5bb1c7d12bc8",
+    "name": "Cafe Moraco",
+    "slug": "cafe-moraco-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "0f31c67a-2ad8-4a7b-999b-92fd3bffb13b",
+    "name": "Café Salvacion",
+    "slug": "cafe-salvacion",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "22cff531-2049-4469-b5a8-03f17288ebc9",
+    "name": "Cafe Severino",
+    "slug": "cafe-severino",
+    "city": "Tagaytay",
+    "status": "verified"
+  },
+  {
+    "id": "61e0820d-5dd6-4f1b-9425-e5a8eaae009f",
+    "name": "Cafe Tahimik",
+    "slug": "cafe-tahimik-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "d2140df7-0581-4435-b131-c08a3309bb0a",
+    "name": "Cafe triBU",
+    "slug": "cafe-tribu-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "d25d659b-eeb9-4185-8337-0675561ebbdb",
+    "name": "Cafe Tribu",
+    "slug": "cafe-tribu-imus-2",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "fa12798f-9fa0-40ca-aa2d-e1c09a6b376d",
+    "name": "Café Tribu",
+    "slug": "cafe-tribu",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "b8ae84b7-7357-4bcc-af5a-cdd2dd55b2bf",
+    "name": "Cafe Vinna",
+    "slug": "cafe-vinna-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "638fe6af-8715-4382-8f0d-6ad3900c20b8",
+    "name": "Cafe Voila",
+    "slug": "cafe-voila",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "ce1201b7-725e-4f77-9876-d898b26d3632",
+    "name": "CafeRida",
+    "slug": "caferida-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "8e16f996-ce42-451e-847b-1753abeded7d",
+    "name": "Caffe Nativo",
+    "slug": "caffe-nativo-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "cff31ae4-fa0d-407d-bd30-a55cc919ed9e",
+    "name": "Caffeena",
+    "slug": "caffeena-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "4b278e66-8f29-47a4-9de6-f0843f223df0",
+    "name": "CaKe's Coffee and Tea",
+    "slug": "cakes-coffee-and-tea-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "a4a6be0a-230c-4e52-97c7-71884809550e",
+    "name": "Calle Crisanto",
+    "slug": "calle-crisanto-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "331f2d70-bd4f-4fb8-94dc-68aed10cce45",
+    "name": "Captain's Sweet Galley",
+    "slug": "captains-sweet-galley",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "99165d47-c3f4-4059-ba2d-d37db6082bd2",
+    "name": "Carolina Cafe",
+    "slug": "carolina-cafe-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "68b009db-6cd2-4963-af0b-38f17b312c37",
+    "name": "Caya & Fica Cafe",
+    "slug": "caya-and-fica-cafe-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "a2cca2a3-e387-4df9-98b5-07cea8fdfe5a",
+    "name": "Cestaves",
+    "slug": "cestaves-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "ef0849e9-5a09-485b-aa2c-4a4e87068964",
+    "name": "Cha Tuk Chak",
+    "slug": "cha-tuk-chak-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "6f3cfba2-ea2b-4767-9063-e700681a3040",
+    "name": "Chachago",
+    "slug": "chachago-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "6a0c2a70-571c-462e-a2c3-0465e21a286e",
+    "name": "Chatime",
+    "slug": "chatime-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "13ee36ff-6a8b-41e3-841c-39870e2eda81",
+    "name": "Chatime",
+    "slug": "chatime",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "38ba9614-346a-4e4d-b8aa-696334b4cd8b",
+    "name": "Chatime",
+    "slug": "chatime-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "fe9285ca-00ba-492e-b534-d82c33555f55",
+    "name": "Chillers",
+    "slug": "chillers",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "cabd9ef8-c702-40fb-a9e2-cdda897d3a18",
+    "name": "Classic Home Brew Cafe",
+    "slug": "classic-home-brew-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "a7756f4c-7993-4882-ae40-0e8581f9c617",
+    "name": "Clique Hub",
+    "slug": "clique-hub",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "30a3ef31-0c41-4053-95c2-ce75fa97888d",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice-3",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "c4e4064e-d606-46d1-9ce2-ab404f23d8a6",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "d8276397-3f27-4c59-86ae-29e3c9fb4610",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "6cb9bf4d-ef3f-4a3c-8e6d-aa90a1d9dbc8",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "bf28a19d-0a12-4673-b688-8aa84efebca9",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "c296d9e4-f658-40ca-b410-49bc843766d6",
+    "name": "CoCo Fresh Tea & Juice",
+    "slug": "coco-fresh-tea-and-juice-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "36c8bdb7-b4c9-41fe-bcf5-c026a0b20e06",
+    "name": "Cocomartea",
+    "slug": "cocomartea",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "f2f1cf10-070c-4360-9c06-9f368cc535f0",
+    "name": "Cofeeta Cafe",
+    "slug": "cofeeta-cafe",
+    "city": "Naic",
+    "status": "unverified"
+  },
+  {
+    "id": "7411613d-cc9c-46a6-b49b-1abbebd8788f",
+    "name": "Cofeteasserie",
+    "slug": "cofeteasserie-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "15637d8c-986f-4095-9170-8e0ba6de51e3",
+    "name": "Coffea Arabica",
+    "slug": "coffea-arabica",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "c9b4a5eb-ffad-4a0a-89e1-5a40a47969b0",
+    "name": "Coffee & Beyond",
+    "slug": "coffee-and-beyond",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "c458337d-3557-4cfc-bb2f-9af1370d08a8",
+    "name": "Coffee Ground Cafe",
+    "slug": "coffee-ground-cafe",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "0c506f5e-bcb1-4939-8714-682ce1be58ba",
+    "name": "Coffee Gusto",
+    "slug": "coffee-gusto",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "3745d8e4-b9fc-4349-8354-449701a25e3d",
+    "name": "Coffee Mode",
+    "slug": "coffee-mode",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "0cbbb042-f20c-43e6-90ce-6e1829b7e4bf",
+    "name": "Coffee Project",
+    "slug": "coffee-project-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "6294c06b-4f19-439c-82d9-3158075477a9",
+    "name": "Coffee Project",
+    "slug": "coffee-project-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "bc93e08f-e6d6-4ff1-ac5e-7ca456ab2a2d",
+    "name": "Coffee Project",
+    "slug": "coffee-project-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8c49681d-70f3-4588-838f-0e2c57e391f5",
+    "name": "Coffee Project",
+    "slug": "coffee-project-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "50f8b380-f7e6-4030-bd56-2f6b23151a67",
+    "name": "Coffee Project",
+    "slug": "coffee-project",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "062443d1-df3d-46d6-9514-a75e56a1fa39",
+    "name": "Coffee Project Islands",
+    "slug": "coffee-project-islands-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "de83c8aa-661e-4287-88fe-329fe3d11bf5",
+    "name": "Coffee Spot",
+    "slug": "coffee-spot-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b41e29c1-0966-4e47-880c-43df056ade7c",
+    "name": "Coffee Spot",
+    "slug": "coffee-spot",
+    "city": "Alfonso",
+    "status": "unverified"
+  },
+  {
+    "id": "9a34f2f3-eb4c-41ec-95f1-c41d0bde4241",
+    "name": "CoffTea Zone Café",
+    "slug": "cofftea-zone-cafe-cavite",
+    "city": "Cavite",
+    "status": "unverified"
+  },
+  {
+    "id": "29a85414-e028-4bac-82c2-4da1a6e17646",
+    "name": "Concha's Garden Cafe",
+    "slug": "conchas-garden-cafe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "dc0493f3-5006-4134-8dd2-8514655df287",
+    "name": "Countryside Cafe",
+    "slug": "countryside-cafe-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "4a84a3a5-0d7b-4260-8e3c-a62e2d8b5b08",
+    "name": "Creations Pastry and Cafe",
+    "slug": "creations-pastry-and-cafe-indang",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "be41cf63-c5fd-45db-afe6-bd8d117d0a05",
+    "name": "Cup of Grace",
+    "slug": "cup-of-grace",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "0b78ca99-a3e9-48f2-9dc9-5a7069e8874d",
+    "name": "Cupstop",
+    "slug": "cupstop-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b42c967d-c08b-42cd-99f4-d4dbc6a47616",
+    "name": "Daily Dose Bubble Tea Lounge - Naic",
+    "slug": "daily-dose-bubble-tea-lounge-naic",
+    "city": "Naic",
+    "status": "unverified"
+  },
+  {
+    "id": "dfb612b5-2a08-4cd4-bc2a-dceddc795680",
+    "name": "Dakasi",
+    "slug": "dakasi-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "805228a0-c840-46d5-91b1-b9c82f515951",
+    "name": "Dakasi",
+    "slug": "dakasi",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "80d4e08a-bed5-4f5f-8dc8-316a0becd19b",
+    "name": "Dear Joe",
+    "slug": "dear-joe-bacoor-2",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "333c32ee-5383-4874-8763-afcd1c6f4733",
+    "name": "Dear Joe",
+    "slug": "dear-joe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "b3de9012-fde0-4a9b-9703-222d6baa298e",
+    "name": "Dear Joe",
+    "slug": "dear-joe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "b99e818a-b533-40a4-ae0a-d0b8bb723b21",
+    "name": "Dear Joe Coffee",
+    "slug": "dear-joe-coffee",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "cff924d1-c8c9-4579-ae58-fbd18ab81c15",
+    "name": "Decembriano Compound",
+    "slug": "decembriano-compound",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "38f3f8b4-cc0b-4bdf-a5e3-3ad2ebe339ea",
+    "name": "DF Cafe",
+    "slug": "df-cafe",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "51f8ad7d-e2ac-4c37-b816-ac9d9d1a5eb4",
+    "name": "Domros internet cafe",
+    "slug": "domros-internet-cafe",
+    "city": "General Mariano Alvarez",
+    "status": "unverified"
+  },
+  {
+    "id": "6a4ff831-062c-4917-9639-c27c75be4e86",
+    "name": "Doppio",
+    "slug": "doppio-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b4a924cc-7f6d-403f-8072-75ec90ca3622",
+    "name": "Dream Cafe",
+    "slug": "dream-cafe",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "2d5015e7-b703-4034-a237-57cdc61de450",
+    "name": "Dunkin' Donuts",
+    "slug": "dunkin-donuts",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "7031761f-6477-4037-91f0-625fc010c25d",
+    "name": "EA Ortiz Internet Shop",
+    "slug": "ea-ortiz-internet-shop-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "7e1d38c8-685a-42de-9c8b-ed1da442944f",
+    "name": "Espresso Cloud Coffe & Waffle",
+    "slug": "espresso-cloud-coffe-and-waffle",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "17200221-6b6a-43a7-a644-9e72d4172eeb",
+    "name": "Farron Cafe",
+    "slug": "farron-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "04519f11-9e8e-4759-b011-9fd5f9abf3d7",
+    "name": "Farron Cafe",
+    "slug": "farron-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b0d63667-809c-4cd3-9321-6aa5eb0ea1bb",
+    "name": "Figaro",
+    "slug": "figaro",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "7305907b-c625-4b1b-a546-db819ce1582b",
+    "name": "Figaro",
+    "slug": "figaro-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "107682ea-7317-41ce-bd71-039807afc32a",
+    "name": "Forastero Cafe",
+    "slug": "forastero-cafe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "3724888c-add4-4b02-b9bb-80f1f61019fc",
+    "name": "Forresta Cafe",
+    "slug": "forresta-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "445a9af1-fbc6-421b-bc34-1069729f9db8",
+    "name": "Foss Coffee",
+    "slug": "foss-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "9cd499c2-6489-4468-a77a-483a38b63d26",
+    "name": "Freshly Bakehaus",
+    "slug": "freshly-bakehaus-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2199d2ce-92c8-477c-a79c-b697d04248fc",
+    "name": "Galliano's Cafe",
+    "slug": "gallianos-cafe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8d0f953d-06fa-408a-a6af-22fd64d5bb63",
+    "name": "Gastropub EM Place",
+    "slug": "gastropub-em-place-ternate",
+    "city": "Ternate",
+    "status": "unverified"
+  },
+  {
+    "id": "0b6f0983-cdeb-49a2-b96b-893158bf0486",
+    "name": "Gentea",
+    "slug": "gentea",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "15339253-ce52-4d25-90ba-79f05943c804",
+    "name": "Gil & Mar Cafe",
+    "slug": "gil-and-mar-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "403f80c4-2c57-42fe-95d4-2216d0adf2f8",
+    "name": "Gong Cha",
+    "slug": "gong-cha-2",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8d8f0395-1970-4c55-a7b2-05fa8faca88f",
+    "name": "Gong Cha",
+    "slug": "gong-cha",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "6e3feaed-9a0a-4bea-9d17-6b0a5e72d779",
+    "name": "Gong Cha",
+    "slug": "gong-cha-3",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "2f715493-b76c-49e4-8caf-695cd492df6e",
+    "name": "Gong Cha",
+    "slug": "gong-cha-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "6f39829b-68ff-4736-928d-0781383c436e",
+    "name": "Good Day Cafe",
+    "slug": "good-day-cafe-imus-2",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "a0960277-0777-4cdb-8b21-b4e759ad02d5",
+    "name": "Good Day Cafe",
+    "slug": "good-day-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b7245e3e-f5d4-484f-b95d-146fc044a130",
+    "name": "Gourmet's Cafe",
+    "slug": "gourmets-cafe-silang",
+    "city": "Silang",
+    "status": "verified"
+  },
+  {
+    "id": "c00795a8-711b-42bc-a72a-0aba2fc826c4",
+    "name": "Grace Brew Cafe",
+    "slug": "grace-brew-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "5c910900-2fbb-4c4e-b364-effd12c3dffb",
+    "name": "Greenhouse Cafe",
+    "slug": "greenhouse-cafe",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "7c195829-4679-454e-84d7-b80badb267c5",
+    "name": "Guadas Bistro",
+    "slug": "guadas-bistro",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "4037f8dd-5b52-49e3-8d51-7ebbfdc9d83b",
+    "name": "Hailey's Cafe",
+    "slug": "haileys-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "d6b611c0-5265-4e05-8ad2-7139d9c9ae18",
+    "name": "Happy Cup Milk Tea House",
+    "slug": "happy-cup-milk-tea-house",
+    "city": "Rosario",
+    "status": "unverified"
+  },
+  {
+    "id": "00181687-9852-4296-933a-04f49ef718d0",
+    "name": "Happy Donuts",
+    "slug": "happy-donuts-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "c1557447-0899-4efb-8029-0f410f1f50d9",
+    "name": "Haze Coffee House",
+    "slug": "haze-coffee-house-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "fb653357-c13a-433d-9fb3-196bdef43691",
+    "name": "Heart Flowers and Coffee - Kawit",
+    "slug": "heart-flowers-and-coffee-kawit-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "adb3a3e9-de21-472d-aeec-c5370db78982",
+    "name": "Hello Capehan",
+    "slug": "hello-capehan",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "c48efd9d-83d6-4e10-9795-2cbfa2d8068f",
+    "name": "Highlands Coffee",
+    "slug": "highlands-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "e8e21f86-fb74-4efd-8263-b1b9dc7417be",
+    "name": "Hiwaga Cafe",
+    "slug": "hiwaga-cafe-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "96edd898-5b07-4e36-b77a-9175d8753f77",
+    "name": "Hot Coffee Road",
+    "slug": "hot-coffee-road-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "5c6235c0-abdc-49ef-9393-f52e693c4af2",
+    "name": "I Love Milktea",
+    "slug": "i-love-milktea-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "98a052a4-02b7-4d7f-8c2c-09227689c2f4",
+    "name": "I Love Milktea",
+    "slug": "i-love-milktea",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f0274aeb-b35a-402d-a603-a5469cd68493",
+    "name": "I Love Milktea",
+    "slug": "i-love-milktea-2",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "310755a7-da2e-41dd-ab26-1d48a1a51154",
+    "name": "Il Mio Coffee",
+    "slug": "il-mio-coffee",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "3e16ad8b-bf1a-4972-82c0-53f6d2faee4e",
+    "name": "INAM Coffee",
+    "slug": "inam-coffee-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "c47c9cb0-1de5-4f72-bc01-42d32c8d7980",
+    "name": "INAM Coffee Tanza",
+    "slug": "inam-coffee-tanza-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "19244c21-b552-4d66-9f75-f8c16ad190c3",
+    "name": "Infinitea",
+    "slug": "infinitea-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "37e97cc8-87ff-4b6f-bcda-bd771ca3bc1f",
+    "name": "Island Cafe",
+    "slug": "island-cafe",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "cc71a601-cf94-45ae-86e6-788ad48fd879",
+    "name": "Jairon Coffee and Tea",
+    "slug": "jairon-coffee-and-tea-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "62dfa68e-52cc-4b2d-811d-b3a11d4be16d",
+    "name": "Jams Cafe",
+    "slug": "jams-cafe",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "c0fe0bf6-91c0-49f9-a81c-ec8317559e85",
+    "name": "Jazz",
+    "slug": "jazz",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "d6e0a9bc-05cd-4e0b-a700-573fe94173b3",
+    "name": "JEKIE INTERNET CAFE",
+    "slug": "jekie-internet-cafe-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "0081a5a8-6bd7-473d-8403-340055fb948c",
+    "name": "Joane's Cafe",
+    "slug": "joanes-cafe",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "35cac20b-03b9-45b1-8bbd-8366ce6a43d8",
+    "name": "Joe Drive",
+    "slug": "joe-drive-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "726379a7-9cd6-448b-ba97-bd31fcd26932",
+    "name": "Joe's Brew",
+    "slug": "joes-brew-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "07ff1b75-8889-479e-8b90-56684f2b5f9e",
+    "name": "Juan Café",
+    "slug": "juan-cafe",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "0cd0406d-3cd6-47b8-b7b5-73691034128e",
+    "name": "Jun-kou Cafe",
+    "slug": "jun-kou-cafe",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "b30c6e22-130f-4a82-8891-817891f3121a",
+    "name": "K.Tea Cafe",
+    "slug": "k-tea-cafe-rosario",
+    "city": "Rosario",
+    "status": "unverified"
+  },
+  {
+    "id": "2e5cdf0c-70a0-4f85-8efe-3e7e7feb130a",
+    "name": "K20 Café",
+    "slug": "k20-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "599f6000-558d-433b-9590-e935aa3fc476",
+    "name": "Kaffe Belardo",
+    "slug": "kaffe-belardo-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "05fa2e2c-ebc0-443e-9983-18de4333c152",
+    "name": "KAKAL (kape kape lang)",
+    "slug": "kakal-kape-kape-lang-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "61a9012f-db6c-4ed9-8754-de693e6d4672",
+    "name": "Kape Amadeo",
+    "slug": "kape-amadeo",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "66f4180e-aaa3-431a-85c7-c13e2e8be81a",
+    "name": "Kape Blinders",
+    "slug": "kape-blinders-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "088b9cee-a391-4e17-aea0-92647934ead0",
+    "name": "Kape Mo-To",
+    "slug": "kape-mo-to",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "6ba208bc-9ccb-44b9-bf68-6f9d1c5a5b0a",
+    "name": "Kape Muna",
+    "slug": "kape-muna",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "8260931c-327a-4c3b-9451-95a05524d6e2",
+    "name": "KaPena Pastries & Brew",
+    "slug": "kapena-pastries-and-brew",
+    "city": "Mendez",
+    "status": "unverified"
+  },
+  {
+    "id": "98728a46-99cb-442f-b9f2-63aafbc94221",
+    "name": "Kapihan ni Antonio",
+    "slug": "kapihan-ni-antonio-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "cb7a25ed-3522-4898-83fa-d014c1823eb6",
+    "name": "Kapihan ni Gunyong",
+    "slug": "kapihan-ni-gunyong",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "b08a6cc9-873d-485f-857e-12d4980e679d",
+    "name": "KARTEL",
+    "slug": "kartel-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "bd1abc52-5702-4249-8538-6e80b9779294",
+    "name": "Khafra Cafe",
+    "slug": "khafra-cafe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "e6696f9c-766a-4f49-9a73-eaa61e437fe2",
+    "name": "King's Coffee",
+    "slug": "kings-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "9d511e2b-f668-4881-94ae-91f605dfaa3d",
+    "name": "Kkopi",
+    "slug": "kkopi-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8deb9c8d-fa73-49ce-a51a-80ffb1a62214",
+    "name": "Koomi",
+    "slug": "koomi-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "40fe52d9-6af2-4261-b502-dfa33cdcbf6f",
+    "name": "Kopakoppi Cafe",
+    "slug": "kopakoppi-cafe-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "bb47d2db-fb39-4d0d-b6cf-941d4815761e",
+    "name": "Kumia Cakes & Pastries",
+    "slug": "kumia-cakes-and-pastries",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "91959578-c408-47b1-bc4d-77ba758a3846",
+    "name": "Kura Cafe",
+    "slug": "kura-cafe-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "3df841c8-799d-465d-87f1-2875dcf7ba94",
+    "name": "Kura Cafe",
+    "slug": "kura-cafe",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "71f7953f-85bb-48de-9a30-e3aec82c2f53",
+    "name": "Kurimi",
+    "slug": "kurimi",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "5409c8af-8462-44eb-9df0-b30c51a5c7c9",
+    "name": "La Josephina Coffee and Pastries",
+    "slug": "la-josephina-coffee-and-pastries",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "a8f5faad-1fce-49dc-b922-579b5b46fa11",
+    "name": "Laters Baby Cafe",
+    "slug": "laters-baby-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "ba6b118d-b950-4d75-bc11-d8aac7ecba45",
+    "name": "Latte Break",
+    "slug": "latte-break",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "ae9a01ce-3e4c-4454-b25b-36591c2702ce",
+    "name": "Le Don's Garden Café",
+    "slug": "le-dons-garden-cafe-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "f729e467-561b-41bf-9251-799e05994f3e",
+    "name": "Leonarda's Brew",
+    "slug": "leonardas-brew-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "c0a4afdc-9bdb-49f2-9352-ab2e97ec5478",
+    "name": "Libro Espresso",
+    "slug": "libro-espresso-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f0f3ae50-65c1-4761-8e01-8126f125237d",
+    "name": "Little Cafe",
+    "slug": "little-cafe",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "4bf5f305-49cf-4e26-9c20-8c80fed8c73d",
+    "name": "Little Coffee House",
+    "slug": "little-coffee-house",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b670bb3e-7fae-4196-aeac-6cdbc037df72",
+    "name": "Little HQ Cafe",
+    "slug": "little-hq-cafe",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "1e9c4d4a-8073-43aa-bc1b-20aea56836c8",
+    "name": "Lobby Lounge",
+    "slug": "lobby-lounge-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "38598755-af7b-44d5-b239-507830c8d6fd",
+    "name": "Loumars Pies & Tarts",
+    "slug": "loumars-pies-and-tarts-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "61c672a9-5997-4124-8963-ecba886d1c42",
+    "name": "Lulu's Milktea",
+    "slug": "lulus-milktea-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "d7af9771-8794-48db-9c0f-3f9313178bd2",
+    "name": "Macao",
+    "slug": "macao-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "99cc498f-f4bd-47c8-ba52-97ea04872b25",
+    "name": "Macao Imperial Tea",
+    "slug": "macao-imperial-tea",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "1baa4036-6b90-45b5-97b4-65a8c388fd82",
+    "name": "Macchiato Up",
+    "slug": "macchiato-up",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "cb679690-677e-4aed-ac83-ef5945246149",
+    "name": "Mags' Kapihan",
+    "slug": "mags-kapihan-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "59e36ea7-9a5a-4a10-9eaa-91447a1a1b9c",
+    "name": "Malone: Reviving Brew",
+    "slug": "malone-reviving-brew",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "73dfee3b-b3dd-4532-9eec-d4158f7d3721",
+    "name": "Mamonaku",
+    "slug": "mamonaku-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "51741392-f3f5-44da-bdcb-83c5019d5ab5",
+    "name": "Mamush Cafe",
+    "slug": "mamush-cafe",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "3ce42156-ba9b-4221-858c-5e8d252a4118",
+    "name": "Mangrae",
+    "slug": "mangrae-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "321d2f88-8ca1-4465-a260-ec22481fc0e5",
+    "name": "Mariu's Café and Grill",
+    "slug": "marius-cafe-and-grill",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "41f4066b-fd8e-4b1d-8097-982eb2b2f53c",
+    "name": "McCafé",
+    "slug": "mccafe",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "725ff690-bfba-437f-bc92-0bf0fe932f5b",
+    "name": "Mely’s Cafe",
+    "slug": "melys-cafe",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "cd96749c-a5d5-4ab2-ac61-1c52c778aa09",
+    "name": "MIara Cafe",
+    "slug": "miara-cafe",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "d0283c9f-7432-433f-8e09-b2ab09b1feb3",
+    "name": "Migs Cafe",
+    "slug": "migs-cafe-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "2618051b-c9f0-4a0a-a23c-f9b91bf46a56",
+    "name": "Mikaru Milktea Shop",
+    "slug": "mikaru-milktea-shop-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "06d54e37-6698-4f1e-9c45-8b5374306c33",
+    "name": "Milk n Coffee Restaurant",
+    "slug": "milk-n-coffee-restaurant-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "67ce6067-aa9f-4e7c-af0a-4cfd116a547e",
+    "name": "Miss Cha's Milk Tea",
+    "slug": "miss-chas-milk-tea-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "1f48d428-50d2-4380-952f-2cc680461d6a",
+    "name": "Mister Donut",
+    "slug": "mister-donut",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "428fa2b0-c9df-408e-af9c-105968c5e5c6",
+    "name": "Mixue",
+    "slug": "mixue",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "d9c14a44-3a13-42ae-ab37-2ac61b1f327c",
+    "name": "Mixue",
+    "slug": "mixue-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "2820e544-bd64-41df-8fc5-a8609b72498e",
+    "name": "Mixue",
+    "slug": "mixue-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f6e1e7c9-5639-4897-b671-c1ba4d22d437",
+    "name": "Mobile Bubble Tea",
+    "slug": "mobile-bubble-tea-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "d3b6aea4-6b8c-4ec4-88f6-48f36edf3ba0",
+    "name": "Moonleaf",
+    "slug": "moonleaf-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "3593a48c-4ec7-477d-9e7d-b26388bb18b9",
+    "name": "Mountain Brew",
+    "slug": "mountain-brew",
+    "city": "Ternate",
+    "status": "unverified"
+  },
+  {
+    "id": "1d2f7bac-0509-45a0-bbed-f65d04838c41",
+    "name": "Mouse Haus",
+    "slug": "mouse-haus",
+    "city": "General Mariano Alvarez",
+    "status": "unverified"
+  },
+  {
+    "id": "d1c1a0d5-9c79-4bd3-b4a8-c5939baa7f09",
+    "name": "Mr. Brewsko",
+    "slug": "mr-brewsko",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "70d411a8-a897-49b3-811b-5b28a4d4accd",
+    "name": "Mr. Fluffy Sugar",
+    "slug": "mr-fluffy-sugar",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "b0e4514e-f3a4-4922-82b4-d50022c467b4",
+    "name": "Naya",
+    "slug": "naya",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "852ceb91-f4a9-462e-b34d-7c361d5c75f8",
+    "name": "Neo Back",
+    "slug": "neo-back",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "3f8d0b2e-b4b5-4734-8481-9100426e6ae5",
+    "name": "Nextgen Cafe",
+    "slug": "nextgen-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "6c9097ef-c3b1-45b9-a919-04f4155ef8a6",
+    "name": "Noon Cafe",
+    "slug": "noon-cafe",
+    "city": "Mendez",
+    "status": "unverified"
+  },
+  {
+    "id": "b50d3c53-e727-4f48-ae3e-da9fb3675a03",
+    "name": "Noona",
+    "slug": "noona-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "858ef1c0-31b6-4b52-9246-f65afe9bbd52",
+    "name": "Nyol Cyber Shop",
+    "slug": "nyol-cyber-shop-cavite-city",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "3c9dd3b1-0547-40a2-9926-0352b4fde4a4",
+    "name": "Orangetag Coffee Brewery",
+    "slug": "orangetag-coffee-brewery-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "4f356419-cf82-4e66-8f4f-5131e3e3800f",
+    "name": "OurBlend Coffee & Milk Tea",
+    "slug": "ourblend-coffee-and-milk-tea",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "e645e78e-1624-4cc1-aa4f-8be16da8ba22",
+    "name": "Pal•Pi•Tate Coffee",
+    "slug": "pal-pi-tate-coffee",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "705375a7-c26a-4ee3-b729-344af4ff4289",
+    "name": "Pansit Malabon Hauz",
+    "slug": "pansit-malabon-hauz-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "5bfad334-ca66-458f-bd79-1c7f791905de",
+    "name": "Petcury Cafe",
+    "slug": "petcury-cafe-carmona",
+    "city": "Carmona",
+    "status": "unverified"
+  },
+  {
+    "id": "53f7fc5d-fc3c-4431-99c5-08bbc439d8ab",
+    "name": "Pick-A-Brew",
+    "slug": "pick-a-brew-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2bc9409a-04bc-4480-a013-ea7f2b1f8c82",
+    "name": "Pickup Coffee",
+    "slug": "pickup-coffee-3",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "695741be-743b-4c3d-bbf9-138f0ee9259d",
+    "name": "Pickup Coffee",
+    "slug": "pickup-coffee",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "3defdd5e-91b5-4fd1-b30c-586b33ddedfd",
+    "name": "Pickup Coffee",
+    "slug": "pickup-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "9c206329-c309-4e70-8b3b-b4651caca7e0",
+    "name": "Pickup Coffee",
+    "slug": "pickup-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "167842d0-2776-4985-8cde-4c58e6f05406",
+    "name": "Pickup Coffee",
+    "slug": "pickup-coffee-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "5ff28139-d139-4810-8dfa-f14a02ce8c5c",
+    "name": "Primero Uno Café",
+    "slug": "primero-uno-cafe",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "cfac7d1e-d3d6-442c-a159-c75e50fe34a0",
+    "name": "Prosperitea Milk Tea Shop",
+    "slug": "prosperitea-milk-tea-shop",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "49d26ff5-7875-485d-9be0-22767ebd1f50",
+    "name": "Quickly",
+    "slug": "quickly-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "ebfefe8e-bf28-4acc-ac59-9a09b051d512",
+    "name": "Red Engine Diner",
+    "slug": "red-engine-diner-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "0c8df0e1-af04-4980-866a-ed59a4865014",
+    "name": "Ricardo's Coffee + Classic Cuisine",
+    "slug": "ricardos-coffee-classic-cuisine-amadeo",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "ca46b808-7a90-4c4b-b5cf-7d4e05ae7ce6",
+    "name": "Riverside Cafe",
+    "slug": "riverside-cafe-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "9f580209-7d77-429f-8cca-322919d009c7",
+    "name": "Rocafé - Dasmariñas",
+    "slug": "rocafe-dasmarinas-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "ef4605ee-de14-464c-8bb7-e1625ebc5d6d",
+    "name": "Rojo Cafe",
+    "slug": "rojo-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "22de2f14-2666-462e-9226-a9c219f3552d",
+    "name": "Roma",
+    "slug": "roma",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "c41f63a1-9b87-470b-8ec6-ae8c6538ba8c",
+    "name": "Rowena's Cafe",
+    "slug": "rowenas-cafe",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "9720d897-0231-42fe-bb41-efb3e7c6b630",
+    "name": "Ruh's Brew",
+    "slug": "ruhs-brew-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "504bf74b-e143-4e80-b0f0-aac2b245c2e3",
+    "name": "Ruined Project",
+    "slug": "ruined-project-tagaytay",
+    "city": "Tagaytay",
+    "status": "verified"
+  },
+  {
+    "id": "49e5a00a-6e5a-4fd0-a221-f538496ea97b",
+    "name": "Sammons Cafe",
+    "slug": "sammons-cafe",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "dcf3ad85-5636-4e1e-9a50-f3690e45a7d1",
+    "name": "San Antonio Cafe",
+    "slug": "san-antonio-cafe-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "a24b1ae6-4000-4e50-a3a3-ec4612412a2e",
+    "name": "Sanchez Cafe - Salitran Dasmariñas",
+    "slug": "sanchez-cafe-salitran-dasmarinas-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "b693abc4-5067-4bf4-9374-76b2ff2c3d41",
+    "name": "Sari Cafe",
+    "slug": "sari-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "30a1017d-6e99-4624-8530-05c46ed8c385",
+    "name": "Satiya Cafe",
+    "slug": "satiya-cafe-general-mariano-alvarez",
+    "city": "General Mariano Alvarez",
+    "status": "unverified"
+  },
+  {
+    "id": "00d02f3b-3074-42cd-be24-707b06e26bcf",
+    "name": "Scriptures Café",
+    "slug": "scriptures-cafe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "f0df1ff9-752a-4efc-95ad-503724ef90d3",
+    "name": "Seattle's Best Coffee",
+    "slug": "seattles-best-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "06bf8917-4afc-4f9b-98f8-9f4314b3857c",
+    "name": "Seattle's Best Coffee",
+    "slug": "seattles-best-coffee-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "08251e77-b6fd-4861-89f6-37ec934d2237",
+    "name": "Seattle's Best Coffee",
+    "slug": "seattles-best-coffee-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "054e474b-2422-4805-8d46-191ec39e453f",
+    "name": "Seattle's Best Coffee",
+    "slug": "seattles-best-coffee",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "aeb07df8-a120-4be9-af23-cd5658437163",
+    "name": "Seattle's Best Coffee",
+    "slug": "seattles-best-coffee-2",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8758c035-eed3-4648-afec-e8f54312d0e2",
+    "name": "Secret Garden Cafe",
+    "slug": "secret-garden-cafe",
+    "city": "Noveleta",
+    "status": "unverified"
+  },
+  {
+    "id": "ba8e42f8-55b4-4847-b756-9c87ed4af0b3",
+    "name": "Serenitea",
+    "slug": "serenitea-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "5e1d2312-b9f3-4f6d-9305-2d60d373d944",
+    "name": "Serenitea",
+    "slug": "serenitea-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "d310d6da-5df6-4f5c-85a8-931bd65d2264",
+    "name": "Serenitea",
+    "slug": "serenitea-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "8159053c-efc2-4512-8893-c0245cc12177",
+    "name": "Simply Coffee",
+    "slug": "simply-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "21ee3503-af8a-4470-9cad-d767e405070d",
+    "name": "Sip n Brew Milk Tea",
+    "slug": "sip-n-brew-milk-tea",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "19e58e6b-50fd-46c4-bff7-498491d61be3",
+    "name": "Sneak Cafe",
+    "slug": "sneak-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "85ccf3c7-aa35-492e-b0d0-369e497a53e0",
+    "name": "Snowdrops Cafe",
+    "slug": "snowdrops-cafe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "cf4ab285-7379-4142-96c6-106d523a7b95",
+    "name": "Sognare Café",
+    "slug": "sognare-cafe-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "b3e08725-66d0-40d1-8a01-f953ddd0dcd0",
+    "name": "Som Thai Cafe",
+    "slug": "som-thai-cafe-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "74f3e265-9702-4b76-8769-2a1bdb919487",
+    "name": "Sounds Like Coffee",
+    "slug": "sounds-like-coffee-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "853c017d-5c5e-46df-9a8c-f7b722e7c955",
+    "name": "South Perk Coffee",
+    "slug": "south-perk-coffee",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "fcf3a288-5b7a-4551-a99e-1cd18887c20b",
+    "name": "Sparkling Star Cafe",
+    "slug": "sparkling-star-cafe-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "ad4bcaa5-0721-4992-b475-502bc2295ae7",
+    "name": "Starbucks",
+    "slug": "starbucks-bacoor-3",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "7adaa942-c6e0-44fb-b093-d0838a9d5f74",
+    "name": "Starbucks",
+    "slug": "starbucks-imus-2",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "f66285e1-df53-4511-9571-c8adcff8962c",
+    "name": "Starbucks",
+    "slug": "starbucks-bacoor-2",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "98c76942-7989-499a-8bb1-f0442979b1b1",
+    "name": "Starbucks",
+    "slug": "starbucks-tagaytay-2",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "1703381c-2c34-41a0-aa44-9a31e49e38b1",
+    "name": "Starbucks",
+    "slug": "starbucks-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "48d94123-aa69-4495-a71b-955dcf4872c5",
+    "name": "Starbucks",
+    "slug": "starbucks-5",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "0c508d6b-203e-4708-ac06-1f080191d37e",
+    "name": "Starbucks",
+    "slug": "starbucks-4",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "93ad39e8-1215-48d5-ae75-cdc4fa785648",
+    "name": "Starbucks",
+    "slug": "starbucks-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "5bdbe88b-e4d8-472c-b944-b7b26c0b2698",
+    "name": "Starbucks",
+    "slug": "starbucks-dasmarinas-2",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "a780e7f0-696a-403f-931c-1e297a84df6d",
+    "name": "Starbucks",
+    "slug": "starbucks-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "d22fe9ef-0131-4644-97fc-61b60f21dda6",
+    "name": "Starbucks",
+    "slug": "starbucks-imus-3",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "a6557bec-9c0b-42f7-9021-c2c62169812b",
+    "name": "Starbucks",
+    "slug": "starbucks-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "d7a4b558-fe2c-4c70-8373-1c4426cbae41",
+    "name": "Starbucks",
+    "slug": "starbucks-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "2262caf3-ea36-4428-a979-912e35ce215f",
+    "name": "Starbucks",
+    "slug": "starbucks-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "714dc48e-bdda-4a10-8948-1d7470ace8c6",
+    "name": "Starbucks",
+    "slug": "starbucks-3",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "4da95945-ac21-4080-8b58-53d8df6374e5",
+    "name": "Starbucks",
+    "slug": "starbucks-6",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "845af4f3-e474-4e0d-9372-6d9a9e0c06f8",
+    "name": "Starbucks",
+    "slug": "starbucks",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "d1a23357-2902-4427-a7ce-cf604e687d78",
+    "name": "Starbucks",
+    "slug": "starbucks-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "656dea29-9f92-4a72-aec9-76506ef89bbb",
+    "name": "Starbucks",
+    "slug": "starbucks-carmona",
+    "city": "Carmona",
+    "status": "unverified"
+  },
+  {
+    "id": "3c401dd1-66cb-457f-9490-0e9b3a3f2aaf",
+    "name": "Starbucks",
+    "slug": "starbucks-rosario",
+    "city": "Rosario",
+    "status": "unverified"
+  },
+  {
+    "id": "55c78590-2ba3-479f-94ac-e8759bedd318",
+    "name": "Starbucks",
+    "slug": "starbucks-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "96f67b1a-26dc-475a-ba11-ebfba1655527",
+    "name": "Starbucks Reserve",
+    "slug": "starbucks-reserve-tagaytay",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "15b29d4f-f7e7-4e91-9371-f2054d88e798",
+    "name": "Stellar Brews",
+    "slug": "stellar-brews",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "40b0ef21-ecdc-4a6f-adb6-e71a0fcf8976",
+    "name": "Subi-Monte Cafe",
+    "slug": "subi-monte-cafe-kawit",
+    "city": "Kawit",
+    "status": "unverified"
+  },
+  {
+    "id": "a926e29d-beee-4950-acbb-bc5b9579b479",
+    "name": "Subi-Monte Cafe",
+    "slug": "subi-monte-cafe",
+    "city": "Cavite City",
+    "status": "unverified"
+  },
+  {
+    "id": "e8a48f1d-843f-4608-9050-380dbd17f893",
+    "name": "Sugban!",
+    "slug": "sugban-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "b3ab0b82-dacf-452e-b2e0-1571cd151def",
+    "name": "Sweet & Spice",
+    "slug": "sweet-and-spice",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "4fd64106-80a5-4726-b58a-087a21573c0c",
+    "name": "Tabby Town Cat Cafe & Corgi Club",
+    "slug": "tabby-town-cat-cafe-and-corgi-club",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "266a0c0e-c3d8-4298-b439-af0a0897d07e",
+    "name": "Tambayan",
+    "slug": "tambayan",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "47189d98-e37d-447f-a618-5292a778a011",
+    "name": "Tasa",
+    "slug": "tasa-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "c16e6cec-1927-4437-8b85-1131fa71db9e",
+    "name": "Taza Cafe and Restaurant",
+    "slug": "taza-cafe-and-restaurant-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "cd9d1371-6ece-4ce8-b23b-998447123261",
+    "name": "Tea & Your Tummy",
+    "slug": "tea-and-your-tummy-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "25abb066-af47-4c0e-9d06-39eb71ceca16",
+    "name": "Tea El Two",
+    "slug": "tea-el-two-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "26232c55-6d4b-4ff3-a8b9-d639dee17d6f",
+    "name": "Tea Gallery",
+    "slug": "tea-gallery-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "879d6ffa-181a-4a39-9566-900b583c05e0",
+    "name": "Tea Park",
+    "slug": "tea-park-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "8ebde699-cec8-4a70-9769-ce17ca2ea200",
+    "name": "Teabound Maragondon",
+    "slug": "teabound-maragondon-maragondon",
+    "city": "Maragondon",
+    "status": "unverified"
+  },
+  {
+    "id": "7731f098-a2de-4368-b7d6-9ab289806145",
+    "name": "Tealive",
+    "slug": "tealive",
+    "city": null,
+    "status": "unverified"
+  },
+  {
+    "id": "a1fdf823-eb4b-400f-a8f6-5c0399f62d5b",
+    "name": "Teawan Cafe",
+    "slug": "teawan-cafe",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "b6669db8-e582-4c85-a160-f709d1dec1f0",
+    "name": "Teepee's Cafe Bar Bistro",
+    "slug": "teepees-cafe-bar-bistro",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "a3ec617e-6074-4001-b6d8-ba437f9cf479",
+    "name": "The Coffee Bean & Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-2",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "84ea6a11-4a04-4c9d-806b-8c207d469df4",
+    "name": "The Coffee Bean & Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-4",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "1d21782e-9732-42dd-82f2-98da17482f3d",
+    "name": "The Coffee Bean & Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "752f69fc-e5f5-47c4-b617-d05e688ca572",
+    "name": "The Coffee Bean & Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "4c472b93-b474-44a4-bc7d-b5ae029b8e37",
+    "name": "The Coffee Bean & Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-3",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "42ef1c2a-461a-4da9-a20f-2c7ad6dc0575",
+    "name": "The Coffee Bean and Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "718f27bd-80b3-4fb4-bece-9c8d3cfa8a32",
+    "name": "The Coffee Bean and Tea Leaf",
+    "slug": "the-coffee-bean-and-tea-leaf-silang",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "08d35d4b-2e0f-4524-a284-c84b320de14a",
+    "name": "The Fourth",
+    "slug": "the-fourth",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "2a02d3f9-1ce6-4513-8e7a-474a1e01ac78",
+    "name": "The Froyo Engineer",
+    "slug": "the-froyo-engineer",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "50c92f3c-1da2-4a76-a63c-9a1b890c3132",
+    "name": "The Green Olive",
+    "slug": "the-green-olive",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "16ae0540-b5c9-4e66-b171-2e0087aa7dd6",
+    "name": "The Hive",
+    "slug": "the-hive-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "3e55ab9c-5529-48e5-9555-6a90f516e241",
+    "name": "The Locker Room",
+    "slug": "the-locker-room-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "0590eb53-b0ab-4fa3-ae8f-b707bf320fb8",
+    "name": "The Morning After",
+    "slug": "the-morning-after-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "c9ce4258-e758-4a5b-ac76-22c4944f6f78",
+    "name": "The Verandah",
+    "slug": "the-verandah",
+    "city": "Carmona",
+    "status": "unverified"
+  },
+  {
+    "id": "3536f534-4087-4e78-b434-4f2d7fda2f39",
+    "name": "Tinatangi Café",
+    "slug": "tinatangi-cafe",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "6dc142db-1586-4e56-885c-a923db6303e2",
+    "name": "Titan's Cafe",
+    "slug": "titans-cafe-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "a99000f3-89e2-4d92-b9ff-623c39657a71",
+    "name": "Tom N Toms",
+    "slug": "tom-n-toms",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "55ec9c0b-76e0-4c2d-a61e-16e8b1cd50d1",
+    "name": "Trece Cafe & Kitchen",
+    "slug": "trece-cafe-and-kitchen",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "583b532c-473c-4564-9673-0887a5adc2fb",
+    "name": "Tsokolateria",
+    "slug": "tsokolateria",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "ec38e844-07e0-4e23-ac92-2d7d747ed756",
+    "name": "Valerie's Milkshake",
+    "slug": "valeries-milkshake",
+    "city": "Silang",
+    "status": "unverified"
+  },
+  {
+    "id": "d6d27dfb-b066-4d0e-9866-abac79377850",
+    "name": "Vanilla Bean Cafe",
+    "slug": "vanilla-bean-cafe-general-trias",
+    "city": "General Trias",
+    "status": "unverified"
+  },
+  {
+    "id": "7ec9c7fa-13a1-4ae7-9f24-8bab2a5327a8",
+    "name": "Victorytea Coffee and Tea",
+    "slug": "victorytea-coffee-and-tea-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "c4a145d7-48fc-4b6e-b85b-0cfc512c1f77",
+    "name": "Villa Bread and Coffee",
+    "slug": "villa-bread-and-coffee",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "7b4bfd58-6efb-41ad-aa0b-6da0f3b07fe1",
+    "name": "Villa Breads & Coffee",
+    "slug": "villa-breads-and-coffee-2",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "1b1d71f1-bde7-4c58-8696-4f86e49d91a1",
+    "name": "Villa Breads & Coffee",
+    "slug": "villa-breads-and-coffee",
+    "city": "Amadeo",
+    "status": "unverified"
+  },
+  {
+    "id": "168d04d0-a526-4fc2-8343-d6ac2505b7f0",
+    "name": "Vita Bella",
+    "slug": "vita-bella",
+    "city": "Indang",
+    "status": "unverified"
+  },
+  {
+    "id": "3a63aa7c-ad1f-4c00-ba00-78cd0472d67c",
+    "name": "Yi Fang Tea",
+    "slug": "yi-fang-tea-imus",
+    "city": "Imus",
+    "status": "unverified"
+  },
+  {
+    "id": "ee024822-40a3-4403-aa1d-b65aa43dcf99",
+    "name": "Yufiro Coffee",
+    "slug": "yufiro-coffee-tanza",
+    "city": "Tanza",
+    "status": "unverified"
+  },
+  {
+    "id": "37bebb40-6026-4b52-83e6-03e818a4959d",
+    "name": "Zagu",
+    "slug": "zagu-bacoor",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "a857d20d-583f-4a2f-a504-a32ee9f7343b",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "8de5c0bd-89ab-4287-8bbb-e8d122a7869f",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-3",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "0fcf9d74-b10a-4b85-af86-26255ed11333",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-4",
+    "city": "Bacoor",
+    "status": "unverified"
+  },
+  {
+    "id": "7328e7f4-e0fb-459b-92b9-34cfb8122ac5",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-6",
+    "city": "Tagaytay",
+    "status": "unverified"
+  },
+  {
+    "id": "535456aa-8aea-4d67-8fb3-f0fb67566cef",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-2",
+    "city": "Trece Martires",
+    "status": "unverified"
+  },
+  {
+    "id": "c79bc5d4-1540-4258-a659-b1129dc6e51d",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-dasmarinas",
+    "city": "Dasmariñas",
+    "status": "unverified"
+  },
+  {
+    "id": "8e7431c8-eda7-4c11-a972-c6019a9e83c7",
+    "name": "ZUS Coffee",
+    "slug": "zus-coffee-5",
+    "city": "Imus",
+    "status": "unverified"
+  }
+]
