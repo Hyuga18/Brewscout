@@ -45,7 +45,7 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (
         e.key === "/" &&
-        !["INPUT", "TEXTAREA"].includes(document.activeElement?.tagName ?? "") &&
+        !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement?.tagName ?? "") &&
         !(document.activeElement as HTMLElement)?.isContentEditable
       ) {
         e.preventDefault();
@@ -55,6 +55,19 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [searchId]);
+
+  // Escape closes vibes drawer
+  useEffect(() => {
+    if (!drawerOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setDrawerOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [drawerOpen]);
 
   const toggleTag = (slug: string) =>
     onChange({
@@ -70,7 +83,7 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
     coffee: tags.filter((t) => t.category === "coffee"),
     vibe: tags.filter((t) => t.category === "vibe"),
     hours: tags.filter((t) => t.category === "hours"),
-    practical: tags.filter((t) => t.category === "practical"),
+    practical: tags.filter((t) => t.category === "practical" || t.category === "location"),
   };
 
   const activeTagCount = filters.tags.length;
@@ -101,7 +114,7 @@ export function FilterBar({ filters, cities, tags, locating, savedCount = 0, onC
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="Search cafés, cities, vibes… (Press '/' to focus)"
-          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-10 text-sm text-ink placeholder:text-muted transition-all focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30 shadow-2xs"
+          className="w-full rounded-xl border border-line bg-surface py-2.5 pl-10 pr-10 text-sm text-ink placeholder:text-muted transition-all focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent shadow-2xs"
         />
         {searchInput && (
           <button

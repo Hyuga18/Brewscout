@@ -39,12 +39,21 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${fraunces.variable} antialiased`}>
       <body className="flex min-h-dvh lg:h-dvh lg:overflow-y-auto flex-col font-sans bg-paper text-ink selection:bg-accent/20 selection:text-espresso">
+        {/* Global Root Skip Link */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-espresso focus:px-4 focus:py-2 focus:text-xs focus:font-semibold focus:text-paper focus:shadow-md focus:outline-none focus:ring-2 focus:ring-accent"
+        >
+          Skip to main content
+        </a>
+
         {/* Editorial Masthead Header */}
         <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center justify-between border-b border-line bg-paper px-4 sm:px-6">
           <div className="flex items-center gap-3">
@@ -86,7 +95,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             </Link>
           </nav>
         </header>
-        <main className="flex flex-1 flex-col min-h-0">{children}</main>
+        <main id="main-content" tabIndex={-1} className="flex flex-1 flex-col min-h-0 focus:outline-none">
+          {children}
+        </main>
       </body>
     </html>
   );

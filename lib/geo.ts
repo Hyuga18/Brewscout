@@ -41,6 +41,9 @@ export function parsePoint(hex: string): LatLng {
   const littleEndian = bytes[0] === 1;
   const type = view.getUint32(1, littleEndian);
   const offset = type & 0x20000000 ? 9 : 5; // skip SRID if present
+  if (bytes.byteLength < offset + 16) {
+    return { lng: 0, lat: 0 };
+  }
   return {
     lng: view.getFloat64(offset, littleEndian),
     lat: view.getFloat64(offset + 8, littleEndian),
